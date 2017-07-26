@@ -32,7 +32,7 @@ export default function Setup(props) {
 						</div>
 					</div>
 				</div>
-				<a class="btn btn-default btn-lg show-new-movies-btn" href="#" role="button">Show New Movies</a>
+				<a class="btn btn-default btn-lg show-new-movies-btn" href="wireframe-game-page.html" role="button">Show New Movies</a>
 			</div>
 			<div class="game-setup-page-begin-btn">
 				<a class="btn btn-danger btn-lg begin-game-btn" href="wireframe-game-page.html" role="button">Begin Game</a>
