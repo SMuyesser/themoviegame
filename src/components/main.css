@@ -46,6 +46,10 @@ div.col-lg-6 {
 	margin-right: auto;
 }
 
+.input-group {
+	text-align: center;
+}
+
 button.start-movie-btn,
 button.end-movie-btn {
 	width: 120px;
@@ -59,6 +63,8 @@ div.game-setup-page {
 	background-color: #E0E0E0;
 	width:80%;
 	padding: 1.5%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 a.show-new-movies-btn {
@@ -131,4 +137,31 @@ div.game-page-btn a {
 div.game-page-btn a {
 	height: 45px;
 	margin-top: 15px;
+}
+
+.btn {
+  background: #d90000;
+  background-image: -webkit-linear-gradient(top, #d90000, #850000);
+  background-image: -moz-linear-gradient(top, #d90000, #850000);
+  background-image: -ms-linear-gradient(top, #d90000, #850000);
+  background-image: -o-linear-gradient(top, #d90000, #850000);
+  background-image: linear-gradient(to bottom, #d90000, #850000);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #ff0000;
+  background-image: -webkit-linear-gradient(top, #ff0000, #db0404);
+  background-image: -moz-linear-gradient(top, #ff0000, #db0404);
+  background-image: -ms-linear-gradient(top, #ff0000, #db0404);
+  background-image: -o-linear-gradient(top, #ff0000, #db0404);
+  background-image: linear-gradient(to bottom, #ff0000, #db0404);
+  text-decoration: none;
 }

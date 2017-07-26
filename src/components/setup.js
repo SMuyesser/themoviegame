@@ -16,7 +16,7 @@ export default function Setup(props) {
 					<div className="col-lg-6">
 						<div className="input-group">
 							<span className="input-group-btn">
-								<button className="btn btn-default start-movie-btn" type="button">Starting Movie</button>
+								<button className="start-movie-btn" type="button">Starting Movie</button>
 							</span>
 							<input type="text" className="form-control" placeholder="Find Movie..."></input>
 						</div>
@@ -26,13 +26,13 @@ export default function Setup(props) {
 					<div className="col-lg-6">
 						<div className="input-group">
 							<span className="input-group-btn">
-								<button className="btn btn-default end-movie-btn" type="button">Ending Movie</button>
+								<button className="end-movie-btn" type="button">Ending Movie</button>
 							</span>
 							<input type="text" className="form-control" placeholder="Find Movie..."></input>
 						</div>
 					</div>
 				</div>
-				<a className="btn btn-default btn-lg show-new-movies-btn" href="wireframe-game-page.html" role="button">Show New Movies</a>
+				<a className="show-new-movies-btn" href="wireframe-game-page.html" role="button">Show New Movies</a>
 			</div>
 			<div className="game-setup-page-begin-btn">
 				<a className="btn btn-danger btn-lg begin-game-btn" href="/game" role="button">Begin Game</a>

@@ -6,7 +6,7 @@ export default function Game(props) {
     return (
         <div className="game">
 			<div className="game-row">
-				<div class="col-lg-6 guess movie">
+				<div className="col-lg-6 guess movie">
 					<div className="input-group">
 						<h1 className="game-text">Movie</h1>
 					</div>
