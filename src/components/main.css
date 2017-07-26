@@ -1,0 +1,134 @@
+* {
+	box-sizing: border-box;
+}
+
+/*************************************************************
+	LANDING PAGE
+*************************************************************/
+
+div.landing-page-title {
+	text-align: center;
+	padding: 1.5%;
+}
+
+div.landing-page-new-game {
+	display: flex;
+	width: 100%;
+	align-content: center;
+	justify-content: center;
+}
+
+
+
+/*************************************************************
+	SET-UP PAGE
+*************************************************************/
+
+div.page-header {
+	text-align: center;
+	padding: 1.5%;
+}
+
+h2.game-setup-page-title {
+	text-align: center;
+}
+
+div.row {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+
+div.col-lg-6 {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+button.start-movie-btn,
+button.end-movie-btn {
+	width: 120px;
+}
+
+div.game-setup-page {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	background-color: #E0E0E0;
+	width:80%;
+	padding: 1.5%;
+}
+
+a.show-new-movies-btn {
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+div.game-setup-page-begin-btn {
+	display: flex;
+	width: 100%;
+	align-content: center;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+
+
+/*************************************************************
+	GAME PAGE
+*************************************************************/
+
+div.game-row {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+}
+
+div.guess {
+	background-color: #717171;
+	width: 90%;
+	margin-bottom: 10px;
+}
+
+div.movie h1 {
+	color: #DCDADA;
+}
+
+div.actor {
+	background-color: #DCDADA;
+	color: #717171;
+}
+
+div.guess div.input-group {
+	display: flex;
+	justify-content: center;
+}
+
+h1.game-text {
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+div.game-page-btn {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	justify-content: space-around;
+}
+
+div.game-page-btn h2,
+div.game-page-btn a {
+	display: inline;
+}
+
+div.game-page-btn a {
+	height: 45px;
+	margin-top: 15px;
+}
