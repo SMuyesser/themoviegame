@@ -27,9 +27,11 @@ export default function Game(props) {
 				</div>
 			</div>
 			<div className="game-page-btn">
-				<h2>YOU WIN!</h2>
+				<h2>Win!</h2>
 				<a className="btn btn-danger btn-lg restart-game-btn" href="/setup" role="button">Play Again?</a>
 			</div>
 		</div>
     );
 };
+
+
