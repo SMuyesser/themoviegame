@@ -1,34 +1,17 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+
+import GameGuess from './gameguess';
 
 import './main.css';
 
 export default function Game(props) {
     return (
         <div className="game">
-			<div className="game-row">
-				<div className="col-lg-6 guess movie">
-					<div className="input-group">
-						<h1 className="game-text">Movie</h1>
-					</div>
-				</div>
-			</div>
-			<div className="game-row">
-				<div className="col-lg-6 guess actor">
-					<div className="input-group">
-						<h1 className="game-text">Actor</h1>
-					</div>
-				</div>
-			</div>
-			<div className="game-row">
-				<div className="col-lg-6 guess movie">
-					<div className="input-group">
-						<h1 className="game-text">Movie</h1>
-					</div>
-				</div>
-			</div>
+        	<GameGuess />
 			<div className="game-page-btn">
-				<h2>Win!</h2>
-				<a className="btn btn-danger btn-lg restart-game-btn" href="/setup" role="button">Play Again?</a>
+				<h2>You Win!</h2>
+				<Link className="btn btn-danger btn-lg restart-game-btn" to="/setup" role="button">Play Again?</Link>
 			</div>
 		</div>
     );

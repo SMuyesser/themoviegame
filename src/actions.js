@@ -1,8 +1,9 @@
-export const NEW_GAME = 'NEW_GAME';
+/*export const NEW_GAME = 'NEW_GAME';
 export const newGame = () => ({
 	type: NEW_GAME,
-	feedback: "It has begun!"
-});
+	feedback: "It has begun!",
+	gameChain: []
+});*/
 
 export const SET_START_MOVIE = 'SET_START_MOVIE';
 export const setStartMovie = (startMovie) => ({
@@ -16,8 +17,9 @@ export const setEndMovie = (endMovie) => ({
     endMovie
 });
 
-export const MAKE_GUESS = 'MAKE_GUESS';
+/*export const MAKE_GUESS = 'MAKE_GUESS';
 export const makeGuess = (guess) => ({
     type: MAKE_GUESS,
     guess
 });
+*/

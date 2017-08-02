@@ -11,7 +11,7 @@ export default function App(props) {
         <div className="App">
           <Route exact path="/" component={Home} />
           <Route exact path="/setup" component={Setup} />
-          <Route exact path="/game" component={Game} gameStatus="You win" />
+          <Route exact path="/game" component={Game} />
         </div>
       </Router>
     );
