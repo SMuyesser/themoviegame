@@ -2,6 +2,11 @@
   "name": "themoviegame",
   "version": "0.1.0",
   "private": true,
+  "devDependencies": {
+    "enzyme": "^2.7.1",
+    "react-scripts": "1.0.10",
+    "react-test-renderer": "^15.5.4"
+  },
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -9,7 +14,6 @@
     "react-bootstrap": "^0.31.1",
     "redux": "^3.7.2",
     "react-redux": "^5.0.5",
-    "react-scripts": "1.0.10",
     "bootstrap": "^3.3.7"
   },
   "scripts": {

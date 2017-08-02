@@ -17,6 +17,12 @@ export const setEndMovie = (endMovie) => ({
     endMovie
 });
 
+export const SET_MAX_LINKS = 'SET_MAX_LINKS';
+export const setMaxLinks = (maxLinks) => ({
+	type: SET_MAX_LINKS,
+	maxLinks
+});
+
 /*export const MAKE_GUESS = 'MAKE_GUESS';
 export const makeGuess = (guess) => ({
     type: MAKE_GUESS,

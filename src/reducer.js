@@ -1,11 +1,14 @@
 import {SET_START_MOVIE, 
-		SET_END_MOVIE} from './actions';
+		SET_END_MOVIE,
+		SET_MAX_LINKS} from './actions';
 
 const initialState = {
 	gameChain: [],
 	feedback: "Let's Play!",
 	startMovie: "",
 	endMovie: "",
+	maxLinks: "",
+	linksUsed: 0,
 	gameInProgress: false
 }
 
@@ -22,6 +25,11 @@ export default (state, action) => {
 			endMovie: action.endMovie
 		});
 		return state;
+	}
+	else if (action.type === SET_MAX_LINKS) {
+		state = Object.assign({}, state, {
+			maxLinks: action.maxLinks
+		});
 	}
 	return state;
 }
