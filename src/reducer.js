@@ -3,7 +3,7 @@ import {SET_START_MOVIE,
 		SET_MAX_LINKS} from './actions';
 
 const initialState = {
-	gameChain: [],
+	linkChain: [],
 	feedback: "Let's Play!",
 	startMovie: "",
 	endMovie: "",
