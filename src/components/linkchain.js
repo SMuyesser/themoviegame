@@ -6,11 +6,12 @@ import './main.css';
 export class LinkChain extends React.Component {
 	render () {
 		return (
-			<div className="game-row">
+			<div className="game-row" id="linkChain">
 				<div className="col-lg-6 guess movie">
-					<div className="input-group">
-						<h1 className="game-text">Link Chain Will Go Here</h1>
-					</div>
+						<h1 className="game-text" id="linkChainHeader">Link Chain Will Go Here</h1>
+						<ul id="selectedLinks">
+							<li>{this.props.startMovie}</li>
+						</ul>
 				</div>
 			</div>
 		);
@@ -18,7 +19,8 @@ export class LinkChain extends React.Component {
 };
 
 const mapStateToProps = state => ({
-
+	startMovie: state.startMovie,
+	endMovie: state.endMovie
 });
 
 export default connect(mapStateToProps)(LinkChain);

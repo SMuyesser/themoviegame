@@ -90,10 +90,21 @@ div.game-setup-page-begin-btn {
 
 div.game-row {
 	width: 100%;
-	display: flex;
+ 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-content: center;
+	align-content: space-around;
+}
+
+div#linkNav {
+	width: 47.4%;
+	display: inline-block;
+	margin-left: 5%;
+}
+
+div#linkChain {
+	width: 47.4%;
+	display: inline-block;
 }
 
 div.guess {
@@ -102,8 +113,8 @@ div.guess {
 	margin-bottom: 10px;
 }
 
-div.movie h1 {
-	color: #DCDADA;
+div.movie {
+	margin: 0px;
 }
 
 div.actor {
@@ -118,7 +129,14 @@ div.guess div.input-group {
 
 h1.game-text {
 	margin-top: 10px;
-	margin-bottom: 30px;
+}
+
+ul#gameInfoText {
+	float: right;
+	display: block;
+	text-align: right;
+	list-style: none;
+	padding-right: 2%;
 }
 
 div.game-page-btn {
@@ -166,12 +184,15 @@ div.game-page-btn a {
   text-decoration: none;
 }
 
-h1#startId {
-	display: block;
+h1#startId,
+h1#linkChainHeader {
 	width: 100%;
+	padding-top: 5px;
+	text-align: center;
 }
 
-ul#castList {
+ul#castList,
+ul#selectedLinks {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
@@ -180,11 +201,13 @@ ul#castList {
 	padding-left: 0;
 }
 
-ul#castList li {
+ul#castList li,
+ul#selectedLinks li {
 	margin-bottom: 5px;
 }
 
-ul#castList li a {
+ul#castList li a,
+ul#selectedLinks li {
 	text-decoration: none;
 	color: white;
 }

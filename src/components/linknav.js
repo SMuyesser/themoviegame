@@ -16,18 +16,19 @@ export class LinkNav extends React.Component {
 			    console.log(movieId);
 			  	axios.get('https://api.themoviedb.org/3/movie/'+movieId+'/credits?api_key=7e9a1ff04b7576b3330211792aa796b5')
 			  	.then(function (response) {
+			  		console.log(response.data.cast[0].id);
 			  		var castList = [];
 			  		for (var i = 0; i < response.data.cast.length; i++) {
-			  			castList.push(response.data.cast[i].name);
+			  			castList.push(response.data.cast[i]);
 			  		}
 			  		castList.map((actor) => {
 			  			var charListEl = document.getElementById('castList');
 			  			var charListElLi = document.createElement('li');
 			  			var charListElA = document.createElement('a');
+			  			charListElA.innerHTML = actor.name;
 			  			var att = document.createAttribute('href');
-			  			att.value = 'www.'+actor+'.com';
+				  		att.value = 'https://api.themoviedb.org/3/person/'+actor.id+'/movie_credits?api_key=7e9a1ff04b7576b3330211792aa796b5&language=en-US';
 			  			charListElA.setAttributeNode(att);
-			  			charListElA.innerHTML = actor;
 			  			return charListEl.appendChild(charListElLi).appendChild(charListElA);
 			  		})
 			  	})
@@ -42,11 +43,9 @@ export class LinkNav extends React.Component {
 
 	render () {
 		return (
-			<div className="game-row">
+			<div className="game-row" id="linkNav">
 				<div className="col-lg-6 guess movie">
-					<div className="input-group">
-						<h1 id="startId" className="game-text">{this.props.startMovie}</h1>
-					</div>
+					<h1 id="startId" className="game-text">{this.props.startMovie}</h1>
 					<ul id="castList">
 					</ul>
 				</div>
