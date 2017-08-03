@@ -165,3 +165,26 @@ div.game-page-btn a {
   background-image: linear-gradient(to bottom, #ff0000, #db0404);
   text-decoration: none;
 }
+
+h1#startId {
+	display: block;
+	width: 100%;
+}
+
+ul#castList {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	list-style: none;
+	text-align: center;
+	padding-left: 0;
+}
+
+ul#castList li {
+	margin-bottom: 5px;
+}
+
+ul#castList li a {
+	text-decoration: none;
+	color: white;
+}

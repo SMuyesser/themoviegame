@@ -4,6 +4,8 @@ import {SET_START_MOVIE,
 
 const initialState = {
 	linkChain: [],
+	castChoices: [],
+	movieChoices: [],
 	feedback: "Let's Play!",
 	startMovie: "",
 	endMovie: "",
