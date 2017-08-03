@@ -201,15 +201,23 @@ ul#selectedLinks {
 	padding-left: 0;
 }
 
-ul#castList li,
+ul#castList li {
+	margin-bottom: 10px;
+	width: 142px;
+	background-color: black;
+	color: white;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 2px;
+}
+
 ul#selectedLinks li {
 	margin-bottom: 10px;
 }
 
 ul#castList li img {
 	display: block;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 2px auto;
 }
 
 ul#castList li a,

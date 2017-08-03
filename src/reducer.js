@@ -9,7 +9,7 @@ const initialState = {
 	feedback: "Let's Play!",
 	startMovie: "",
 	endMovie: "",
-	maxLinks: "",
+	maxLinks: 0,
 	linksUsed: 0,
 	gameInProgress: false
 }
