@@ -24,12 +24,16 @@ export class LinkNav extends React.Component {
 			  		castList.map((actor) => {
 			  			var charListEl = document.getElementById('castList');
 			  			var charListElLi = document.createElement('li');
+			  			var charListElLiImg = document.createElement('Img');
 			  			var charListElA = document.createElement('a');
-			  			charListElA.innerHTML = actor.name;
+			  			var imgAtt = document.createAttribute('src');
 			  			var att = document.createAttribute('href');
+			  			charListElA.innerHTML = actor.name;
+			  			imgAtt.value = 'https://image.tmdb.org/t/p/w138_and_h175_bestv2'+actor.profile_path;
 				  		att.value = 'https://api.themoviedb.org/3/person/'+actor.id+'/movie_credits?api_key=7e9a1ff04b7576b3330211792aa796b5&language=en-US';
 			  			charListElA.setAttributeNode(att);
-			  			return charListEl.appendChild(charListElLi).appendChild(charListElA);
+			  			charListElLiImg.setAttributeNode(imgAtt);
+			  			return charListEl.appendChild(charListElLi).appendChild(charListElA).appendChild(charListElLiImg);
 			  		})
 			  	})
 			  	.catch(function (error) {

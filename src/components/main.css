@@ -203,7 +203,13 @@ ul#selectedLinks {
 
 ul#castList li,
 ul#selectedLinks li {
-	margin-bottom: 5px;
+	margin-bottom: 10px;
+}
+
+ul#castList li img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 ul#castList li a,
