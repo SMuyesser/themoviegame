@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
+import {Throttle} from 'react-throttle';
 
 import {setStartMovie} from '../actions';
 
@@ -42,11 +43,13 @@ export class StartMovie extends React.Component {
 						<span className="input-group-btn">
 							<input className="start-movie-btn" type="submit" id="startMovieId" value="Starting Movie"/>
 						</span>
-						<input type="text" className="form-control" placeholder="Find Starting Movie..." 
-							   ref={input => this.input = input} onChange={e => this.queryStartMovie(e)}></input>
+						<Throttle time="300" handler="onChange">
+							<input type="text" className="form-control" placeholder="Find Starting Movie..." 
+								   ref={input => this.input = input} onChange={e => this.queryStartMovie(e)}></input>
+						</Throttle>
 						<div className="options">
-							{this.state.options.map((movie) => {
-								return <div>{movie.title}</div>
+							{this.state.options.map((movie, index) => {
+								return <div key={index}>{movie.title}</div>
 							})}
 						</div>
 					</form>

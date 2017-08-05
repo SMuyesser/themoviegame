@@ -18,11 +18,11 @@ export class LinkNav extends React.Component {
 		var component = this;
 		axios.get('https://api.themoviedb.org/3/search/movie?api_key=7e9a1ff04b7576b3330211792aa796b5&language=en-US&query='+
 			startId+'&page=1&include_adult=false')
-		  	.then(function (response) {
+		  	.then((response) => {
 		  		console.log(response.data);
 			  	var movieId = response.data.results[0].id;
 			  	axios.get('https://api.themoviedb.org/3/movie/'+movieId+'/credits?api_key=7e9a1ff04b7576b3330211792aa796b5')
-			  	.then(function (response) {
+			  	.then((response) => {
 			  		component.setState({
 			  			cast: response.data.cast
 			  		})
@@ -31,7 +31,7 @@ export class LinkNav extends React.Component {
 			  		console.log(error);
 			  	});
 		  	})
-			.catch(function (error) {
+			.catch(function (error) { 
 			    console.log(error);
 			});
 	}
@@ -39,10 +39,10 @@ export class LinkNav extends React.Component {
 	render () {
 		const cast = this.state.cast.map((actor) => (
 			<a href={'https://api.themoviedb.org/3/person/'+actor.id+'/movie_credits?api_key=7e9a1ff04b7576b3330211792aa796b5&language=en-US'}>
-			<li>
-			{actor.name}
-			<img src={'https://image.tmdb.org/t/p/w138_and_h175_bestv2'+actor.profile_path}/>
-			</li>
+				<li>
+					{actor.name}
+					<img src={'https://image.tmdb.org/t/p/w138_and_h175_bestv2'+actor.profile_path} alt={actor.name+" image"}/>
+				</li>
 			</a>
 		));
 
