@@ -19,7 +19,6 @@ export class LinkNav extends React.Component {
 		axios.get('https://api.themoviedb.org/3/search/movie?api_key=7e9a1ff04b7576b3330211792aa796b5&language=en-US&query='+
 			startId+'&page=1&include_adult=false')
 		  	.then((response) => {
-		  		console.log(response.data);
 			  	var movieId = response.data.results[0].id;
 			  	axios.get('https://api.themoviedb.org/3/movie/'+movieId+'/credits?api_key=7e9a1ff04b7576b3330211792aa796b5')
 			  	.then((response) => {

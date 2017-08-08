@@ -26,10 +26,12 @@ export class StartMovie extends React.Component {
 				component.setState({
 					startOptions: response.data.results
 				})
+				component.unreadyFinalizeStartButton(event);
 			})
 		}
 	}
 
+//combine these 2 functions later
 	readyFinalizeStart(event) {
 		event.preventDefault();
 		const startMovieValue = this.input.value;

@@ -1,30 +1,27 @@
 import {
-		SET_END_MOVIE,
-		SET_MAX_LINKS,
+		NEW_GAME,
 		SET_START_FINALIZE,
 		SET_END_FINALIZE
 } from './actions';
 
 const initialState = {
-	linkChain: [],
-	castChoices: [],
-	movieChoices: [],
-	feedback: "Let's Play!",
 	startMovie: "",
 	endMovie: "",
+	startOptions: [],
+	endOptions: [],
+	finalizeStartButton: "Finalize Start Movie",
+	finalizeEndButton: "Finalize End Movie",
+	feedback: "Let's Play!",
 	maxLinks: 0,
 	linksUsed: 0,
-	gameInProgress: false,
-	finalizeStartButton: "Finalize Start Movie",
-	finalizeEndButton: "Finalize End Movie"
+	gameInProgress: false
 }
 
 export default (state, action) => {
 	state = state || initialState;
-	if (action.type === SET_MAX_LINKS) {
-		state = Object.assign({}, state, {
-			maxLinks: action.maxLinks
-		});
+	if (action.type === NEW_GAME) {
+		state = Object.assign({}, initialState);
+		return state;
 	}
 	else if (action.type === SET_START_FINALIZE) {
 		state = Object.assign({}, initialState, {

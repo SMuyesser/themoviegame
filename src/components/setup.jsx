@@ -30,8 +30,13 @@ export class Setup extends React.Component {
 	        <div className="setup">
 				<div className="page-header">
 					<h2 className="game-setup-page-title">How To Play</h2>
-					<p>Player must alternate selecting movies and cast members from those movies to connect the starting movie to the ending movie.</p>
-					<p>Select your starting and ending movies below.</p>
+					<p>You must alternate selecting movies and cast members from those movies to connect the starting movie to the ending movie using the least amount of links.</p>  
+					<ul className="instructions">
+						<li>Start by selecting your starting and ending movies below.</li>
+						<li>Begin typing a movie title, and then choose an option from the dropdown menu.</li>
+						<li>Press ENTER or click finalize to ready each movie.</li>
+						<li>When your movies are ready, click begin and have fun.</li>
+					</ul> 
 				</div>
 				<div className="container-fluid game-setup-page">
 					<h2 className="game-setup-page-title">Game Set-Up</h2>

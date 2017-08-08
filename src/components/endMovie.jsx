@@ -3,7 +3,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import {Throttle} from 'react-throttle';
 
-import {setEndMovie} from '../actions';
+import {setEndFinalize} from '../actions';
 
 import './main.css';
 
@@ -13,17 +13,11 @@ export class EndMovie extends React.Component {
 		super(props);
 		this.state = {
 			endOptions: [],
-			finalizeEndButton: 'Finalize End Movie'
 		}
 	}
 
-	selectEndMovie(event) {
-		event.preventDefault();
-		const endMovieValue = this.input.value;
-		this.props.dispatch(setEndMovie(endMovieValue));
-	}
-
 	queryEndMovie(event) {
+		this.unreadyFinalizeEndButton(event);
 		const value = event.target.value;
 		const component = this;
 		if (value.length > 3) {
@@ -37,20 +31,19 @@ export class EndMovie extends React.Component {
 		}
 	}
 
+//combine these 2 functions later
 	readyFinalizeEnd(event) {
-		this.selectEndMovie(event);
 		event.preventDefault();
-		this.setState({
-			finalizeEndButton: 'Ready!'
-		});
+		const endMovieValue = this.input.value;
+		const finalizeStatus = 'Ready!'
+		this.props.dispatch(setEndFinalize(finalizeStatus, endMovieValue));
 	}
 
 	unreadyFinalizeEndButton(event) {
 		event.preventDefault();
-		this.setState({
-			finalizeEndButton: 'Finalize End Movie',
-			endMovie: ''
-		});
+		const endMovieValue = '';
+		const finalizeStatus = 'Finalize End Movie';
+		this.props.dispatch(setEndFinalize(finalizeStatus, endMovieValue));
 	}
 
 	render() {
@@ -64,7 +57,7 @@ export class EndMovie extends React.Component {
 								   list="endMovieSuggestionList"></input>
 						</Throttle>
 						<span className="input-group-btn">
-							<input className="end-movie-btn" type="submit" id="endMovieId" value={this.state.finalizeEndButton}/>
+							<input className="end-movie-btn" type="submit" id="endMovieId" value={this.props.finalizeEndButton}/>
 						</span>
 						<datalist id="endMovieSuggestionList" className="options">
 							{this.state.endOptions.map((movie, index) => {
@@ -79,7 +72,8 @@ export class EndMovie extends React.Component {
 };
 
 const mapStateToProps = state => ({
-	endMovie: state.endMovie
+	endMovie: state.endMovie,
+	finalizeEndButton: state.finalizeEndButton
 });
 
 export default connect(mapStateToProps)(EndMovie);
