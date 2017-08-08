@@ -22,3 +22,9 @@ export const NEW_GAME = 'NEW_GAME';
 export const newGame = () => ({
 	type: NEW_GAME
 });
+
+export const SET_FINAL_CAST_OPTIONS = 'SET_FINAL_CAST_OPTIONS';
+export const setFinalCastOptions = (finalLinkCast) => ({
+    type: SET_FINAL_CAST_OPTIONS,
+    finalLinkCast
+});

@@ -17,7 +17,6 @@ export class StartMovie extends React.Component {
 	}
 
 	queryStartMovie(event) {
-		this.unreadyFinalizeStartButton(event);
 		const value = event.target.value;
 		const component = this;
 		if (value.length > 3) {
@@ -47,6 +46,7 @@ export class StartMovie extends React.Component {
 	}
 
 	render() {
+		console.log(this.props.startOptions);
 	    return (
 			<div className="row">
 				<div className="col-lg-6">
@@ -73,7 +73,7 @@ export class StartMovie extends React.Component {
 
 const mapStateToProps = state => ({
 	startMovie: state.startMovie,
-	finalizeStartButton: state.finalizeStartButton
+	finalizeStartButton: state.finalizeStartButton,
 });
 
 export default connect(mapStateToProps)(StartMovie);

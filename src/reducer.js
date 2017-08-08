@@ -1,7 +1,8 @@
 import {
 		NEW_GAME,
 		SET_START_FINALIZE,
-		SET_END_FINALIZE
+		SET_END_FINALIZE,
+		SET_FINAL_CAST_OPTIONS
 } from './actions';
 
 const initialState = {
@@ -14,7 +15,8 @@ const initialState = {
 	feedback: "Let's Play!",
 	maxLinks: 0,
 	linksUsed: 0,
-	gameInProgress: false
+	gameInProgress: false,
+	finalLinkCast: []
 }
 
 export default (state, action) => {
@@ -35,6 +37,12 @@ export default (state, action) => {
 			endMovie: action.endMovie,
 			finalizeEndButton: action.finalizeEndButton
 		});
+		return state;
+	}
+	else if (action.type === SET_FINAL_CAST_OPTIONS) {
+		state = Object.assign({}, state, {
+			finalLinkCast: action.finalLinkCast
+		})
 		return state;
 	}
 	return state;
