@@ -12,7 +12,7 @@ export class EndMovie extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			endOptions: [],
+			endOptions: []
 		}
 	}
 
