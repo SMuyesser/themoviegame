@@ -24,7 +24,6 @@ export class EndMovie extends React.Component {
 	}
 
 	queryEndMovie(event) {
-		this.unreadyFinalizeEndButton(event);
 		const value = event.target.value;
 		const component = this;
 		if (value.length > 3) {
@@ -33,6 +32,7 @@ export class EndMovie extends React.Component {
 				component.setState({
 					endOptions: response.data.results
 				})
+				component.unreadyFinalizeEndButton(event);
 			})
 		}
 	}
@@ -48,7 +48,8 @@ export class EndMovie extends React.Component {
 	unreadyFinalizeEndButton(event) {
 		event.preventDefault();
 		this.setState({
-			finalizeEndButton: 'Finalize End Movie'
+			finalizeEndButton: 'Finalize End Movie',
+			endMovie: ''
 		});
 	}
 

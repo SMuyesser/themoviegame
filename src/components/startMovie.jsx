@@ -3,7 +3,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import {Throttle} from 'react-throttle';
 
-import {setStartMovie} from '../actions';
+import {setStartFinalize} from '../actions';
 
 import './main.css';
 
@@ -12,15 +12,8 @@ export class StartMovie extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			startOptions: [],
-			finalizeStartButton: 'Finalize Start Movie'
+			startOptions: []
 		}
-	}
-
-	selectStartMovie(event) {
-		event.preventDefault();
-		const startMovieValue = this.input.value;
-		this.props.dispatch(setStartMovie(startMovieValue));
 	}
 
 	queryStartMovie(event) {
@@ -38,18 +31,17 @@ export class StartMovie extends React.Component {
 	}
 
 	readyFinalizeStart(event) {
-		this.selectStartMovie(event);
 		event.preventDefault();
-		this.setState({
-			finalizeStartButton: 'Ready!'
-		});
+		const startMovieValue = this.input.value;
+		const finalizeStatus = 'Ready!'
+		this.props.dispatch(setStartFinalize(finalizeStatus, startMovieValue));
 	}
 
 	unreadyFinalizeStartButton(event) {
 		event.preventDefault();
-		this.setState({
-			finalizeStartButton: 'Finalize Start Movie'
-		});
+		const startMovieValue = '';
+		const finalizeStatus = 'Finalize Start Movie';
+		this.props.dispatch(setStartFinalize(finalizeStatus, startMovieValue));
 	}
 
 	render() {
@@ -63,7 +55,7 @@ export class StartMovie extends React.Component {
 								   list="startMovieSuggestionList"></input>
 						</Throttle>
 						<span className="input-group-btn">
-							<input className="start-movie-btn" type="submit" id="startMovieId" value={this.state.finalizeStartButton}/>
+							<input className="start-movie-btn" type="submit" id="startMovieId" value={this.props.finalizeStartButton}/>
 						</span>
 						<datalist id="startMovieSuggestionList" className="movieOptions">
 							{this.state.startOptions.map((movie, index) => {
@@ -78,7 +70,8 @@ export class StartMovie extends React.Component {
 };
 
 const mapStateToProps = state => ({
-	startMovie: state.startMovie
+	startMovie: state.startMovie,
+	finalizeStartButton: state.finalizeStartButton
 });
 
 export default connect(mapStateToProps)(StartMovie);
