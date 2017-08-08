@@ -2,7 +2,8 @@ import {
 		NEW_GAME,
 		SET_START_FINALIZE,
 		SET_END_FINALIZE,
-		SET_FINAL_CAST_OPTIONS
+		SET_FINAL_CAST_OPTIONS,
+		SET_MAX_LINKS
 } from './actions';
 
 const initialState = {
@@ -42,6 +43,12 @@ export default (state, action) => {
 	else if (action.type === SET_FINAL_CAST_OPTIONS) {
 		state = Object.assign({}, state, {
 			finalLinkCast: action.finalLinkCast
+		})
+		return state;
+	}
+	else if (action.type === SET_MAX_LINKS) {
+		state = Object.assign({}, initialState, {
+			maxLinks: action.maxLinks
 		})
 		return state;
 	}

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
+import {setMaxLinks} from '../actions';
 
 import './main.css';
 
@@ -9,9 +10,18 @@ export class GameInfo extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			maxLinks: 0,
 			cast: []		};
 	}
+
+	containsAny(source, target) {
+	    var result = source.filter((item) => { 
+	    	return target.indexOf(item) > -1
+	    });   
+	    if(result.length > 0){
+	    	this.props.dispatch(setMaxLinks(1));
+	    	return result;
+	    } 
+	};
 
 	componentDidMount() {	
 		const component = this;	
@@ -31,6 +41,7 @@ export class GameInfo extends React.Component {
 			  		});
 			  		console.log(this.props.finalLinkCast);
 			  		console.log(component.state.cast);
+			  		console.log(component.containsAny(this.props.finalLinkCast, component.state.cast));
 				})
 				.catch(error => {
 		  			console.error(error);
