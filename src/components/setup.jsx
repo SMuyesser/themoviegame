@@ -1,9 +1,10 @@
 import React from 'react';
+import axios from 'axios';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import StartMovie from './startMovie';
 import EndMovie from './endMovie';
-
+import {setFinalCastOptions} from '../actions';
 import './main.css';
 
 export class Setup extends React.Component {
@@ -24,6 +25,27 @@ export class Setup extends React.Component {
 			event.preventDefault();
 		}
 	}
+
+	componentDidUpdate() {
+		//gets movie details for end movie
+		axios.get('https://api.themoviedb.org/3/search/movie?api_key=7e9a1ff04b7576b3330211792aa796b5&language=en-US&query='+
+			this.props.endMovie+'&page=1&include_adult=false')
+		  	.then((response) => {
+			  	var endMovieId = response.data.results[0].id;
+			  	//gets cast from end movie details to check for win
+			  	axios.get('https://api.themoviedb.org/3/movie/'+endMovieId+'/credits?api_key=7e9a1ff04b7576b3330211792aa796b5')
+			  	.then((response) => {
+			  		const names = response.data.cast.map(actor => {
+			  			return actor.name;
+			  		});
+			  		this.props.dispatch(setFinalCastOptions(names));
+			  	})
+			  	.catch(error => {
+			  		console.error(error);
+			  	})
+		  	});
+	}
+
 
 	render() {
 	    return (
@@ -55,7 +77,8 @@ const mapStateToProps = state => ({
 	finalizeStartButton: state.finalizeStartButton,
 	finalizeEndButton: state.finalizeEndButton,
 	startMovie: state.startMovie,
-	endMovie: state.endMovie
+	endMovie: state.endMovie,
+	finalLinkCast: state.finalLinkCast
 });
 
 export default connect(mapStateToProps)(Setup);

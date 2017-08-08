@@ -46,7 +46,6 @@ export class StartMovie extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.startOptions);
 	    return (
 			<div className="row">
 				<div className="col-lg-6">
