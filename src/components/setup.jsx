@@ -35,10 +35,10 @@ export class Setup extends React.Component {
 			  	//gets cast from end movie details to check for win
 			  	axios.get('https://api.themoviedb.org/3/movie/'+endMovieId+'/credits?api_key=7e9a1ff04b7576b3330211792aa796b5')
 			  	.then((response) => {
-			  		const names = response.data.cast.map(actor => {
-			  			return actor.name;
+			  		const ids = response.data.cast.map(actor => {
+			  			return actor.id;
 			  		});
-			  		this.props.dispatch(setFinalCastOptions(names));
+			  		this.props.dispatch(setFinalCastOptions(ids));
 			  	})
 			  	.catch(error => {
 			  		console.error(error);
