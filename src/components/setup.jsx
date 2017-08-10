@@ -78,6 +78,7 @@ const mapStateToProps = state => ({
 	finalizeEndButton: state.finalizeEndButton,
 	startMovie: state.startMovie,
 	endMovie: state.endMovie,
+	endMovieId: state.endMovieId,
 	finalLinkCast: state.finalLinkCast
 });
 

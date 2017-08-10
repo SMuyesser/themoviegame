@@ -17,7 +17,6 @@ export class EndMovie extends React.Component {
 	}
 
 	queryEndMovie(event) {
-		this.unreadyFinalizeEndButton(event);
 		const value = event.target.value;
 		const component = this;
 		if (value.length > 3) {
@@ -35,15 +34,23 @@ export class EndMovie extends React.Component {
 	readyFinalizeEnd(event) {
 		event.preventDefault();
 		const endMovieValue = this.input.value;
-		const finalizeStatus = 'Ready!'
-		this.props.dispatch(setEndFinalize(finalizeStatus, endMovieValue));
+		const finalizeStatus = 'Ready!';
+		axios.get('https://api.themoviedb.org/3/search/movie?api_key=7e9a1ff04b7576b3330211792aa796b5&language=en-US&query='+endMovieValue+'&page=1&include_adult=false')
+		.then(response => {
+			const endMovieId = response.data.results[0].id;
+			this.props.dispatch(setEndFinalize(finalizeStatus, endMovieId, endMovieValue));
+		})
+		.catch(error => {
+			console.error(error);
+		});
 	}
 
 	unreadyFinalizeEndButton(event) {
 		event.preventDefault();
 		const endMovieValue = '';
+		const endMovieId = '';
 		const finalizeStatus = 'Finalize End Movie';
-		this.props.dispatch(setEndFinalize(finalizeStatus, endMovieValue));
+		this.props.dispatch(setEndFinalize(finalizeStatus, endMovieId, endMovieValue));
 	}
 
 	render() {
@@ -73,6 +80,7 @@ export class EndMovie extends React.Component {
 
 const mapStateToProps = state => ({
 	endMovie: state.endMovie,
+	endMovieId: state.endMovieId,
 	finalizeEndButton: state.finalizeEndButton
 });
 

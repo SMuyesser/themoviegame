@@ -12,9 +12,10 @@ export const setStartFinalize = (finalizeStartButton, startMovie) => ({
 });
 
 export const SET_END_FINALIZE = 'SET_END_FINALIZE';
-export const setEndFinalize = (finalizeEndButton, endMovie) => ({
+export const setEndFinalize = (finalizeEndButton, endMovieId, endMovie) => ({
     type: SET_END_FINALIZE,
     finalizeEndButton,
+    endMovieId,
     endMovie
 });
 

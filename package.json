@@ -8,6 +8,7 @@
     "react-test-renderer": "^15.5.4"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "bootstrap": "^3.3.7",
     "react": "^15.6.1",
     "react-autosuggest": "^9.3.2",

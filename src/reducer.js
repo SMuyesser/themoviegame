@@ -9,6 +9,7 @@ import {
 const initialState = {
 	startMovie: "",
 	endMovie: "",
+	endMovieId: "",
 	startOptions: [],
 	endOptions: [],
 	finalizeStartButton: "Finalize Start Movie",
@@ -36,6 +37,7 @@ export default (state, action) => {
 	else if (action.type === SET_END_FINALIZE) {
 		state = Object.assign({}, state, {
 			endMovie: action.endMovie,
+			endMovieId: action.endMovieId,
 			finalizeEndButton: action.finalizeEndButton
 		});
 		return state;

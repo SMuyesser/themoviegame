@@ -27,6 +27,9 @@ export class StartMovie extends React.Component {
 				})
 				component.unreadyFinalizeStartButton(event);
 			})
+			.catch(error => {
+				console.error(error);
+			})
 		}
 	}
 

@@ -11,35 +11,26 @@ export class GameInfo extends React.Component {
 		super(props);
 		this.state = {
 			currentGameLink: [],
-			nextGameLink: [],
-			shortestLinkChain: [],
 			gameStatus: "Not Over"
 		};
 	}
 
-/*	containsAny(finalCast, currentCast) {
-	    var matchedCast = finalCast.filter((name) => { 
-	    	return currentCast.indexOf(name) > -1
-	    });   
-	    if(matchedCast.length > 0){
-	    	this.props.dispatch(setMaxLinks(1));
-	    	return matchedCast;
-	    } 
-	}*/
-
-	checkForWin(currentLink, nextLink) {
-		var matchedLink = currentLink.filter((gameLink) => {
-			return nextLink.indexOf(gameLink) > -1
+	checkForWin(currentMovies, finalMovie) {
+		var matchedMovies = currentMovies.filter((movie) => {
+			return finalMovie.indexOf(movie) > -1
 		});
-		if(matchedLink.length > 0){
-			this.props.dispatch(setMaxLinks(this.props.maxLinks+1));
+		if(matchedMovies.length > 0){
+			//if movie is the final movie max links equals 3 (actor1 + movie2 + actor2) and game is over
 			this.setState({
-				gameStatus: "Win"
+				gameStatus: "Over"
 			})
+			console.log(matchedMovies);
 			console.log(this.state.gameStatus);
-			return matchedLink;
+			return matchedMovies;
 		}
 		else {
+			//if there is no match, increment max links by 1
+			this.props.dispatch(setMaxLinks(this.props.maxLinks+1));
 			console.log(this.state.gameStatus);
 		}
 	}
@@ -52,39 +43,38 @@ export class GameInfo extends React.Component {
 	  	axios.get('https://api.themoviedb.org/3/search/movie?api_key=7e9a1ff04b7576b3330211792aa796b5&language=en-US&query='+this.props.startMovie+'&page=1&include_adult=false')
   		.then((response) => {
 		  	//gets cast from starting movie details
-		  	var movieId = response.data.results[0].id;
-		  	axios.get('https://api.themoviedb.org/3/movie/'+movieId+'/credits?api_key=7e9a1ff04b7576b3330211792aa796b5')
+		  	var filmId = response.data.results[0].id;
+		  	axios.get('https://api.themoviedb.org/3/movie/'+filmId+'/credits?api_key=7e9a1ff04b7576b3330211792aa796b5')
 		  	.then((response) => {
-		  		//assigns cast to current game link
-		  		const ids = response.data.cast.map(actor => {
+		  		//find all cast ids which is needed to get their movie ids
+		  		const castIds = response.data.cast.map(actor => {
 		  			return actor.id;
 		  		});
-		  		component.setState({
-		  			currentGameLink: ids
-		  		})
-		  		//get and check for correct actor id to be used next 
-		  		ids.map(id => {
-		  			axios.get('https://api.themoviedb.org/3/person/'+id+'/movie_credits?api_key=7e9a1ff04b7576b3330211792aa796b5&language=en-US')
+		  		//get each actors movie id list and push them to allMovieIds:
+		  		var movieIds = [];
+		  		castIds.map(castId => {
+		  			return axios.get('https://api.themoviedb.org/3/person/'+castId+'/movie_credits?api_key=7e9a1ff04b7576b3330211792aa796b5&language=en-US')
 		  			.then((response) => {
-		  				console.log(response.data.cast.map(movie => {
-		  					return movie.title;
-		  				}));
+		  				response.data.cast.map(movie => {
+		  					return movieIds.push(movie.id);
+		  				})
 		  			})
 		  			.catch(error => {
 		  				console.error(error);
 		  			})
 		  		})
-	  			console.log("!!!!!!!!!!!!!!!!!!!!");
-	  			component.checkForWin(component.state.currentGameLink, this.props.finalLinkCast)
-		  		console.log('Final Link Cast: '+this.props.finalLinkCast);
-		  		console.log('Current Game Link: '+component.state.currentGameLink);
-		  		console.log('Next Game Link: '+component.state.nextGameLink);
-		  		console.log("Checked List: "+component.checkForWin(component.state.currentGameLink, component.state.nextGameLink));
-		  		//compare current link against final link to see if game is won
+				console.log(movieIds);
 			})
 			.catch(error => {
 	  			console.error(error);
 	  		})
+			//check to see if any movies match final movie
+			console.log('AAAAAAAAAAAAAAA '+ component.state.currentGameLink);
+			console.log('BBBBBBBBBBBBBBB ' + this.props.endMovieId);
+			component.checkForWin(component.state.currentGameLink, this.props.endMovieId);
+	  		console.log('Current Game Link: '+component.state.currentGameLink);
+	  		console.log('Next Game Link: '+component.state.nextGameLink);
+	  		//compare current link against final link to see if game is won
 		})
 		.catch(error => {
   			console.error(error);
@@ -112,10 +102,10 @@ export class GameInfo extends React.Component {
 const mapStateToProps = state => ({
 	startMovie: state.startMovie,
 	endMovie: state.endMovie,
+	endMovieId: state.endMovieId,
 	maxLinks: state.maxLinks,
 	linksUsed: state.linksUsed,
-	cast: state.cast,
-	finalLinkCast: state.finalLinkCast
+	cast: state.cast
 });
 
 export default connect(mapStateToProps)(GameInfo);
