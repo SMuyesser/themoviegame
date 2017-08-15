@@ -2,7 +2,8 @@ import {
 		NEW_GAME,
 		SET_START_FINALIZE,
 		SET_END_FINALIZE,
-		ADD_LINK
+		ADD_LINK,
+		SHOW_TITLE
 } from './actions';
 
 const initialState = {
@@ -16,6 +17,7 @@ const initialState = {
 	feedback: "Let's Play!",
 	linksUsed: 0,
 	gameInProgress: false,
+	currentLinkTitle: '',
 	linkChain: []
 }
 
@@ -43,6 +45,12 @@ export default (state, action) => {
 	else if (action.type === ADD_LINK) {
 		state = Object.assign({}, state, {
 			linkChain: [...state.linkChain, action.linkChain]
+		})
+		return state;
+	}
+	else if (action.type === SHOW_TITLE) {
+		state = Object.assign({}, state, {
+			currentLinkTitle: action.currentLinkTitle
 		})
 		return state;
 	}

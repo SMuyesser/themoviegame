@@ -26,7 +26,8 @@ export class Game extends React.Component {
 };
 
 const mapStateToProps = state => ({
-    feedback: state.feedback
+    feedback: state.feedback,
+    currentLinkTitle: state.currentLinkTitle
 });
 
 export default connect(mapStateToProps)(Game);

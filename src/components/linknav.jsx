@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
 
-import {addLink} from '../actions';
+import {addLink, showTitle} from '../actions';
 
 import './main.css';
 
@@ -12,7 +12,8 @@ export class LinkNav extends React.Component {
 		super(props);
 		this.state = {
 			currentLinkType: '',
-			movieOrCastList: []
+			movieOrCastList: [],
+			gameStatus: 'Not Over'
 		};
 	}
 
@@ -41,22 +42,28 @@ export class LinkNav extends React.Component {
 	}
 
 	getMoviesFromActor(castMember) {
-		console.log(castMember);
-		this.props.dispatch(addLink(castMember.name));
+		this.props.dispatch(addLink(castMember.name), showTitle(castMember.name));
 		const component = this;
 		axios.get('https://api.themoviedb.org/3/person/'+castMember.id+'/movie_credits?api_key=7e9a1ff04b7576b3330211792aa796b5&language=en-US')
 		.then((response) => {
 			const movieList = response.data.cast.map(movie => {
-				return {
-					'title': movie.title,
-					'id': movie.id,
-					'poster': movie.poster_path
+				if(movie.id === this.props.endMovieId) {
+					component.setState({
+						gameStatus: "Over"
+					})
+					return alert('YOU WIN!  '+castMember.name+' was in the cast of '+this.props.endMovie);
+				} else {
+					return {
+						'title': movie.title,
+						'id': movie.id,
+						'poster': movie.poster_path
+					}
 				}
 			});
 			component.setState({
 				currentLinkType: 'movies',
 				movieOrCastList: movieList
-			})
+			});
 		})
 		.catch(function (error) {
 	  		console.log(error);
@@ -65,7 +72,7 @@ export class LinkNav extends React.Component {
 
 	getActorsFromMovie(movie) {
 		console.log(movie);
-		this.props.dispatch(addLink(movie.title));
+		this.props.dispatch(addLink(movie.title), showTitle(movie.title));
 		const component = this;
 		axios.get('https://api.themoviedb.org/3/movie/'+movie.id+'/credits?api_key=7e9a1ff04b7576b3330211792aa796b5')
 	  	.then((response) => {
@@ -82,6 +89,8 @@ export class LinkNav extends React.Component {
 	render () {
 		console.log(this.state.currentLinkType);
 		console.log(this.props.linkChain);
+		console.log(this.props.currentLinkTitle);
+		console.log(this.props.endMovieId);
 		let moviesOrCast = null;
 		if(this.state.currentLinkType === 'actors') {
 			moviesOrCast = this.state.movieOrCastList.map((actor, index) => (
@@ -109,7 +118,7 @@ export class LinkNav extends React.Component {
 		return (
 			<div className="game-row" id="linkNav">
 				<div className="col-lg-6 guess movie">
-					<h1 id="startId" className="game-text">{this.props.startMovie}</h1>
+					<h1 id="startId" className="game-text">{this.props.currentLinkTitle}</h1>
 					<ul id="castList">
 						{moviesOrCast}
 					</ul>
@@ -121,7 +130,10 @@ export class LinkNav extends React.Component {
 
 const mapStateToProps = state => ({
 	startMovie: state.startMovie,
-	linkChain: state.linkChain
+	linkChain: state.linkChain,
+	currentLinkTitle: state.currentLinkTitle,
+	endMovieId: state.endMovieId,
+	endMovie: state.endMovie
 });
 
 export default connect(mapStateToProps)(LinkNav);

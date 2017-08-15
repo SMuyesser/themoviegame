@@ -3,7 +3,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import {Throttle} from 'react-throttle';
 
-import {setStartFinalize} from '../actions';
+import {setStartFinalize, showTitle} from '../actions';
 
 import './main.css';
 
@@ -37,7 +37,8 @@ export class StartMovie extends React.Component {
 	readyFinalizeStart(event) {
 		event.preventDefault();
 		const startMovieValue = this.input.value;
-		const finalizeStatus = 'Ready!'
+		const finalizeStatus = 'Ready!';
+		this.props.dispatch(showTitle(startMovieValue));
 		this.props.dispatch(setStartFinalize(finalizeStatus, startMovieValue));
 	}
 
@@ -76,6 +77,7 @@ export class StartMovie extends React.Component {
 const mapStateToProps = state => ({
 	startMovie: state.startMovie,
 	finalizeStartButton: state.finalizeStartButton,
+	currentLinkTitle: state.currentLinkTitle
 });
 
 export default connect(mapStateToProps)(StartMovie);

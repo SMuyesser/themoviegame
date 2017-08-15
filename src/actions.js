@@ -23,3 +23,9 @@ export const addLink = (linkChain) => ({
 	type: ADD_LINK,
 	linkChain
 })
+
+export const SHOW_TITLE = 'SHOW_TITLE';
+export const showTitle = (currentLinkTitle) => ({
+	type: SHOW_TITLE,
+	currentLinkTitle
+})

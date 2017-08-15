@@ -56,7 +56,6 @@ const mapStateToProps = state => ({
 	startMovie: state.startMovie,
 	endMovie: state.endMovie,
 	endMovieId: state.endMovieId,
-	finalLinkCast: state.finalLinkCast
 });
 
 export default connect(mapStateToProps)(Setup);

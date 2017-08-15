@@ -8,28 +8,8 @@ export class GameInfo extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			currentGameLink: [],
-			gameStatus: "Not Over"
+			currentGameLink: []
 		};
-	}
-
-	checkForWin(currentMovies, finalMovie) {
-		var matchedMovies = currentMovies.filter((movie) => {
-			return finalMovie.indexOf(movie) > -1
-		});
-		if(matchedMovies.length > 0){
-			//if movie is the final movie max links equals 3 (actor1 + movie2 + actor2) and game is over
-			this.setState({
-				gameStatus: "Over"
-			})
-			console.log(matchedMovies);
-			console.log(this.state.gameStatus);
-			return matchedMovies;
-		}
-		else {
-			//if there is no match, increment max links by 1
-			console.log(this.state.gameStatus);
-		}
 	}
 
 	render () {
