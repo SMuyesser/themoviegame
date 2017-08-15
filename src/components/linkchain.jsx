@@ -11,6 +11,7 @@ export class LinkChain extends React.Component {
 						<h1 className="game-text" id="linkChainHeader">Link Chain Will Go Here</h1>
 						<ul id="selectedLinks">
 							<li>{this.props.startMovie}</li>
+							<li>{this.props.endMovie}</li>
 						</ul>
 				</div>
 			</div>

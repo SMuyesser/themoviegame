@@ -1,9 +1,3 @@
-export const SET_MAX_LINKS = 'SET_MAX_LINKS';
-export const setMaxLinks = (maxLinks) => ({
-    type: SET_MAX_LINKS,
-    maxLinks
-});
-
 export const SET_START_FINALIZE = 'SET_START_FINALIZE';
 export const setStartFinalize = (finalizeStartButton, startMovie) => ({
     type: SET_START_FINALIZE,
@@ -24,8 +18,3 @@ export const newGame = () => ({
 	type: NEW_GAME
 });
 
-export const SET_FINAL_CAST_OPTIONS = 'SET_FINAL_CAST_OPTIONS';
-export const setFinalCastOptions = (finalLinkCast) => ({
-    type: SET_FINAL_CAST_OPTIONS,
-    finalLinkCast
-});

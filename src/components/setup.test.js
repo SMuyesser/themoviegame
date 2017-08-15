@@ -6,3 +6,4 @@ import {Setup} from './setup';
 it('renders without crashing', () => {
 	shallow(<Setup />);
 });
+
