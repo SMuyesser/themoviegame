@@ -18,3 +18,8 @@ export const newGame = () => ({
 	type: NEW_GAME
 });
 
+export const ADD_LINK = 'ADD_LINK';
+export const addLink = (linkChain) => ({
+	type: ADD_LINK,
+	linkChain
+})

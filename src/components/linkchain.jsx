@@ -11,6 +11,9 @@ export class LinkChain extends React.Component {
 						<h1 className="game-text" id="linkChainHeader">Link Chain Will Go Here</h1>
 						<ul id="selectedLinks">
 							<li>{this.props.startMovie}</li>
+							{this.props.linkChain.map((chainLink, index) => {
+								return <li key={index}>{chainLink}</li>
+							})}
 							<li>{this.props.endMovie}</li>
 						</ul>
 				</div>
@@ -21,7 +24,8 @@ export class LinkChain extends React.Component {
 
 const mapStateToProps = state => ({
 	startMovie: state.startMovie,
-	endMovie: state.endMovie
+	endMovie: state.endMovie,
+	linkChain: state.linkChain
 });
 
 export default connect(mapStateToProps)(LinkChain);

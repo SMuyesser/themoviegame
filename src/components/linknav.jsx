@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
 
+import {addLink} from '../actions';
+
 import './main.css';
 
 export class LinkNav extends React.Component {
@@ -38,10 +40,11 @@ export class LinkNav extends React.Component {
 			});
 	}
 
-	getMoviesFromActor(castMemberId) {
-		console.log(castMemberId);
+	getMoviesFromActor(castMember) {
+		console.log(castMember);
+		this.props.dispatch(addLink(castMember.name));
 		const component = this;
-		axios.get('https://api.themoviedb.org/3/person/'+castMemberId+'/movie_credits?api_key=7e9a1ff04b7576b3330211792aa796b5&language=en-US')
+		axios.get('https://api.themoviedb.org/3/person/'+castMember.id+'/movie_credits?api_key=7e9a1ff04b7576b3330211792aa796b5&language=en-US')
 		.then((response) => {
 			const movieList = response.data.cast.map(movie => {
 				return {
@@ -60,10 +63,11 @@ export class LinkNav extends React.Component {
 	  	});
 	}
 
-	getActorsFromMovie(movieId) {
-		console.log(movieId);
+	getActorsFromMovie(movie) {
+		console.log(movie);
+		this.props.dispatch(addLink(movie.title));
 		const component = this;
-		axios.get('https://api.themoviedb.org/3/movie/'+movieId+'/credits?api_key=7e9a1ff04b7576b3330211792aa796b5')
+		axios.get('https://api.themoviedb.org/3/movie/'+movie.id+'/credits?api_key=7e9a1ff04b7576b3330211792aa796b5')
 	  	.then((response) => {
 	  		component.setState({
 	  			currentLinkType: 'actors',
@@ -77,11 +81,12 @@ export class LinkNav extends React.Component {
 
 	render () {
 		console.log(this.state.currentLinkType);
+		console.log(this.props.linkChain);
 		let moviesOrCast = null;
 		if(this.state.currentLinkType === 'actors') {
 			moviesOrCast = this.state.movieOrCastList.map((actor, index) => (
 				<li key={index}>
-					<button onClick={() => { this.getMoviesFromActor(actor.id) }}>
+					<button onClick={() => { this.getMoviesFromActor(actor) }}>
 						{actor.name}
 						<img src={'https://image.tmdb.org/t/p/w138_and_h175_bestv2'+actor.profile_path} alt={actor.name+" image"}/>
 					</button>
@@ -91,7 +96,7 @@ export class LinkNav extends React.Component {
 		else if(this.state.currentLinkType === 'movies') {
 			moviesOrCast = this.state.movieOrCastList.map((movie, index) => (
 				<li key={index}>
-					<button onClick={() => { this.getActorsFromMovie(movie.id) }}>
+					<button onClick={() => { this.getActorsFromMovie(movie) }}>
 						{movie.title}
 						<img src={'https://image.tmdb.org/t/p/w138_and_h175_bestv2'+movie.poster} alt={movie.title+" image"}/>
 					</button>
@@ -115,7 +120,8 @@ export class LinkNav extends React.Component {
 };
 
 const mapStateToProps = state => ({
-	startMovie: state.startMovie
+	startMovie: state.startMovie,
+	linkChain: state.linkChain
 });
 
 export default connect(mapStateToProps)(LinkNav);

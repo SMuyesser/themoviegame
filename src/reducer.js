@@ -1,7 +1,8 @@
 import {
 		NEW_GAME,
 		SET_START_FINALIZE,
-		SET_END_FINALIZE
+		SET_END_FINALIZE,
+		ADD_LINK
 } from './actions';
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
 	feedback: "Let's Play!",
 	linksUsed: 0,
 	gameInProgress: false,
+	linkChain: []
 }
 
 export default (state, action) => {
@@ -36,6 +38,12 @@ export default (state, action) => {
 			endMovieId: action.endMovieId,
 			finalizeEndButton: action.finalizeEndButton
 		});
+		return state;
+	}
+	else if (action.type === ADD_LINK) {
+		state = Object.assign({}, state, {
+			linkChain: [...state.linkChain, action.linkChain]
+		})
 		return state;
 	}
 	return state;
