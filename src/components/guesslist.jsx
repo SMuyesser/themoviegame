@@ -2,11 +2,11 @@ import React from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
 
-import {addLink, showFeedback} from '../actions';
+import {addLink} from '../actions';
 
 import './main.css';
 
-export class LinkNav extends React.Component {
+export class GuessList extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -49,7 +49,6 @@ export class LinkNav extends React.Component {
 			const movieList = response.data.cast.map(movie => {
 				//checks for win
 				if(movie.id === this.props.endMovieId) {
-					this.props.dispatch(showFeedback('You Win!'));
 					component.setState({
 						currentLinkType: 'end',
 						movieOrCastList: 'YOU WIN!  '+castMember.name+' was in the cast of '+this.props.endMovie
@@ -96,6 +95,10 @@ export class LinkNav extends React.Component {
 		console.log(this.props.currentLinkTitle);
 		console.log(this.props.endMovieId);
 		let moviesOrCast = null;
+		let guessTitle = this.props.startMovie;
+		if(this.props.linkChain.length > 0) {
+			guessTitle = this.props.currentLinkTitle;
+		}
 		//if state current link type = actors, display actors
 		if(this.state.currentLinkType === 'end') {
 			moviesOrCast = <h1>{this.state.movieOrCastList}</h1>
@@ -125,7 +128,7 @@ export class LinkNav extends React.Component {
 		return (
 			<div className="game-row" id="linkNav">
 				<div className="col-lg-6 guess movie">
-					<h1 id="startId" className="game-text">{this.props.currentLinkTitle}</h1>
+					<h1 id="startId" className="game-text">{guessTitle}</h1>
 					<ul id="castList">
 						{moviesOrCast}
 					</ul>
@@ -143,4 +146,4 @@ const mapStateToProps = state => ({
 	endMovie: state.endMovie
 });
 
-export default connect(mapStateToProps)(LinkNav);
+export default connect(mapStateToProps)(GuessList);

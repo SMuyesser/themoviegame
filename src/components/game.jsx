@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {newGame} from '../actions';
 
 import GameInfo from './gameinfo';
-import LinkNav from './linknav';
+import GuessList from './guesslist';
 import LinkChain from './linkchain';
 
 import './main.css';
@@ -20,12 +20,11 @@ export class Game extends React.Component {
         return (
             <div className="game">
             	<GameInfo />
-            	<LinkNav />
+            	<GuessList />
             	<LinkChain />
     			<div className="game-page-btn">
-    				<h2>{this.props.feedback}</h2>
     				<Link className="btn btn-danger btn-lg restart-game-btn" to="/setup" 
-                          role="button" onClick={e => this.newGame(e)}>Play Again?</Link>
+                          role="button" onClick={e => this.newGame(e)}>{this.props.feedback}</Link>
     			</div>
     		</div>
         );

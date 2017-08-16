@@ -24,8 +24,3 @@ export const addLink = (name) => ({
 	name
 })
 
-export const FEEDBACK = 'FEEDBACK';
-export const showFeedback = (feedback) => ({
-    type: FEEDBACK,
-    feedback
-})
