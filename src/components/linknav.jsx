@@ -50,19 +50,23 @@ export class LinkNav extends React.Component {
 				//checks for win
 				if(movie.id === this.props.endMovieId) {
 					this.props.dispatch(showFeedback('You Win!'));
-					return alert('YOU WIN!  '+castMember.name+' was in the cast of '+this.props.endMovie);
-				} else {
-					return {
-						'title': movie.title,
-						'id': movie.id,
-						'poster': movie.poster_path
-					}
+					component.setState({
+						currentLinkType: 'end',
+						movieOrCastList: 'YOU WIN!  '+castMember.name+' was in the cast of '+this.props.endMovie
+					});
+				}
+				return {
+					'title': movie.title,
+					'id': movie.id,
+					'poster': movie.poster_path
 				}
 			});
-			component.setState({
-				currentLinkType: 'movies',
-				movieOrCastList: movieList
-			});
+			if(component.state.currentLinkType !== 'end') {
+				component.setState({
+					currentLinkType: 'movies',
+					movieOrCastList: movieList
+				});
+			}
 		})
 		.catch(function (error) {
 	  		console.log(error);
@@ -93,7 +97,10 @@ export class LinkNav extends React.Component {
 		console.log(this.props.endMovieId);
 		let moviesOrCast = null;
 		//if state current link type = actors, display actors
-		if(this.state.currentLinkType === 'actors') {
+		if(this.state.currentLinkType === 'end') {
+			moviesOrCast = <h1>{this.state.movieOrCastList}</h1>
+		}
+		else if(this.state.currentLinkType === 'actors') {
 			moviesOrCast = this.state.movieOrCastList.map((actor) => (
 				<li key={actor.id}>
 					<button onClick={() => { this.getMoviesFromActor(actor) }}>
@@ -114,8 +121,6 @@ export class LinkNav extends React.Component {
 				</li>
 			));	
 		}
-		console.log('AAAAAAAAAAAAAAAAAAAAAAAaaa');
-		console.log(this.props);
 
 		return (
 			<div className="game-row" id="linkNav">

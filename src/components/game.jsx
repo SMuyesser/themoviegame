@@ -12,6 +12,11 @@ import './main.css';
 
 export class Game extends React.Component {
 
+    newGame(event) {
+        console.log('FIRED FIRED FIRED FIRED');
+        this.props.dispatch(newGame());
+    }
+
     render() {
         return (
             <div className="game">
@@ -20,7 +25,7 @@ export class Game extends React.Component {
             	<LinkChain />
     			<div className="game-page-btn">
     				<h2>{this.props.feedback}</h2>
-    				<Link className="btn btn-danger btn-lg restart-game-btn" to="/setup" role="button" onClick={() => newGame()}>Play Again?</Link>
+    				<Link className="btn btn-danger btn-lg restart-game-btn" to="/setup" role="button" onClick={e => this.newGame(e)}>Play Again?</Link>
     			</div>
     		</div>
         );

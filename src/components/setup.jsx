@@ -25,6 +25,7 @@ export class Setup extends React.Component {
 	}
 
 	render() {
+		console.log(this.props);
 	    return (
 	        <div className="setup">
 				<div className="page-header">
