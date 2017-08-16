@@ -32,7 +32,7 @@ export class Game extends React.Component {
 };
 
 const mapStateToProps = state => ({
-    feedback: state.feedback,
+    feedback: state.feedback
 });
 
 export default connect(mapStateToProps)(Game);
