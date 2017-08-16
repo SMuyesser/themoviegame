@@ -3,19 +3,16 @@ import {
 		SET_START_FINALIZE,
 		SET_END_FINALIZE,
 		ADD_LINK,
-		SHOW_TITLE
+		FEEDBACK
 } from './actions';
 
 const initialState = {
 	startMovie: "",
 	endMovie: "",
 	endMovieId: "",
-	startOptions: [],
-	endOptions: [],
 	finalizeStartButton: "Finalize Start Movie",
 	finalizeEndButton: "Finalize End Movie",
 	feedback: "Let's Play!",
-	linksUsed: 0,
 	gameInProgress: false,
 	currentLinkTitle: '',
 	linkChain: []
@@ -44,13 +41,14 @@ export default (state, action) => {
 	}
 	else if (action.type === ADD_LINK) {
 		state = Object.assign({}, state, {
-			linkChain: [...state.linkChain, action.linkChain]
+			linkChain: [...state.linkChain, action.name],
+			currentLinkTitle: action.name
 		})
 		return state;
 	}
-	else if (action.type === SHOW_TITLE) {
+	else if (action.type === FEEDBACK) {
 		state = Object.assign({}, state, {
-			currentLinkTitle: action.currentLinkTitle
+			feedback: action.feedback
 		})
 		return state;
 	}

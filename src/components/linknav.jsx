@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
 
-import {addLink, showTitle} from '../actions';
+import {addLink, showFeedback} from '../actions';
 
 import './main.css';
 
@@ -12,13 +12,12 @@ export class LinkNav extends React.Component {
 		super(props);
 		this.state = {
 			currentLinkType: '',
-			movieOrCastList: [],
-			gameStatus: 'Not Over'
+			movieOrCastList: []
 		};
 	}
 
 	componentDidMount() {
-		//gets and displays cast list of starting movie
+		//gets and displays cast list of starting movie when component mounts
 		var startId = this.props.startMovie;
 		var component = this;
 		axios.get('https://api.themoviedb.org/3/search/movie?api_key=7e9a1ff04b7576b3330211792aa796b5&language=en-US&query='+
@@ -41,16 +40,16 @@ export class LinkNav extends React.Component {
 			});
 	}
 
+	//gets list of selected actors movies, checks if any of those movies are the final movie
 	getMoviesFromActor(castMember) {
-		this.props.dispatch(addLink(castMember.name), showTitle(castMember.name));
+		this.props.dispatch(addLink(castMember.name));
 		const component = this;
 		axios.get('https://api.themoviedb.org/3/person/'+castMember.id+'/movie_credits?api_key=7e9a1ff04b7576b3330211792aa796b5&language=en-US')
 		.then((response) => {
 			const movieList = response.data.cast.map(movie => {
+				//checks for win
 				if(movie.id === this.props.endMovieId) {
-					component.setState({
-						gameStatus: "Over"
-					})
+					this.props.dispatch(showFeedback('You Win!'));
 					return alert('YOU WIN!  '+castMember.name+' was in the cast of '+this.props.endMovie);
 				} else {
 					return {
@@ -70,9 +69,10 @@ export class LinkNav extends React.Component {
 	  	});
 	}
 
+	//gets cast list from current movie
 	getActorsFromMovie(movie) {
 		console.log(movie);
-		this.props.dispatch(addLink(movie.title), showTitle(movie.title));
+		this.props.dispatch(addLink(movie.title));
 		const component = this;
 		axios.get('https://api.themoviedb.org/3/movie/'+movie.id+'/credits?api_key=7e9a1ff04b7576b3330211792aa796b5')
 	  	.then((response) => {
@@ -92,9 +92,10 @@ export class LinkNav extends React.Component {
 		console.log(this.props.currentLinkTitle);
 		console.log(this.props.endMovieId);
 		let moviesOrCast = null;
+		//if state current link type = actors, display actors
 		if(this.state.currentLinkType === 'actors') {
-			moviesOrCast = this.state.movieOrCastList.map((actor, index) => (
-				<li key={index}>
+			moviesOrCast = this.state.movieOrCastList.map((actor) => (
+				<li key={actor.id}>
 					<button onClick={() => { this.getMoviesFromActor(actor) }}>
 						{actor.name}
 						<img src={'https://image.tmdb.org/t/p/w138_and_h175_bestv2'+actor.profile_path} alt={actor.name+" image"}/>
@@ -102,9 +103,10 @@ export class LinkNav extends React.Component {
 				</li>
 			));			
 		}
+		//if state current link type = movies, display movie list
 		else if(this.state.currentLinkType === 'movies') {
-			moviesOrCast = this.state.movieOrCastList.map((movie, index) => (
-				<li key={index}>
+			moviesOrCast = this.state.movieOrCastList.map((movie) => (
+				<li key={movie.id}>
 					<button onClick={() => { this.getActorsFromMovie(movie) }}>
 						{movie.title}
 						<img src={'https://image.tmdb.org/t/p/w138_and_h175_bestv2'+movie.poster} alt={movie.title+" image"}/>
@@ -112,8 +114,8 @@ export class LinkNav extends React.Component {
 				</li>
 			));	
 		}
-
-
+		console.log('AAAAAAAAAAAAAAAAAAAAAAAaaa');
+		console.log(this.props);
 
 		return (
 			<div className="game-row" id="linkNav">

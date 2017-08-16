@@ -2,6 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
+import {newGame} from '../actions';
+
 import GameInfo from './gameinfo';
 import LinkNav from './linknav';
 import LinkChain from './linkchain';
@@ -18,7 +20,7 @@ export class Game extends React.Component {
             	<LinkChain />
     			<div className="game-page-btn">
     				<h2>{this.props.feedback}</h2>
-    				<Link className="btn btn-danger btn-lg restart-game-btn" to="/setup" role="button">Play Again?</Link>
+    				<Link className="btn btn-danger btn-lg restart-game-btn" to="/setup" role="button" onClick={() => newGame()}>Play Again?</Link>
     			</div>
     		</div>
         );
@@ -27,7 +29,6 @@ export class Game extends React.Component {
 
 const mapStateToProps = state => ({
     feedback: state.feedback,
-    currentLinkTitle: state.currentLinkTitle
 });
 
 export default connect(mapStateToProps)(Game);

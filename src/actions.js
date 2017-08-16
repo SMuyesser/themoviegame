@@ -19,13 +19,13 @@ export const newGame = () => ({
 });
 
 export const ADD_LINK = 'ADD_LINK';
-export const addLink = (linkChain) => ({
+export const addLink = (name) => ({
 	type: ADD_LINK,
-	linkChain
+	name
 })
 
-export const SHOW_TITLE = 'SHOW_TITLE';
-export const showTitle = (currentLinkTitle) => ({
-	type: SHOW_TITLE,
-	currentLinkTitle
+export const FEEDBACK = 'FEEDBACK';
+export const showFeedback = (feedback) => ({
+    type: FEEDBACK,
+    feedback
 })

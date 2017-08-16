@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import './main.css';
 
 export class LinkChain extends React.Component {
+
 	render () {
 		return (
 			<div className="game-row" id="linkChain">

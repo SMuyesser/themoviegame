@@ -4,13 +4,6 @@ import {connect} from 'react-redux';
 import './main.css';
 
 export class GameInfo extends React.Component {
-	
-	constructor(props){
-		super(props);
-		this.state = {
-			currentGameLink: []
-		};
-	}
 
 	render () {
 		return (
@@ -19,7 +12,7 @@ export class GameInfo extends React.Component {
 					<ul id="gameInfoText">
 						<li><h1 className="gameInfo-text">START:  {this.props.startMovie}</h1></li>
 						<li><h1 className="gameInfo-text">END:  {this.props.endMovie}</h1></li>
-						<li><h1 className="gameInfo-text">LINKS USED: {this.props.linksUsed}</h1></li>
+						<li><h1 className="gameInfo-text">LINKS USED: {this.props.linkChain.length}</h1></li>
 					</ul>
 				</div>
 			</div>
@@ -30,9 +23,7 @@ export class GameInfo extends React.Component {
 const mapStateToProps = state => ({
 	startMovie: state.startMovie,
 	endMovie: state.endMovie,
-	endMovieId: state.endMovieId,
-	linksUsed: state.linksUsed,
-	cast: state.cast
+	linkChain: state.linkChain
 });
 
 export default connect(mapStateToProps)(GameInfo);
