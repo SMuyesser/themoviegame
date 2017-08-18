@@ -20,13 +20,13 @@ export class StartMovie extends React.Component {
 	queryStartMovie(event) {
 		const value = event.target.value;
 		const component = this;
+		this.unreadyFinalizeStartButton(event);
 		if (value.length > 3) {
 			axios.get(API_BASE_URL+'/movieoptions/'+value)
 			.then((response) => {
 				component.setState({
-					startOptions: response.data.results
+					startOptions: response.data
 				})
-				component.unreadyFinalizeStartButton(event);
 			})
 			.catch(error => {
 				console.error(error);
