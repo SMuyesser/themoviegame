@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {Throttle} from 'react-throttle';
 
 import {setStartFinalize} from '../actions';
+import {API_BASE_URL} from '../config';
 
 import './main.css';
 
@@ -20,7 +21,7 @@ export class StartMovie extends React.Component {
 		const value = event.target.value;
 		const component = this;
 		if (value.length > 3) {
-			axios.get('http://localhost:8080/movieoptions/'+value)
+			axios.get(API_BASE_URL+'/movieoptions/'+value)
 			.then((response) => {
 				component.setState({
 					startOptions: response.data.results
