@@ -1,0 +1,148 @@
+* {
+	box-sizing: border-box;
+}
+
+div.game-row {
+	width: 100%;
+ 	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: space-around;
+}
+
+div#linkNav {
+	width: 50%;
+	display: inline-block;
+	margin-left: 5%;
+}
+
+div#linkChain {
+	width: 44.5%;
+	display: inline-block;
+}
+
+div.guess {
+	background-color: #717171;
+	width: 90%;
+	margin-bottom: 10px;
+}
+
+div.movie {
+	margin: 0px;
+}
+
+div.actor {
+	background-color: #DCDADA;
+	color: #717171;
+}
+
+div.guess div.input-group {
+	display: flex;
+	justify-content: center;
+}
+
+h1.game-text {
+	margin-top: 10px;
+}
+
+ul#gameInfoText {
+	float: right;
+	display: block;
+	text-align: right;
+	list-style: none;
+	padding-right: 2%;
+}
+
+div.game-page-btn {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	justify-content: space-around;
+}
+
+div.game-page-btn h2,
+div.game-page-btn a {
+	display: inline;
+}
+
+div.game-page-btn a {
+	height: 45px;
+	margin-top: 15px;
+}
+
+.btn {
+  background: #d90000;
+  background-image: -webkit-linear-gradient(top, #d90000, #850000);
+  background-image: -moz-linear-gradient(top, #d90000, #850000);
+  background-image: -ms-linear-gradient(top, #d90000, #850000);
+  background-image: -o-linear-gradient(top, #d90000, #850000);
+  background-image: linear-gradient(to bottom, #d90000, #850000);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #ff0000;
+  background-image: -webkit-linear-gradient(top, #ff0000, #db0404);
+  background-image: -moz-linear-gradient(top, #ff0000, #db0404);
+  background-image: -ms-linear-gradient(top, #ff0000, #db0404);
+  background-image: -o-linear-gradient(top, #ff0000, #db0404);
+  background-image: linear-gradient(to bottom, #ff0000, #db0404);
+  text-decoration: none;
+}
+
+h1#startId,
+h1#linkChainHeader {
+	width: 100%;
+	padding-top: 5px;
+	text-align: center;
+}
+
+ul#castList {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	list-style: none;
+	text-align: center;
+	padding-left: 5px;
+
+}
+
+ul#castList li {
+	margin-bottom: 10px;
+	width: 142px;
+	background-color: black;
+	color: white;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 2px;
+}
+
+ul#selectedLinks {
+	color: white;
+	list-style: none;
+	text-align: center;
+	padding-left: 0px;
+}
+
+ul#selectedLinks li {
+	margin-bottom: 10px;
+}
+
+ul#castList button li img {
+	display: block;
+	margin: 2px auto;
+}
+
+ul#castList button {
+	background: none;
+	border: none;
+	color: white;
+}

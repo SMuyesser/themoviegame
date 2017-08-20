@@ -1,8 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import './main.css';
-
 export class LinkChain extends React.Component {
 
 	render () {

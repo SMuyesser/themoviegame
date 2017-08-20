@@ -4,8 +4,7 @@ import {connect} from 'react-redux';
 import {Throttle} from 'react-throttle';
 
 import {setEndFinalize} from '../actions';
-
-import './main.css';
+import {API_BASE_URL} from '../config';
 
 export class EndMovie extends React.Component {
 
@@ -19,13 +18,16 @@ export class EndMovie extends React.Component {
 	queryEndMovie(event) {
 		const value = event.target.value;
 		const component = this;
+		this.unreadyFinalizeEndButton(event);
 		if (value.length > 3) {
-			axios.get('https://api.themoviedb.org/3/search/movie?api_key=7e9a1ff04b7576b3330211792aa796b5&language=en-US&query='+value+'&page=1&include_adult=false')
+			axios.get(API_BASE_URL+'/movieoptions/'+value)
 			.then((response) => {
 				component.setState({
-					endOptions: response.data.results
+					endOptions: response.data
 				})
-				component.unreadyFinalizeEndButton(event);
+			})
+			.catch(error => {
+				console.error(error);
 			})
 		}
 	}
@@ -35,9 +37,9 @@ export class EndMovie extends React.Component {
 		event.preventDefault();
 		const endMovieValue = this.input.value;
 		const finalizeStatus = 'Ready!';
-		axios.get('https://api.themoviedb.org/3/search/movie?api_key=7e9a1ff04b7576b3330211792aa796b5&language=en-US&query='+endMovieValue+'&page=1&include_adult=false')
+		axios.get(API_BASE_URL+'/movieoptions/'+endMovieValue)
 		.then(response => {
-			const endMovieId = response.data.results[0].id;
+			const endMovieId = response.data[0].id;
 			this.props.dispatch(setEndFinalize(finalizeStatus, endMovieId, endMovieValue));
 		})
 		.catch(error => {

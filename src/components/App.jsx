@@ -4,7 +4,6 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Home from './home';
 import Setup from './setup';
 import Game from './game';
-import './App.css';
 
 export class App extends React.Component {
 	render() {

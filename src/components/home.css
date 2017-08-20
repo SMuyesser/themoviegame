@@ -1,0 +1,11 @@
+div.landing-page-title {
+	text-align: center;
+	padding: 1.5%;
+}
+
+div.landing-page-new-game {
+	display: flex;
+	width: 100%;
+	align-content: center;
+	justify-content: center;
+}

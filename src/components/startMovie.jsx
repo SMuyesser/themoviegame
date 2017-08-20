@@ -6,8 +6,6 @@ import {Throttle} from 'react-throttle';
 import {setStartFinalize} from '../actions';
 import {API_BASE_URL} from '../config';
 
-import './main.css';
-
 export class StartMovie extends React.Component {
 
 	constructor(props){

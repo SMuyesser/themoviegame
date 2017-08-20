@@ -1,0 +1,66 @@
+div.page-header {
+	text-align: center;
+	padding: 1.5%;
+}
+
+h2.game-setup-page-title {
+	text-align: center;
+}
+
+div.row {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+
+div.col-lg-6 {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.input-group {
+	text-align: center;
+}
+
+button.start-movie-btn,
+button.end-movie-btn {
+	width: 120px;
+}
+
+div.game-setup-page {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	background-color: #E0E0E0;
+	width:80%;
+	padding: 1.5%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+a.show-new-movies-btn {
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+div.game-setup-page-begin-btn {
+	display: flex;
+	width: 100%;
+	align-content: center;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+ul.movieOption li {
+	text-align: left;
+}
+
+ul.instructions {
+	text-align: left;
+	padding-left: 20%;
+}

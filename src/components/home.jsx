@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './main.css';
+import './home.css';
 
 export default function Home(props) {
     return (

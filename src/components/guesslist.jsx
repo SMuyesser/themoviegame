@@ -3,8 +3,8 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 
 import {addLink} from '../actions';
+import {API_BASE_URL} from '../config';
 
-import './main.css';
 
 export class GuessList extends React.Component {
 
@@ -18,13 +18,12 @@ export class GuessList extends React.Component {
 
 	componentDidMount() {
 		//gets and displays cast list of starting movie when component mounts
-		var startId = this.props.startMovie;
+		var startingMovie = this.props.startMovie;
 		var component = this;
-		axios.get('https://api.themoviedb.org/3/search/movie?api_key=7e9a1ff04b7576b3330211792aa796b5&language=en-US&query='+
-			startId+'&page=1&include_adult=false')
+		axios.get(API_BASE_URL+'/movieoptions/'+startingMovie)
 		  	.then((response) => {
-			  	var movieId = response.data.results[0].id;
-			  	axios.get('https://api.themoviedb.org/3/movie/'+movieId+'/credits?api_key=7e9a1ff04b7576b3330211792aa796b5')
+			  	var movieId = response.data[0].id;
+			  	axios.get(API_BASE_URL+'/moviedetails/'+movieId)
 			  	.then((response) => {
 			  		component.setState({
 			  			currentLinkType: 'actors',
@@ -44,7 +43,7 @@ export class GuessList extends React.Component {
 	getMoviesFromActor(castMember) {
 		this.props.dispatch(addLink(castMember.name));
 		const component = this;
-		axios.get('https://api.themoviedb.org/3/person/'+castMember.id+'/movie_credits?api_key=7e9a1ff04b7576b3330211792aa796b5&language=en-US')
+		axios.get(API_BASE_URL+'/castmembermovies/'+castMember.id)
 		.then((response) => {
 			const movieList = response.data.cast.map(movie => {
 				//checks for win
@@ -77,7 +76,7 @@ export class GuessList extends React.Component {
 		console.log(movie);
 		this.props.dispatch(addLink(movie.title));
 		const component = this;
-		axios.get('https://api.themoviedb.org/3/movie/'+movie.id+'/credits?api_key=7e9a1ff04b7576b3330211792aa796b5')
+		axios.get(API_BASE_URL+'/moviedetails/'+movie.id)
 	  	.then((response) => {
 	  		component.setState({
 	  			currentLinkType: 'actors',

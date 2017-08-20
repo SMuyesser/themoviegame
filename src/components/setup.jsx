@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import StartMovie from './startMovie';
 import EndMovie from './endMovie';
-import './main.css';
+import './setup.css';
 
 export class Setup extends React.Component {
 

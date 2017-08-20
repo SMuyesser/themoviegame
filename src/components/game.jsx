@@ -8,7 +8,7 @@ import GameInfo from './gameinfo';
 import GuessList from './guesslist';
 import LinkChain from './linkchain';
 
-import './main.css';
+import './game.css';
 
 export class Game extends React.Component {
 
