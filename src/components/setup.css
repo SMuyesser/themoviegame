@@ -193,13 +193,14 @@ input.rbt-input-main::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 	form#formStart,
 	form#formEnd {
 		display: flex;
-		flex-direction: column-reverse;
+		flex-direction: column;
 		background-color: #A30000;
 		height: 75px;
 		width: 250px;
 		border-radius: 5px;
 		margin: auto;
 		padding-left: 10px;
+		padding-left: 0px;
 	}
 
 	input.rbt-input-main {
@@ -209,7 +210,7 @@ input.rbt-input-main::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 		padding-left: 10px;
 		text-align: left;
 		display: block;
-		margin-top: 5px;
+		margin-top: 10px;
 	}
 
 	ul.dropdown-menu a.dropdown-item img {
@@ -219,7 +220,7 @@ input.rbt-input-main::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 	ul.dropdown-menu {
 		position: absolute;
 		left: 0px;
-		width: 243px;
+		width: 235px;
 		background-color: #A03434;
 		list-style: none;
 		z-index: 10;
@@ -229,9 +230,12 @@ input.rbt-input-main::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 	.start-movie-btn,
 	.end-movie-btn {
 		display: block;
-		width: 150px;
+		width: 240px;
 		font-family: 'Merriweather', serif;
 		justify-content: center;
+		border-left: none;
+		border-top: 1px solid #224F5D;
+		height: 35px;
 	}
 }
 
