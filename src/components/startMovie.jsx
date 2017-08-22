@@ -24,7 +24,6 @@ export class StartMovie extends React.Component {
 				          ref={(input) => this.input = input}
 				          labelKey="title"
 				          onSearch={this.handleSearch}
-				          onChange={e => this.unreadyFinalizeStartButton(e)}
 				          placeholder="Search for a starting movie..."
 				          renderMenuItemChildren={this.renderMenuItemChildren}>
 				        </AsyncTypeahead>
@@ -57,10 +56,16 @@ export class StartMovie extends React.Component {
 	readyFinalizeStart(event) {
 		event.preventDefault();
 		const startMovieValue = this.input.state.query.toUpperCase();
-		let startButton = document.getElementById('formStart');
-		startButton.className = 'ready';
-		const finalizeStatus = 'Ready!';
-		this.props.dispatch(setStartFinalize(finalizeStatus, startMovieValue));
+		if(startMovieValue.length < 1) {
+			alert('Movie field is empty')
+			return
+		}
+		else {
+			let startButton = document.getElementById('formStart');
+			startButton.className = 'ready';
+			const finalizeStatus = 'Ready!';
+			this.props.dispatch(setStartFinalize(finalizeStatus, startMovieValue));
+		}
 	}
 
 	unreadyFinalizeStartButton(event) {
@@ -71,7 +76,8 @@ export class StartMovie extends React.Component {
 		this.props.dispatch(setStartFinalize(finalizeStatus, startMovieValue));
 	}
 
-	handleSearch = query => {
+	handleSearch = (query, event) => {
+		this.unreadyFinalizeStartButton(event);
 	  	query.toString();
 	    if (!query) {
 	      return;

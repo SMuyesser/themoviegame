@@ -54,6 +54,7 @@ div.game-setup-page {
 	padding: 1.5%;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 5%;
 	border-radius: 10px;
 	background: #f7b733;
 	background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
@@ -61,14 +62,22 @@ div.game-setup-page {
 	background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
 	background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
 	background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
+    -webkit-box-shadow: 0 10px 6px -6px #444444;
+       -moz-box-shadow: 0 10px 6px -6px #444444;
+            box-shadow: 0 10px 6px -6px #444444;
 }
 
 div.game-setup-page-begin-btn {
 	display: flex;
-	width: 100%;
 	align-content: center;
 	justify-content: center;
 	margin-top: 20px;
+}
+
+a.btn {
+   -webkit-box-shadow: 0 10px 6px -6px #444444;
+   -moz-box-shadow: 0 10px 6px -6px #444444;
+        box-shadow: 0 10px 6px -6px #444444;
 }
 
 ul.movieOption li {
@@ -89,21 +98,29 @@ form#formEnd {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: #A30000;
 	height: 50px;
 	width: 400px;
 	border-radius: 5px;
 	margin: auto;
 	padding-left: 15px;
+	background: #56CCF2;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    -webkit-box-shadow: 0 10px 6px -6px #444444;
+       -moz-box-shadow: 0 10px 6px -6px #444444;
+            box-shadow: 0 10px 6px -6px #444444;
 }
 
 .start-movie-btn,
 .end-movie-btn {
 	background: none;
 	border: none;
+	border-left: 1px solid #224F5D;
 	color: white;
 	width: 150px;
+	height: 45px;
 	font-family: 'Merriweather', serif;
+	overflow-wrap: shrink
 }
 
 form#formStart.ready,
@@ -115,8 +132,9 @@ ul.dropdown-menu {
 	position: absolute;
 	left: 0px;
 	width: 372px;
-	background-color: #A03434;
-	list-style: none;
+	background: #56CCF2;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */	list-style: none;
 	z-index: 10;
 	padding-left: 10px;
 }
@@ -130,6 +148,13 @@ ul.dropdown-menu a.dropdown-item {
 ul.dropdown-menu a.dropdown-item img {
 	margin-bottom: 5px;
 	width: 50px;
+	font-size: .5em;
+	color: grey;
+	background-color: #782828;
+	text-align: center;
+    -webkit-box-shadow: 0 10px 6px -6px #444444;
+       -moz-box-shadow: 0 10px 6px -6px #444444;
+            box-shadow: 0 10px 6px -6px #444444;
 }
 
 div.options {
@@ -141,22 +166,28 @@ input.rbt-input-main {
 	justify-content: flex-start;
 	color: white;
 	background-color: white;
-	width: 300px;
+	min-width: 230px;
+	max-width: 230px;
+	font-family: 'Merriweather', serif;
+	overflow: hidden;
+}
+
+input.rbt-input-hint {
+	display: none;
 }
 
 input.rbt-input-main::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #D0D0D0;
+	color: #224F5D;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-  color: #D0D0D0;
+	color: #224F5D;
 }
 :-ms-input-placeholder { /* IE 10+ */
-  color: #D0D0D0;
+	color: #224F5D;
 }
 :-moz-placeholder { /* Firefox 18- */
-  color: #D0D0D0;
+	color: #224F5D;
 }
-
 
 @media screen and (max-width: 768px) {
 	form#formStart,

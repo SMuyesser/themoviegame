@@ -24,7 +24,6 @@ export class EndMovie extends React.Component {
 				          ref={(input) => this.input = input}
 				          labelKey="title"
 				          onSearch={this.handleSearch}
-				          onChange={e => this.unreadyFinalizeEndButton(e)}
 				          placeholder="Search for an ending movie..."
 				          renderMenuItemChildren={this.renderMenuItemChildren}>
 				        </AsyncTypeahead>
@@ -56,18 +55,24 @@ export class EndMovie extends React.Component {
 
 	readyFinalizeEnd(event) {
 		event.preventDefault();
-		let startButton = document.getElementById('formEnd');
-		startButton.className = 'ready';
 		const endMovieValue = this.input.state.query.toUpperCase();
-		const finalizeStatus = 'Ready!';
-		axios.get(API_BASE_URL+'/movieoptions/'+endMovieValue)
-		.then(response => {
-			const endMovieId = response.data[0].id;
-			this.props.dispatch(setEndFinalize(finalizeStatus, endMovieId, endMovieValue));
-		})
-		.catch(error => {
-			console.error(error);
-		});
+		if(endMovieValue.length < 1) {
+			alert('Movie field is empty')
+			return
+		}
+		else {
+			let endButton = document.getElementById('formEnd');
+			endButton.className = 'ready';
+			const finalizeStatus = 'Ready!';
+			axios.get(API_BASE_URL+'/movieoptions/'+endMovieValue)
+			.then(response => {
+				const endMovieId = response.data[0].id;
+				this.props.dispatch(setEndFinalize(finalizeStatus, endMovieId, endMovieValue));
+			})
+			.catch(error => {
+				console.error(error);
+			});
+		}
 	}
 
 	unreadyFinalizeEndButton(event) {
@@ -79,7 +84,8 @@ export class EndMovie extends React.Component {
 		this.props.dispatch(setEndFinalize(finalizeStatus, endMovieId, endMovieValue));
 	}
 
-	handleSearch = query => {
+	handleSearch = (query, event) => {
+		this.unreadyFinalizeEndButton(event);
 	  	query.toString();
 	    if (!query) {
 	      return;

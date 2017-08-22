@@ -22,7 +22,11 @@ div#linkChain {
 }
 
 div.guess {
-	background-color: #717171;
+	background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
+	background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
+	background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
+	background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
+	background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
 	width: 90%;
 	margin-bottom: 10px;
 }
