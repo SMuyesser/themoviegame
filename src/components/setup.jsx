@@ -39,7 +39,7 @@ export class Setup extends React.Component {
 					</ul> 
 				</div>
 				<div className="container-fluid game-setup-page">
-					<h2 className="game-setup-page-title">Game Set-Up</h2>
+					<h2 className="game-setup-page-title2">Game Set-Up</h2>
 					<StartMovie />
 					<EndMovie />
 					<div className="game-setup-page-begin-btn">

@@ -13,6 +13,7 @@
     "react": "^15.6.1",
     "react-autosuggest": "^9.3.2",
     "react-bootstrap": "^0.31.1",
+    "react-bootstrap-typeahead": "^2.0.0-alpha.3",
     "react-dom": "^15.6.1",
     "react-overlays": "^0.8.0",
     "react-redux": "^5.0.5",

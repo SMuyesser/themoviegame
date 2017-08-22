@@ -1,11 +1,59 @@
-div.landing-page-title {
-	text-align: center;
-	padding: 1.5%;
-}
-
-div.landing-page-new-game {
+div.jumbotron {
+	position: absolute;
+	top: 15%;
 	display: flex;
+	flex-direction: column;
 	width: 100%;
 	align-content: center;
 	justify-content: center;
+	text-align: center;
 }
+
+div.jumbotron h1 {
+	margin-bottom: 2px;
+}
+
+div.jumbotron p {
+	font-family: 'Merriweather', serif;
+	font-size: .75em;
+	margin-top: 2px;
+	margin-bottom: 100px;
+	color: FC6F1A;
+}
+
+div a.btn {
+  background: #FFDF38;
+  background-image: -webkit-linear-gradient(top, #F7D933, #FC6F1A);
+  background-image: -moz-linear-gradient(top, #F7D933, #FC6F1A);
+  background-image: -ms-linear-gradient(top, #F7D933, #FC6F1A);
+  background-image: -o-linear-gradient(top, #F7D933, #FC6F1A);
+  background-image: linear-gradient(to bottom, #F7D933, #FC6F1A);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  text-shadow: 1px 1px 3px #000000;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 35px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+div a.btn:hover {
+  background: #f7b733;
+  background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
+  background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
+  background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
+  background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
+  background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
+  text-decoration: none;
+}
+
+div.home {
+	font-family: 'Monoton', cursive;
+	color: #F7D933;
+	font-size: 2em;
+	background-image: url('../../src/images/Visions of Grandeur.jpg');
+	height: 100vh;
+}	
+
