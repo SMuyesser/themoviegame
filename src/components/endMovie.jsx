@@ -18,14 +18,14 @@ export class EndMovie extends React.Component {
 	    return (
 			<div className="row">
 				<div className="col-lg-6">
-					<form className="input-group" onSubmit={e => this.readyFinalizeEnd(e)} id="formOption">
+					<form className="input-group" onSubmit={e => this.readyFinalizeEnd(e)} id="formEnd">
 					    <AsyncTypeahead
 				          {...this.state}
 				          ref={(input) => this.input = input}
 				          labelKey="title"
 				          onSearch={this.handleSearch}
 				          onChange={e => this.unreadyFinalizeEndButton(e)}
-				          placeholder="Search for a Github user..."
+				          placeholder="Search for an ending movie..."
 				          renderMenuItemChildren={this.renderMenuItemChildren}>
 				        </AsyncTypeahead>
 						<span className="input-group-btn">
@@ -56,6 +56,8 @@ export class EndMovie extends React.Component {
 
 	readyFinalizeEnd(event) {
 		event.preventDefault();
+		let startButton = document.getElementById('formEnd');
+		startButton.className = 'ready';
 		const endMovieValue = this.input.state.query.toUpperCase();
 		const finalizeStatus = 'Ready!';
 		axios.get(API_BASE_URL+'/movieoptions/'+endMovieValue)
@@ -69,6 +71,8 @@ export class EndMovie extends React.Component {
 	}
 
 	unreadyFinalizeEndButton(event) {
+		let startButton = document.getElementById('formEnd');
+		startButton.className = 'input-group';
 		const endMovieValue = '';
 		const endMovieId = '';
 		const finalizeStatus = 'Finalize End Movie';

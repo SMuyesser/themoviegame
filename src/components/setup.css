@@ -1,7 +1,5 @@
 div.setup {
-	background-image: url('../../src/images/Visions of Grandeur.jpg');
-	background-size: cover;
-	height: 100vh;
+	font-family: 'Merriweather', serif;
 }
 
 div.page-header {
@@ -65,13 +63,6 @@ div.game-setup-page {
 	background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
 }
 
-a.show-new-movies-btn {
-	width: 200px;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-}
-
 div.game-setup-page-begin-btn {
 	display: flex;
 	width: 100%;
@@ -85,9 +76,131 @@ ul.movieOption li {
 }
 
 ul.instructions {
-	text-align: left;
-	padding-left: 20%;
+	text-align: center;
+	padding-left: 0;
 	color: white;
+	list-style: none;
+	font-size: .75em;
+	line-height: 2em;
 }
 
+form#formStart,
+form#formEnd {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #A30000;
+	height: 50px;
+	width: 400px;
+	border-radius: 5px;
+	margin: auto;
+	padding-left: 15px;
+}
+
+.start-movie-btn,
+.end-movie-btn {
+	background: none;
+	border: none;
+	color: white;
+	width: 150px;
+	font-family: 'Merriweather', serif;
+}
+
+form#formStart.ready,
+form#formEnd.ready {
+	background: #006CA4;
+}
+
+ul.dropdown-menu {
+	position: absolute;
+	left: 0px;
+	width: 372px;
+	background-color: #A03434;
+	list-style: none;
+	z-index: 10;
+	padding-left: 10px;
+}
+
+ul.dropdown-menu a.dropdown-item {
+	color: white;
+	text-decoration: none;
+	text-align: left;
+}
+
+ul.dropdown-menu a.dropdown-item img {
+	margin-bottom: 5px;
+	width: 50px;
+}
+
+div.options {
+	display: flex;
+	align-items: center;
+}
+
+input.rbt-input-main {
+	justify-content: flex-start;
+	color: white;
+	background-color: white;
+	width: 300px;
+}
+
+input.rbt-input-main::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #D0D0D0;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #D0D0D0;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #D0D0D0;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #D0D0D0;
+}
+
+
+@media screen and (max-width: 768px) {
+	form#formStart,
+	form#formEnd {
+		display: flex;
+		flex-direction: column-reverse;
+		background-color: #A30000;
+		height: 75px;
+		width: 250px;
+		border-radius: 5px;
+		margin: auto;
+		padding-left: 10px;
+	}
+
+	input.rbt-input-main {
+		color: white;
+		background-color: white;
+		width: 80%;
+		padding-left: 10px;
+		text-align: left;
+		display: block;
+		margin-top: 5px;
+	}
+
+	ul.dropdown-menu a.dropdown-item img {
+		width: 30px;
+	}
+
+	ul.dropdown-menu {
+		position: absolute;
+		left: 0px;
+		width: 243px;
+		background-color: #A03434;
+		list-style: none;
+		z-index: 10;
+		padding-left: 10px;
+	}
+
+	.start-movie-btn,
+	.end-movie-btn {
+		display: block;
+		width: 150px;
+		font-family: 'Merriweather', serif;
+		justify-content: center;
+	}
+}
 

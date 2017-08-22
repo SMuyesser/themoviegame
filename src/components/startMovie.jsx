@@ -18,18 +18,18 @@ export class StartMovie extends React.Component {
 	    return (
 			<div className="row">
 				<div className="col-lg-6">
-					<form className="input-group" onSubmit={e => this.readyFinalizeStart(e)} id="formOption">
+					<form className="input-group" onSubmit={e => this.readyFinalizeStart(e)} id="formStart">
 					    <AsyncTypeahead
 				          {...this.state}
 				          ref={(input) => this.input = input}
 				          labelKey="title"
 				          onSearch={this.handleSearch}
 				          onChange={e => this.unreadyFinalizeStartButton(e)}
-				          placeholder="Search for a Github user..."
+				          placeholder="Search for a starting movie..."
 				          renderMenuItemChildren={this.renderMenuItemChildren}>
 				        </AsyncTypeahead>
 						<span className="input-group-btn">
-							<input className="start-movie-btn" type="submit" id="startMovieId" value={this.props.finalizeStartButton}/>
+							<input className="start-movie-btn" type="submit" value={this.props.finalizeStartButton}/>
 						</span>
 					</form>
 				</div>
@@ -57,12 +57,15 @@ export class StartMovie extends React.Component {
 	readyFinalizeStart(event) {
 		event.preventDefault();
 		const startMovieValue = this.input.state.query.toUpperCase();
-		console.log(startMovieValue);
+		let startButton = document.getElementById('formStart');
+		startButton.className = 'ready';
 		const finalizeStatus = 'Ready!';
 		this.props.dispatch(setStartFinalize(finalizeStatus, startMovieValue));
 	}
 
 	unreadyFinalizeStartButton(event) {
+		let startButton = document.getElementById('formStart');
+		startButton.className = 'input-group';
 		const startMovieValue = '';
 		const finalizeStatus = 'Finalize Start Movie';
 		this.props.dispatch(setStartFinalize(finalizeStatus, startMovieValue));
