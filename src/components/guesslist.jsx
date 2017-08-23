@@ -89,10 +89,7 @@ export class GuessList extends React.Component {
 	}
 
 	render () {
-		console.log(this.state.currentLinkType);
-		console.log(this.props.linkChain);
-		console.log(this.props.currentLinkTitle);
-		console.log(this.props.endMovieId);
+
 		let moviesOrCast = null;
 		let guessTitle = this.props.startMovie;
 		if(this.props.linkChain.length > 0) {
@@ -126,7 +123,7 @@ export class GuessList extends React.Component {
 
 		return (
 			<div className="game-row" id="linkNav">
-				<div className="col-lg-6 guess movie">
+				<div className="col-lg-6 guess movie guesslist">
 					<h1 id="startId" className="game-text">{guessTitle}</h1>
 					<ul id="castList">
 						{moviesOrCast}

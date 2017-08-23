@@ -48,7 +48,10 @@ export class EndMovie extends React.Component {
 	            width: '45px',
 	          }}
 	        />
-	        <span>{option.title}</span>
+		    <span className='optionDetails'>
+	        	{option.title}
+	        	<span className='year'>Release Date: {option.release_date}</span>
+	        </span>
 	      </div>
 	    );
 	}

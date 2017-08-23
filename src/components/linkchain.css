@@ -1,0 +1,28 @@
+#startLi,
+.middleLi,
+#endLi {
+	font-weight: bold;
+}
+
+#startLi {
+	color: #158000;
+	margin-right: 5px;
+}
+
+#startLi::after {
+	content: '  \279c  ';
+}
+
+.middleLi::after {
+	content: "  🔗  ";
+	color: #158000;
+}
+
+.middleLi {
+	margin-right: 5px;
+}
+
+#endLi {
+	color: #A00000;
+}
+

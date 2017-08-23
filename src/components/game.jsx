@@ -1,6 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 import {newGame} from '../actions';
 
@@ -11,21 +11,21 @@ import LinkChain from './linkchain';
 import './game.css';
 
 export class Game extends React.Component {
-
+    
     newGame(event) {
         this.props.dispatch(newGame());
-    }
+    };
 
     render() {
         return (
             <div className="game">
             	<GameInfo />
-            	<GuessList />
             	<LinkChain />
-    			<div className="game-page-btn">
-    				<Link className="btn btn-danger btn-lg restart-game-btn" to="/setup" 
+                <GuessList />
+                <div className="game-page-btn">
+                    <Link className="btn btn-danger btn-lg restart-game-btn" to="/setup" 
                           role="button" onClick={e => this.newGame(e)}>{this.props.feedback}</Link>
-    			</div>
+                </div>
     		</div>
         );
     }

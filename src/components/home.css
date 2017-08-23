@@ -31,12 +31,16 @@ div a.btn {
   -webkit-border-radius: 28;
   -moz-border-radius: 28;
   border-radius: 28px;
+  -webkit-box-shadow: 0 10px 6px -6px #444444;
+  -moz-box-shadow: 0 10px 6px -6px #444444;
+  box-shadow: 0 10px 6px -6px #444444;
   text-shadow: 1px 1px 3px #000000;
   font-family: Arial;
   color: #ffffff;
   font-size: 35px;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
+  font-family: 'Merriweather', serif;
 }
 
 div a.btn:hover {

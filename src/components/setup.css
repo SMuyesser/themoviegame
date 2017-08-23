@@ -19,8 +19,12 @@ h2.game-setup-page-title2 {
 	text-align: center;
 	font-family: 'Monoton', cursive;
 	font-size: 3em;
-	color: #FFFFFF;
-	margin-top: 5px;
+	color: #006CA4;
+	margin: 5px auto 35px auto;
+    -webkit-box-shadow: 0 10px 6px -6px #444444;
+       -moz-box-shadow: 0 10px 6px -6px #444444;
+            box-shadow: 0 10px 6px -6px #444444;
+    width: 75%;
 }
 
 div.row {
@@ -51,6 +55,7 @@ div.game-setup-page {
 	justify-content: center;
 	align-content: center;
 	width:80%;
+	min-width: 335px;
 	padding: 1.5%;
 	margin-left: auto;
 	margin-right: auto;
@@ -67,17 +72,25 @@ div.game-setup-page {
             box-shadow: 0 10px 6px -6px #444444;
 }
 
-div.game-setup-page-begin-btn {
+div.game-setup-page-begin-btn .begin-game-btn {
 	display: flex;
 	align-content: center;
 	justify-content: center;
-	margin-top: 20px;
-}
-
-a.btn {
-   -webkit-box-shadow: 0 10px 6px -6px #444444;
-   -moz-box-shadow: 0 10px 6px -6px #444444;
+	margin: 20px auto 15px auto;
+    background: #FFDF38;
+    background-image: -webkit-linear-gradient(top, #F7D933, #FC6F1A);
+    background-image: -moz-linear-gradient(top, #F7D933, #FC6F1A);
+    background-image: -ms-linear-gradient(top, #F7D933, #FC6F1A);
+    background-image: -o-linear-gradient(top, #F7D933, #FC6F1A);
+    background-image: linear-gradient(to bottom, #F7D933, #FC6F1A);
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    -webkit-box-shadow: 0 10px 6px -6px #444444;
+    -moz-box-shadow: 0 10px 6px -6px #444444;
         box-shadow: 0 10px 6px -6px #444444;
+    width: 250px;
+    font-family: 'Merriweather', serif;
 }
 
 ul.movieOption li {
@@ -91,6 +104,9 @@ ul.instructions {
 	list-style: none;
 	font-size: .75em;
 	line-height: 2em;
+	padding-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 form#formStart,
@@ -99,7 +115,7 @@ form#formEnd {
 	justify-content: space-between;
 	align-items: center;
 	height: 50px;
-	width: 400px;
+	width: 450px;
 	border-radius: 5px;
 	margin: auto;
 	padding-left: 15px;
@@ -132,11 +148,14 @@ ul.dropdown-menu {
 	position: absolute;
 	left: 0px;
 	width: 372px;
-	background: #56CCF2;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to left, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to left, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */	list-style: none;
+	background: #4CB0D0;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #276CC9, #4CB0D0);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #276CC9, #4CB0D0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */	list-style: none;
 	z-index: 10;
 	padding-left: 10px;
+	padding-right: 10px;
+	border: 1px white solid;
+	border-top: none;
 }
 
 ul.dropdown-menu a.dropdown-item {
@@ -145,12 +164,22 @@ ul.dropdown-menu a.dropdown-item {
 	text-align: left;
 }
 
+ul.dropdown-menu span.optionDetails {
+	display: flex;
+	flex-direction: column;
+}
+
+ul.dropdown-menu span.year {
+	font-size: .6em;
+	color: #EAEAEA;
+}
+
 ul.dropdown-menu a.dropdown-item img {
 	margin-bottom: 5px;
 	width: 50px;
 	font-size: .5em;
 	color: grey;
-	background-color: #782828;
+	background-color: #347C93;
 	text-align: center;
     -webkit-box-shadow: 0 10px 6px -6px #444444;
        -moz-box-shadow: 0 10px 6px -6px #444444;
@@ -160,14 +189,16 @@ ul.dropdown-menu a.dropdown-item img {
 div.options {
 	display: flex;
 	align-items: center;
+	border-bottom: 1px solid white;
+	margin-top: 5px;
 }
 
 input.rbt-input-main {
 	justify-content: flex-start;
 	color: white;
 	background-color: white;
-	min-width: 230px;
-	max-width: 230px;
+	min-width: 280px;
+	max-width: 280px;
 	font-family: 'Merriweather', serif;
 	overflow: hidden;
 }
@@ -190,13 +221,26 @@ input.rbt-input-main::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 }
 
 @media screen and (max-width: 768px) {
+
+	ul#instructions {
+		text-align: center;
+		padding-left: -30px;
+		color: white;
+		list-style: none;
+		font-size: .75em;
+		line-height: 2em;
+		padding-top: 20px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 	form#formStart,
 	form#formEnd {
 		display: flex;
 		flex-direction: column;
 		background-color: #A30000;
 		height: 75px;
-		width: 250px;
+		width: 275px;
 		border-radius: 5px;
 		margin: auto;
 		padding-left: 10px;
@@ -206,7 +250,8 @@ input.rbt-input-main::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 	input.rbt-input-main {
 		color: white;
 		background-color: white;
-		width: 80%;
+		min-width: 250px;
+		max-width: 250px;
 		padding-left: 10px;
 		text-align: left;
 		display: block;
@@ -220,7 +265,7 @@ input.rbt-input-main::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 	ul.dropdown-menu {
 		position: absolute;
 		left: 0px;
-		width: 235px;
+		width: 245px;
 		background-color: #A03434;
 		list-style: none;
 		z-index: 10;

@@ -2,37 +2,59 @@
 	box-sizing: border-box;
 }
 
+div.game {
+	display: flex;
+	flex-direction: column;
+}
+
 div.game-row {
 	width: 100%;
  	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	align-content: space-around;
 }
 
-div#linkNav {
-	width: 50%;
-	display: inline-block;
-	margin-left: 5%;
+div.gameInfo {
+	width: 100%;
+	height: 100px;
 }
 
-div#linkChain {
-	width: 44.5%;
-	display: inline-block;
-}
-
-div.guess {
-	background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
-	width: 90%;
+div.linkChain {
+	width: 96%;
+	display: block;
+	height: auto;
 	margin-bottom: 10px;
 }
 
-div.movie {
-	margin: 0px;
+ul#selectedLinks {
+	margin-left: auto;
+	margin-right: auto;
+	color: white;
+	list-style-type: none;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: center;
+	width: 100%;
+	padding: 0 40px;
+}
+
+div.guesslist {
+	width: 96%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.guess {
+	background: #FFDF38;
+	background-image: -webkit-linear-gradient(top, #F7D933, #FC6F1A);
+    background-image: -moz-linear-gradient(top, #F7D933, #FC6F1A);
+	background-image: -ms-linear-gradient(top, #F7D933, #FC6F1A);
+	background-image: -o-linear-gradient(top, #F7D933, #FC6F1A);
+	background-image: linear-gradient(to bottom, #F7D933, #FC6F1A);
+	margin-bottom: 10px;
 }
 
 div.actor {
@@ -47,58 +69,38 @@ div.guess div.input-group {
 
 h1.game-text {
 	margin-top: 10px;
+	display: inline-block;
 }
 
 ul#gameInfoText {
-	float: right;
-	display: block;
-	text-align: right;
+	display: flex;
+	text-align: center;
 	list-style: none;
-	padding-right: 2%;
 }
 
 div.game-page-btn {
-	width: 90%;
+	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	display: flex;
 	justify-content: space-around;
+	border-radius: 28px;
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 20px;
+	padding: 10px 20px 10px 20px;
+	text-decoration: none;
 }
 
-div.game-page-btn h2,
 div.game-page-btn a {
-	display: inline;
-}
-
-div.game-page-btn a {
-	height: 45px;
-	margin-top: 15px;
-}
-
-.btn {
-  background: #d90000;
-  background-image: -webkit-linear-gradient(top, #d90000, #850000);
-  background-image: -moz-linear-gradient(top, #d90000, #850000);
-  background-image: -ms-linear-gradient(top, #d90000, #850000);
-  background-image: -o-linear-gradient(top, #d90000, #850000);
-  background-image: linear-gradient(to bottom, #d90000, #850000);
-  -webkit-border-radius: 28;
-  -moz-border-radius: 28;
-  border-radius: 28px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
+	margin: 10px auto;
+   -webkit-box-shadow: 0 10px 6px -6px #444444;
+   -moz-box-shadow: 0 10px 6px -6px #444444;
+        box-shadow: 0 10px 6px -6px #444444;
 }
 
 .btn:hover {
   background: #ff0000;
-  background-image: -webkit-linear-gradient(top, #ff0000, #db0404);
-  background-image: -moz-linear-gradient(top, #ff0000, #db0404);
-  background-image: -ms-linear-gradient(top, #ff0000, #db0404);
-  background-image: -o-linear-gradient(top, #ff0000, #db0404);
-  background-image: linear-gradient(to bottom, #ff0000, #db0404);
   text-decoration: none;
 }
 
@@ -107,6 +109,7 @@ h1#linkChainHeader {
 	width: 100%;
 	padding-top: 5px;
 	text-align: center;
+	margin-bottom: 0px;
 }
 
 ul#castList {
@@ -121,28 +124,28 @@ ul#castList {
 
 ul#castList li {
 	margin-bottom: 10px;
-	width: 142px;
-	background-color: black;
+	width: 150px;
+	background: #000046;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	color: white;
 	margin-left: auto;
 	margin-right: auto;
-	padding-top: 2px;
-}
-
-ul#selectedLinks {
-	color: white;
-	list-style: none;
-	text-align: center;
-	padding-left: 0px;
-}
-
-ul#selectedLinks li {
-	margin-bottom: 10px;
+	padding: 2px;
+    -webkit-box-shadow: 0 10px 6px -6px #444444;
+   -moz-box-shadow: 0 10px 6px -6px #444444;
+    box-shadow: 0 10px 6px -6px #444444;
+    display: flex;
+    flex-direction: column-reverse;
+	align-content: flex-end;
+	align-items: space-between;
 }
 
 ul#castList button li img {
 	display: block;
-	margin: 2px auto;
+	margin: 5px auto 2px auto;
+	position: relative;
+	bottom: 0px;
 }
 
 ul#castList button {

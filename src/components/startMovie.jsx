@@ -37,6 +37,7 @@ export class StartMovie extends React.Component {
 	}
 
 	renderMenuItemChildren(option, props, index) {
+		console.log(option);
 	    return (
 	      <div className='options' key={option.id}>
 	      	<img
@@ -48,7 +49,10 @@ export class StartMovie extends React.Component {
 	            width: '45px',
 	          }}
 	        />
-	        <span>{option.title}</span>
+	        <span className='optionDetails'>
+	        	{option.title}
+	        	<span className='year'>Release Date: {option.release_date}</span>
+	        </span>
 	      </div>
 	    );
 	}

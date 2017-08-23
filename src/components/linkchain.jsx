@@ -1,19 +1,21 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import './linkchain.css';
+
 export class LinkChain extends React.Component {
 
 	render () {
 		return (
 			<div className="game-row" id="linkChain">
-				<div className="col-lg-6 guess movie">
+				<div className="col-lg-6 guess movie linkChain">
 						<h1 className="game-text" id="linkChainHeader">Game Chain</h1>
 						<ul id="selectedLinks">
-							<li>{this.props.startMovie}</li>
+							<li id="startLi">{this.props.startMovie}</li>
 							{this.props.linkChain.map((chainLink, index) => {
-								return <li key={index}>{chainLink}</li>
+								return <li className="middleLi" key={index}>{chainLink}</li>
 							})}
-							<li>{this.props.endMovie}</li>
+							<li id="endLi">{this.props.endMovie}</li>
 						</ul>
 				</div>
 			</div>
