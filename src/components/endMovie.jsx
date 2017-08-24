@@ -67,7 +67,7 @@ export class EndMovie extends React.Component {
 			let endButton = document.getElementById('formEnd');
 			endButton.className = 'ready';
 			const finalizeStatus = 'Ready!';
-			axios.get(API_BASE_URL+'/movieoptions/'+endMovieValue)
+			axios.get(API_BASE_URL+'/game/movieoptions/'+endMovieValue)
 			.then(response => {
 				const endMovieId = response.data[0].id;
 				this.props.dispatch(setEndFinalize(finalizeStatus, endMovieId, endMovieValue));
@@ -94,7 +94,7 @@ export class EndMovie extends React.Component {
 	      return;
 	    }
 
-	    axios.get(API_BASE_URL+`/movieoptions/${query}`)
+	    axios.get(API_BASE_URL+`/game/movieoptions/${query}`)
 		.then((response) => {
 			this.setState({
 				options: response.data

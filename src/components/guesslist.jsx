@@ -27,10 +27,10 @@ export class GuessList extends React.Component {
 		//gets and displays cast list of starting movie when component mounts
 		var startingMovie = this.props.startMovie;
 		var component = this;
-		axios.get(API_BASE_URL+'/movieoptions/'+startingMovie)
+		axios.get(API_BASE_URL+'/game/movieoptions/'+startingMovie)
 		  	.then((response) => {
 			  	var movieId = response.data[0].id;
-			  	axios.get(API_BASE_URL+'/moviedetails/'+movieId)
+			  	axios.get(API_BASE_URL+'/game/moviedetails/'+movieId)
 			  	.then((response) => {
 			  		component.setState({
 			  			currentLinkType: 'actors',
@@ -50,12 +50,12 @@ export class GuessList extends React.Component {
 	getMoviesFromActor(castMember) {
 		this.props.dispatch(addLink(castMember.name));
 		const component = this;
-		axios.get(API_BASE_URL+'/castmembermovies/'+castMember.id)
+		axios.get(API_BASE_URL+'/game/castmembermovies/'+castMember.id)
 		.then((response) => {
 			const movieList = response.data.cast.map(movie => {
 				//checks for win
 				if(movie.id === this.props.endMovieId) {
-					axios.get(API_BASE_URL+'/castInfo/'+castMember.id)
+					axios.get(API_BASE_URL+'/game/castInfo/'+castMember.id)
 					.then((response) => {
 						component.setState({
 							currentLinkType: 'end',
@@ -91,7 +91,7 @@ export class GuessList extends React.Component {
 		console.log(movie);
 		this.props.dispatch(addLink(movie.title));
 		const component = this;
-		axios.get(API_BASE_URL+'/moviedetails/'+movie.id)
+		axios.get(API_BASE_URL+'/game/moviedetails/'+movie.id)
 	  	.then((response) => {
 	  		component.setState({
 	  			currentLinkType: 'actors',

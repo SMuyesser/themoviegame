@@ -87,7 +87,7 @@ export class StartMovie extends React.Component {
 	      return;
 	    }
 
-	    axios.get(API_BASE_URL+`/movieoptions/${query}`)
+	    axios.get(API_BASE_URL+`/game/movieoptions/${query}`)
 		.then((response) => {
 			this.setState({
 				options: response.data
