@@ -1,8 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import {AsyncTypeahead} from 'react-bootstrap-typeahead';
 import {connect} from 'react-redux';
-import {setStartFinalize} from '../actions';
 import {API_BASE_URL} from '../config';
 
 export class RegisterPlayer extends React.Component {
