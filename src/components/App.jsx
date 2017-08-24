@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Home from './home';
 import Setup from './setup';
 import Game from './game';
+import RegisterPlayer from './registerplayer';
 
 export class App extends React.Component {
 	render() {
@@ -11,6 +12,7 @@ export class App extends React.Component {
 	      <Router>
 	        <div className="App">
 	          <Route exact path="/" component={Home} />
+	          <Route exact path="" component={RegisterPlayer} />
 	          <Route exact path="/setup" component={Setup} />
 	          <Route exact path="/game" component={Game} />
 	        </div>
