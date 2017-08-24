@@ -1,0 +1,83 @@
+.guesslist h1 {
+	font-size: 3em;
+	text-align: center;
+	margin: 5px;
+}
+
+h1, div#gameWinInfo h2 {
+	color: white;
+	text-shadow: 2px 2px 3px black;
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+div#gameWinInfo {
+	margin: 20px;
+	display: flex;
+	justify-content: space-between;
+}
+
+div#gameWinCast,
+div#gameWinMovie {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 45%;
+	background: #56CCF2;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to bottom, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to bottom, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    -webkit-box-shadow: 0 10px 6px -6px #444444;
+       -moz-box-shadow: 0 10px 6px -6px #444444;
+            box-shadow: 0 10px 6px -6px #444444;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+div#gameWinInfo h3 {
+	margin-top: 0px;
+}
+
+div#gameWinCast p,
+div#description {
+	color: white;
+	background-color: #006CA4;
+	-webkit-box-shadow: 0 10px 6px -6px #444444;
+       -moz-box-shadow: 0 10px 6px -6px #444444;
+            box-shadow: 0 10px 6px -6px #444444;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+div#description {
+	margin-top: 15px;
+}
+
+img#finalCastPic,
+img#finalMoviePic {
+	width: 200px;
+	height: 250px;
+    -webkit-box-shadow: 0 10px 6px -6px #444444;
+    -moz-box-shadow: 0 10px 6px -6px #444444;
+    box-shadow: 0 10px 6px -6px #444444;
+    border: 5px solid #FC9A1A;
+    border-radius: 5%;
+}
+
+@media screen and (max-width: 768px) {
+	.guesslist h1 {
+		font-size: 2em;
+	}
+
+	div#gameWinInfo {
+		flex-direction: column;
+		align-items: center;
+		align-content: space-between;
+	}
+		
+	div#gameWinCast,
+	div#gameWinMovie {
+		width: 90%;
+		margin-bottom: 20px;
+	}
+}
+

@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 import {addLink} from '../actions';
 import {API_BASE_URL} from '../config';
 
+import './guesslist.css';
+
 
 export class GuessList extends React.Component {
 
@@ -12,7 +14,12 @@ export class GuessList extends React.Component {
 		super(props);
 		this.state = {
 			currentLinkType: '',
-			movieOrCastList: []
+			movieOrCastList: [],
+			finalCastPic: '',
+			finalMoviePic: '',
+			finalCastDesc: '',
+			finalMovieDesc: '',
+			winStatement: ''
 		};
 	}
 
@@ -48,10 +55,18 @@ export class GuessList extends React.Component {
 			const movieList = response.data.cast.map(movie => {
 				//checks for win
 				if(movie.id === this.props.endMovieId) {
-					component.setState({
-						currentLinkType: 'end',
-						movieOrCastList: 'YOU WIN!  '+castMember.name+' was in the cast of '+this.props.endMovie
-					});
+					axios.get(API_BASE_URL+'/castInfo/'+castMember.id)
+					.then((response) => {
+						component.setState({
+							currentLinkType: 'end',
+							movieOrCastList: 'YOU WIN!',
+							winStatement: castMember.name+' played '+castMember.character+' in '+this.props.endMovie,
+							finalCastPic: 'https://image.tmdb.org/t/p/w138_and_h175_bestv2' + castMember.profile_path,
+							finalMoviePic: 'https://image.tmdb.org/t/p/w138_and_h175_bestv2' + movie.poster_path,
+							finalCastDesc: response.data.biography,
+							finalMovieDesc: movie.overview
+						});
+					})
 				}
 				return {
 					'title': movie.title,
@@ -97,7 +112,25 @@ export class GuessList extends React.Component {
 		}
 		//if state current link type = actors, display actors
 		if(this.state.currentLinkType === 'end') {
-			moviesOrCast = <h1>{this.state.movieOrCastList}</h1>
+			guessTitle = <div id="gameHeaders">
+							<h1>{this.state.movieOrCastList}</h1>
+							<h1>{this.state.winStatement}</h1>
+						</div>
+			moviesOrCast =  <div id="gameWinInfo">
+								<div id="gameWinCast">
+									<h2>{this.props.currentLinkTitle}</h2>
+									<img id="finalCastPic" src={this.state.finalCastPic} alt={this.state.finalCastPic+" image"}></img>
+									<p>{this.state.finalCastDesc}</p>
+								</div>
+								<div id="gameWinMovie">
+									<h2>{this.props.endMovie}</h2>
+									<img id="finalMoviePic" src={this.state.finalMoviePic} alt={this.state.finalMoviePic+" image"}></img>
+									<div id="description">
+										<h3>Description</h3>
+										<p>{this.state.finalMovieDesc}</p>
+									</div>
+								</div>
+						    </div>
 		}
 		else if(this.state.currentLinkType === 'actors') {
 			moviesOrCast = this.state.movieOrCastList.map((actor) => (
@@ -124,7 +157,7 @@ export class GuessList extends React.Component {
 		return (
 			<div className="game-row" id="linkNav">
 				<div className="col-lg-6 guess movie guesslist">
-					<h1 id="startId" className="game-text">{guessTitle}</h1>
+					<div id="guessTitle" className="game-text">{guessTitle}</div>
 					<ul id="castList">
 						{moviesOrCast}
 					</ul>

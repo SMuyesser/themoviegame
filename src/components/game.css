@@ -50,6 +50,8 @@ div.guesslist {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	border-radius: 5px;
+	padding: 5px;
 }
 
 div.guess {
@@ -136,7 +138,6 @@ ul#castList {
 	list-style: none;
 	text-align: center;
 	padding-left: 5px;
-
 }
 
 ul#castList li {
