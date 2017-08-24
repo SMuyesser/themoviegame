@@ -60,7 +60,7 @@ export class GuessList extends React.Component {
 						component.setState({
 							currentLinkType: 'end',
 							movieOrCastList: 'YOU WIN!',
-							winStatement: castMember.name+' played '+castMember.character+' in '+this.props.endMovie,
+							winStatement: castMember.name+' played '+movie.character+' in '+this.props.endMovie,
 							finalCastPic: 'https://image.tmdb.org/t/p/w138_and_h175_bestv2' + castMember.profile_path,
 							finalMoviePic: 'https://image.tmdb.org/t/p/w138_and_h175_bestv2' + movie.poster_path,
 							finalCastDesc: response.data.biography,
@@ -110,7 +110,7 @@ export class GuessList extends React.Component {
 		if(this.props.linkChain.length > 0) {
 			guessTitle = <h1>{this.props.currentLinkTitle}</h1>;
 		}
-		//if state current link type = actors, display actors
+		//if state current link type = end, set state with win info
 		if(this.state.currentLinkType === 'end') {
 			guessTitle = <div id="gameHeaders">
 							<h1>{this.state.movieOrCastList}</h1>
@@ -132,6 +132,7 @@ export class GuessList extends React.Component {
 								</div>
 						    </div>
 		}
+		//if current link type = actors, display cast list
 		else if(this.state.currentLinkType === 'actors') {
 			moviesOrCast = this.state.movieOrCastList.map((actor) => (
 				<li key={actor.id}>
