@@ -1,7 +1,56 @@
 form#registerPlayerForm {
-	color: white;
-	text-align: center;
 	display: flex;
 	flex-direction: column;
-	margin-top: 10%;
+	justify-content: center;
+	align-content: center;
+	width:80%;
+	min-width: 335px;
+	padding: 1.5%;
+	margin: 5% auto;
+	border-radius: 10px;
+	background: #f7b733;
+	background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
+	background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
+	background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
+	background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
+	background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
+    -webkit-box-shadow: 0 10px 6px -6px #444444;
+       -moz-box-shadow: 0 10px 6px -6px #444444;
+            box-shadow: 0 10px 6px -6px #444444;
+}
+
+form#registerPlayerForm input {
+	justify-content: center;
+	color: white;
+	background-color: white;
+	margin: auto;
+	min-width: 280px;
+	max-width: 280px;
+	font-family: 'Merriweather', serif;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+form#registerPlayerForm label {
+	color: white;
+	text-shadow: 2px 2px 3px black;
+	margin-bottom: 2px;
+}
+
+input#submitButton {
+    background: #FFDF38;
+    background-image: -webkit-linear-gradient(top, #F7D933, #FC6F1A);
+    background-image: -moz-linear-gradient(top, #F7D933, #FC6F1A);
+    background-image: -ms-linear-gradient(top, #F7D933, #FC6F1A);
+    background-image: -o-linear-gradient(top, #F7D933, #FC6F1A);
+    background-image: linear-gradient(to bottom, #F7D933, #FC6F1A);
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    -webkit-box-shadow: 0 10px 6px -6px #444444;
+    -moz-box-shadow: 0 10px 6px -6px #444444;
+        box-shadow: 0 10px 6px -6px #444444;
+    max-width: 150px;
+    font-family: 'Merriweather', serif;
+    margin-top: 10px;
 }

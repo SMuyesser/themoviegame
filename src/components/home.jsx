@@ -9,7 +9,7 @@ export default function Home(props) {
 					<h1 id="homeTitle">THE MOVIE GAME</h1>
 					<p>A fun way to test your knowledge of movies and casts.</p>
 					<div className="landing-page-new-game">
-						<a className="btn btn-danger btn-lg" href="/setup" role="button">New Game</a>
+						<a className="btn btn-danger btn-lg" href="/register" role="button">New Game</a>
 					</div>
 				</div>
         </div>
