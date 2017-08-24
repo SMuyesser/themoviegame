@@ -6,7 +6,7 @@ export default function Home(props) {
     return (
         <div className="home">
 				<div className="jumbotron landing-page-title">
-					<h1>THE MOVIE GAME</h1>
+					<h1 id="homeTitle">THE MOVIE GAME</h1>
 					<p>A fun way to test your knowledge of movies and casts.</p>
 					<div className="landing-page-new-game">
 						<a className="btn btn-danger btn-lg" href="/setup" role="button">New Game</a>

@@ -9,8 +9,9 @@ div.jumbotron {
 	text-align: center;
 }
 
-div.jumbotron h1 {
+div.jumbotron h1#homeTitle {
 	margin-bottom: 2px;
+  color: #F7D933;
 }
 
 div.jumbotron p {
