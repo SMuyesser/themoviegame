@@ -106,9 +106,9 @@ export class GuessList extends React.Component {
 	render () {
 
 		let moviesOrCast = null;
-		let guessTitle = this.props.startMovie;
+		let guessTitle = <h1>{this.props.startMovie}</h1>;
 		if(this.props.linkChain.length > 0) {
-			guessTitle = this.props.currentLinkTitle;
+			guessTitle = <h1>{this.props.currentLinkTitle}</h1>;
 		}
 		//if state current link type = actors, display actors
 		if(this.state.currentLinkType === 'end') {
