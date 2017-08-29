@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-import {newGame} from '../actions';
+import {newGame} from '../actions/game';
 
 import GameInfo from './gameinfo';
 import GuessList from './guesslist';
@@ -31,8 +31,8 @@ export class Game extends React.Component {
     }
 };
 
-const mapStateToProps = state => ({
-    feedback: state.feedback
+const mapStateToProps = ({game}) => ({
+    feedback: game.feedback
 });
 
 export default connect(mapStateToProps)(Game);

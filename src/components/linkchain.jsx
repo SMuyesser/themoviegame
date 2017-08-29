@@ -23,10 +23,10 @@ export class LinkChain extends React.Component {
 	}
 };
 
-const mapStateToProps = state => ({
-	startMovie: state.startMovie,
-	endMovie: state.endMovie,
-	linkChain: state.linkChain
+const mapStateToProps = ({game}) => ({
+	startMovie: game.startMovie,
+	endMovie: game.endMovie,
+	linkChain: game.linkChain
 });
 
 export default connect(mapStateToProps)(LinkChain);

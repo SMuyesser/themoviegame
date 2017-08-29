@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-
 export class GameInfo extends React.Component {
 
 	render () {
@@ -19,10 +18,9 @@ export class GameInfo extends React.Component {
 	}
 };
 
-const mapStateToProps = state => ({
-	startMovie: state.startMovie,
-	endMovie: state.endMovie,
-	linkChain: state.linkChain
+const mapStateToProps = ({game}) => ({
+	linkChain: game.linkChain
 });
 
 export default connect(mapStateToProps)(GameInfo);
+

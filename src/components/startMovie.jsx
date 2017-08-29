@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {AsyncTypeahead} from 'react-bootstrap-typeahead';
 import {connect} from 'react-redux';
-import {setStartFinalize} from '../actions';
+import {setStartFinalize} from '../actions/game';
 import {API_BASE_URL} from '../config';
 
 export class StartMovie extends React.Component {
@@ -37,7 +37,6 @@ export class StartMovie extends React.Component {
 	}
 
 	renderMenuItemChildren(option, props, index) {
-		console.log(option);
 	    return (
 	      <div className='options' key={option.id}>
 	      	<img
@@ -99,11 +98,12 @@ export class StartMovie extends React.Component {
 	}
 };
 
-const mapStateToProps = state => ({
-	startMovie: state.startMovie,
-	finalizeStartButton: state.finalizeStartButton,
-	currentLinkTitle: state.currentLinkTitle
+const mapStateToProps = ({game}) => ({
+	startMovie: game.startMovie,
+	finalizeStartButton: game.finalizeStartButton,
+	currentLinkTitle: game.currentLinkTitle
 });
+
 
 export default connect(mapStateToProps)(StartMovie);
 

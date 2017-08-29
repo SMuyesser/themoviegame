@@ -25,7 +25,7 @@ export class Setup extends React.Component {
 	}
 
 	render() {
-		console.log(this.props);
+
 	    return (
 	        <div className="setup">
 				<div className="page-header">
@@ -51,12 +51,11 @@ export class Setup extends React.Component {
 	}
 };
 
-const mapStateToProps = state => ({
-	finalizeStartButton: state.finalizeStartButton,
-	finalizeEndButton: state.finalizeEndButton,
-	startMovie: state.startMovie,
-	endMovie: state.endMovie,
-	endMovieId: state.endMovieId,
+const mapStateToProps = ({game}) => ({
+	finalizeStartButton: game.finalizeStartButton,
+	finalizeEndButton: game.finalizeEndButton,
+	startMovie: game.startMovie,
+	endMovie: game.endMovie,
 });
 
 export default connect(mapStateToProps)(Setup);

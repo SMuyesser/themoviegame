@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {AsyncTypeahead} from 'react-bootstrap-typeahead';
 import {connect} from 'react-redux';
-import {setEndFinalize} from '../actions';
+import {setEndFinalize} from '../actions/game';
 import {API_BASE_URL} from '../config';
 
 export class EndMovie extends React.Component {
@@ -15,6 +15,7 @@ export class EndMovie extends React.Component {
 	}
 
 	render() {
+		console.log(this.props)
 	    return (
 			<div className="row">
 				<div className="col-lg-6">
@@ -106,10 +107,10 @@ export class EndMovie extends React.Component {
 	}
 };
 
-const mapStateToProps = state => ({
-	endMovie: state.endMovie,
-	endMovieId: state.endMovieId,
-	finalizeEndButton: state.finalizeEndButton
+const mapStateToProps = ({game}) => ({
+	endMovie: game.endMovie,
+	endMovieId: game.endMovieId,
+	finalizeEndButton: game.finalizeEndButton
 });
 
 export default connect(mapStateToProps)(EndMovie);

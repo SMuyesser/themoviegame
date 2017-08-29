@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
 
-import {addLink} from '../actions';
+import {addLink} from '../actions/game';
 import {API_BASE_URL} from '../config';
 
 import './guesslist.css';
@@ -168,12 +168,12 @@ export class GuessList extends React.Component {
 	}
 };
 
-const mapStateToProps = state => ({
-	startMovie: state.startMovie,
-	linkChain: state.linkChain,
-	currentLinkTitle: state.currentLinkTitle,
-	endMovieId: state.endMovieId,
-	endMovie: state.endMovie
+const mapStateToProps = ({game}) => ({
+	startMovie: game.startMovie,
+	linkChain: game.linkChain,
+	currentLinkTitle: game.currentLinkTitle,
+	endMovieId: game.endMovieId,
+	endMovie: game.endMovie
 });
 
 export default connect(mapStateToProps)(GuessList);

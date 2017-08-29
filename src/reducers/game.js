@@ -3,7 +3,7 @@ import {
 		SET_START_FINALIZE,
 		SET_END_FINALIZE,
 		ADD_LINK
-} from './actions';
+} from '../actions/game';
 
 const initialState = {
 	startMovie: "",
@@ -17,33 +17,25 @@ const initialState = {
 	feedback: 'Play Again'
 }
 
-export default (state, action) => {
-	state = state || initialState;
+export default function reducer(state = initialState, action) {
 	if (action.type === NEW_GAME) {
-		state = Object.assign({}, initialState);
-		return state;
-	}
-	else if (action.type === SET_START_FINALIZE) {
-		state = Object.assign({}, initialState, {
+		return Object.assign({}, initialState);
+	} else if (action.type === SET_START_FINALIZE) {
+		return Object.assign({}, initialState, {
 			startMovie: action.startMovie,
 			finalizeStartButton: action.finalizeStartButton
 		});
-		return state;
-	}
-	else if (action.type === SET_END_FINALIZE) {
-		state = Object.assign({}, state, {
+	} else if (action.type === SET_END_FINALIZE) {
+		return Object.assign({}, state, {
 			endMovie: action.endMovie,
 			endMovieId: action.endMovieId,
 			finalizeEndButton: action.finalizeEndButton
 		});
-		return state;
-	}
-	else if (action.type === ADD_LINK) {
-		state = Object.assign({}, state, {
+	} else if (action.type === ADD_LINK) {
+		return Object.assign({}, state, {
 			linkChain: [...state.linkChain, action.name],
 			currentLinkTitle: action.name
 		})
-		return state;
 	}
 	return state;
 }
