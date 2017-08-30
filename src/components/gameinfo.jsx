@@ -1,5 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+
+import './gameinfo.css';
 
 export class GameInfo extends React.Component {
 
@@ -7,6 +10,7 @@ export class GameInfo extends React.Component {
 		return (
 			<div className="game-row">
 				<div className="col-lg-6 guess gameInfo">
+				<Link to='/dashboard'>Dashboard</Link>
 					<ul id="gameInfoText">
 						<li><h1 className="gameInfo-text">Your Best:  </h1></li>
 						<li><h1 className="gameInfo-text">All Time Best: </h1></li>

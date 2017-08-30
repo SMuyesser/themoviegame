@@ -2,7 +2,8 @@ import {
 		NEW_GAME,
 		SET_START_FINALIZE,
 		SET_END_FINALIZE,
-		ADD_LINK
+		ADD_LINK,
+		SET_SCORES
 } from '../actions/game';
 
 const initialState = {
@@ -14,7 +15,8 @@ const initialState = {
 	gameInProgress: false,
 	currentLinkTitle: '',
 	linkChain: [],
-	feedback: 'Play Again'
+	feedback: 'Play Again',
+	scores: []
 }
 
 export default function reducer(state = initialState, action) {
@@ -35,6 +37,17 @@ export default function reducer(state = initialState, action) {
 		return Object.assign({}, state, {
 			linkChain: [...state.linkChain, action.name],
 			currentLinkTitle: action.name
+		})
+	} else if (action.type === SET_SCORES) {
+		return Object.assign({}, state, {
+			scores: [...state.scores, {
+				start: action.start,
+				startPic: action.startPic,
+				end: action.end,
+				endPic: action.endPic,
+				links: action.links,
+				linkCount: action.linkCount
+			}]
 		})
 	}
 	return state;

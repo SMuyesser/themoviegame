@@ -19,7 +19,8 @@ export class GuessList extends React.Component {
 			finalMoviePic: '',
 			finalCastDesc: '',
 			finalMovieDesc: '',
-			winStatement: ''
+			winStatement: '',
+			startMoviePic: ''
 		};
 	}
 
@@ -30,12 +31,14 @@ export class GuessList extends React.Component {
 		axios.get(API_BASE_URL+'/game/movieoptions/'+startingMovie)
 		  	.then((response) => {
 			  	var movieId = response.data[0].id;
+			  	var moviePic = response.data[0].poster_path;
 			  	axios.get(API_BASE_URL+'/game/moviedetails/'+movieId)
 			  	.then((response) => {
 			  		component.setState({
 			  			currentLinkType: 'actors',
-			  			movieOrCastList: response.data.cast
-			  		})
+			  			movieOrCastList: response.data.cast,
+			  			startMoviePic: 'https://image.tmdb.org/t/p/w138_and_h175_bestv2'+moviePic
+			  		});
 			  	})
 			  	.catch(function (error) {
 			  		console.log(error);
@@ -46,6 +49,32 @@ export class GuessList extends React.Component {
 			});
 	}
 
+	//check status of score update
+	checkStatus(response) {
+	  if (response.status >= 200 && response.status < 300) {
+	    return response
+	  } else {
+	    var error = new Error(response.statusText)
+	    error.response = response
+	    throw error
+	  }
+	}
+
+	//sends scores to db
+	update(data) {
+		return axios(API_BASE_URL+'/players/scores/'+this.props.playername, {
+			method: 'put',
+			data: data,
+		    headers: {
+		      'Accept': 'application/json',
+		      'Content-Type': 'application/json'
+		    }
+		})
+    	.then(this.checkStatus)
+    	.then(()=>console.log('updated!!!'))
+	}
+
+
 	//gets list of selected actors movies, checks if any of those movies are the final movie
 	getMoviesFromActor(castMember) {
 		this.props.dispatch(addLink(castMember.name));
@@ -53,7 +82,7 @@ export class GuessList extends React.Component {
 		axios.get(API_BASE_URL+'/game/castmembermovies/'+castMember.id)
 		.then((response) => {
 			const movieList = response.data.cast.map(movie => {
-				//checks for win
+				//checks for win, and sets state for win page
 				if(movie.id === this.props.endMovieId) {
 					axios.get(API_BASE_URL+'/game/castInfo/'+castMember.id)
 					.then((response) => {
@@ -65,7 +94,17 @@ export class GuessList extends React.Component {
 							finalMoviePic: 'https://image.tmdb.org/t/p/w138_and_h175_bestv2' + movie.poster_path,
 							finalCastDesc: response.data.biography,
 							finalMovieDesc: movie.overview
-						});
+						})
+						//if win, scores are sent to db and entry is updated
+						const scores = {
+							start: this.props.startMovie,
+							startPic:  this.state.startMoviePic,
+							end: this.props.endMovie,
+							endPic: this.state.finalMoviePic,
+							links: this.props.linkChain,
+							linkCount: this.props.linkChain.length
+						}
+						this.update(scores);
 					})
 				}
 				return {
@@ -74,6 +113,7 @@ export class GuessList extends React.Component {
 					'poster': movie.poster_path
 				}
 			});
+			//if not win sets up for next link
 			if(component.state.currentLinkType !== 'end') {
 				component.setState({
 					currentLinkType: 'movies',
@@ -88,7 +128,6 @@ export class GuessList extends React.Component {
 
 	//gets cast list from current movie
 	getActorsFromMovie(movie) {
-		console.log(movie);
 		this.props.dispatch(addLink(movie.title));
 		const component = this;
 		axios.get(API_BASE_URL+'/game/moviedetails/'+movie.id)
@@ -104,7 +143,7 @@ export class GuessList extends React.Component {
 	}
 
 	render () {
-
+		console.log(this.props);
 		let moviesOrCast = null;
 		let guessTitle = <h1>{this.props.startMovie}</h1>;
 		if(this.props.linkChain.length > 0) {
@@ -168,12 +207,18 @@ export class GuessList extends React.Component {
 	}
 };
 
-const mapStateToProps = ({game}) => ({
-	startMovie: game.startMovie,
-	linkChain: game.linkChain,
-	currentLinkTitle: game.currentLinkTitle,
-	endMovieId: game.endMovieId,
-	endMovie: game.endMovie
-});
+const mapStateToProps = state => {
+    const {currentPlayer} = state.auth;
+    return {
+        loggedIn: currentPlayer !== null,
+        playername: currentPlayer ? state.auth.currentPlayer.playername : '',
+        scores: state.game.scores,
+		startMovie: state.game.startMovie,
+		linkChain: state.game.linkChain,
+		currentLinkTitle: state.game.currentLinkTitle,
+		endMovieId: state.game.endMovieId,
+		endMovie: state.game.endMovie
+    };
+};
 
 export default connect(mapStateToProps)(GuessList);

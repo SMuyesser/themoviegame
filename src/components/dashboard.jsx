@@ -36,20 +36,31 @@ export class Dashboard extends React.Component {
             );
         }
 
+/*        let stats;
+        stats = this.props.scores
+        (this.props.stats) {
+            moviesOrCast = this.state.movieOrCastList.map((actor) => (
+                <li key={actor.id}>
+                    <button onClick={() => { this.getMoviesFromActor(actor) }}>
+                        {actor.name}
+                        <img src={'https://image.tmdb.org/t/p/w138_and_h175_bestv2'+actor.profile_path} alt={actor.name+" image"}/>
+                    </button>
+                </li>
+            ));         
+        }*/
+
         return (
             <div className="dashboard">
-                <div className="stats">
-                    Stats will go here
+                <div className="dashboard-header">
+                    <div id="logo"></div>
+                    Player Name: {this.props.playername}
                     {logOutButton}
                 </div>
-                <div className="dashboard-playername">
-                    Player Name: {this.props.playername}
-                </div>
-                <div className="dashboard-protected-data">
-                    Protected data: {this.props.protectedData}
+                <div id="top-space-fix"></div>
+                <div id="stats-container">
                 </div>
                 <div className="landing-page-new-game">
-                    <a className="btn btn-danger btn-lg new-game-btn" href="/setup" role="button">New Game</a>
+                    <a className="btn new-game-btn" href="/setup" onClick={e => this.addStats(e)} role="button">New Game</a>
                 </div>
             </div>
         );
@@ -61,7 +72,7 @@ const mapStateToProps = state => {
     return {
         loggedIn: currentPlayer !== null,
         playername: currentPlayer ? state.auth.currentPlayer.playername : '',
-        protectedData: state.protectedData.data
+        scores: state.game.scores
     };
 };
 

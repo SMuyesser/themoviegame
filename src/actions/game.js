@@ -24,3 +24,13 @@ export const addLink = (name) => ({
 	name
 })
 
+export const SET_SCORES = 'SET_SCORES';
+export const setScores = (start, startPic, end, endPic, links, linkCount) => ({
+    type: SET_SCORES,
+    start,
+    startPic,
+    end,
+    endPic,
+    links,
+    linkCount
+})

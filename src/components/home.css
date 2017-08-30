@@ -22,38 +22,6 @@ div.jumbotron p {
 	color: FC6F1A;
 }
 
-div a.btn {
-  background: #FFDF38;
-  background-image: -webkit-linear-gradient(top, #F7D933, #FC6F1A);
-  background-image: -moz-linear-gradient(top, #F7D933, #FC6F1A);
-  background-image: -ms-linear-gradient(top, #F7D933, #FC6F1A);
-  background-image: -o-linear-gradient(top, #F7D933, #FC6F1A);
-  background-image: linear-gradient(to bottom, #F7D933, #FC6F1A);
-  -webkit-border-radius: 28;
-  -moz-border-radius: 28;
-  border-radius: 28px;
-  -webkit-box-shadow: 0 10px 6px -6px #444444;
-  -moz-box-shadow: 0 10px 6px -6px #444444;
-  box-shadow: 0 10px 6px -6px #444444;
-  text-shadow: 1px 1px 3px #000000;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 35px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-  font-family: 'Merriweather', serif;
-}
-
-div a.btn:hover {
-  background: #f7b733;
-  background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
-  background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
-  background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
-  background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
-  background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
-  text-decoration: none;
-}
-
 div.home {
 	font-family: 'Monoton', cursive;
 	color: #F7D933;
