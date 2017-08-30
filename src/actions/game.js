@@ -22,15 +22,10 @@ export const ADD_LINK = 'ADD_LINK';
 export const addLink = (name) => ({
 	type: ADD_LINK,
 	name
-})
+});
 
 export const SET_SCORES = 'SET_SCORES';
-export const setScores = (start, startPic, end, endPic, links, linkCount) => ({
+export const setScores = (scores) => ({
     type: SET_SCORES,
-    start,
-    startPic,
-    end,
-    endPic,
-    links,
-    linkCount
-})
+    scores
+});

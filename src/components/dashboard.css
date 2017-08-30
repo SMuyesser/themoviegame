@@ -33,9 +33,7 @@ div#top-space-fix {
 
 div.stats {
 	margin-bottom: 5px;
-	display: block;
 	width:100%;
-	height: 100px;
 	border-radius: 10px;
 	background: #FAC85F;
 	background-image: -webkit-linear-gradient(top, #FAC85F, #F98667);
@@ -46,6 +44,15 @@ div.stats {
     -webkit-box-shadow: 0 10px 6px -6px #444444;
        -moz-box-shadow: 0 10px 6px -6px #444444;
             box-shadow: 0 10px 6px -6px #444444;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+}
+
+div.start-stats,
+div.end-stats,
+div.link-stats {
+	width: 30%;
 }
 
 a.new-game-btn {

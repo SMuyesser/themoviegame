@@ -40,14 +40,7 @@ export default function reducer(state = initialState, action) {
 		})
 	} else if (action.type === SET_SCORES) {
 		return Object.assign({}, state, {
-			scores: [...state.scores, {
-				start: action.start,
-				startPic: action.startPic,
-				end: action.end,
-				endPic: action.endPic,
-				links: action.links,
-				linkCount: action.linkCount
-			}]
+			scores: action.scores
 		})
 	}
 	return state;

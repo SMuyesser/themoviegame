@@ -1,11 +1,14 @@
 import React from 'react';
+import axios from 'axios';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import {fetchProtectedData} from '../actions/protected-data';
 import {setCurrentPlayer, setAuthToken} from '../actions/auth';
+import {setScores} from '../actions/game';
 import {clearAuthToken} from '../local-storage';
 
 import './dashboard.css';
+import {API_BASE_URL} from '../config';
 
 export class Dashboard extends React.Component {
 
@@ -13,6 +16,10 @@ export class Dashboard extends React.Component {
         if (!this.props.loggedIn) {
             return;
         }
+        axios.get(API_BASE_URL+'/players/scores/'+this.props.playername)
+        .then(response => {
+            this.props.dispatch(setScores(response.data));
+        })
         this.props.dispatch(fetchProtectedData());
     }
 
@@ -35,20 +42,26 @@ export class Dashboard extends React.Component {
                 <button onClick={() => this.logOut()}>Log out</button>
             );
         }
-
-/*        let stats;
-        stats = this.props.scores
-        (this.props.stats) {
-            moviesOrCast = this.state.movieOrCastList.map((actor) => (
-                <li key={actor.id}>
-                    <button onClick={() => { this.getMoviesFromActor(actor) }}>
-                        {actor.name}
-                        <img src={'https://image.tmdb.org/t/p/w138_and_h175_bestv2'+actor.profile_path} alt={actor.name+" image"}/>
-                    </button>
-                </li>
-            ));         
-        }*/
-
+        let stats;
+        stats = this.props.scores.map((score, index) => {
+            return (<div className="stats" key={index}>
+                <div className="start-stats">
+                    <h3>Start Movie</h3>
+                    <h5>{score.start}</h5>
+                    <img src={score.startPic}></img>
+                </div>
+                <div className="end-stats">
+                    <h3>End Movie</h3>
+                    <h5>{score.end}</h5>
+                    <img src={score.endPic}></img>
+                </div>
+                <div className="link-stats">
+                    <h3>Links</h3>
+                    <h5>Total: {score.linkCount}</h5>
+                    <h5>Used: {score.links}</h5>
+                </div>
+            </div>)
+        })
         return (
             <div className="dashboard">
                 <div className="dashboard-header">
@@ -58,6 +71,7 @@ export class Dashboard extends React.Component {
                 </div>
                 <div id="top-space-fix"></div>
                 <div id="stats-container">
+                    {stats}
                 </div>
                 <div className="landing-page-new-game">
                     <a className="btn new-game-btn" href="/setup" onClick={e => this.addStats(e)} role="button">New Game</a>
