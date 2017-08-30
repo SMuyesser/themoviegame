@@ -39,21 +39,21 @@ export class Dashboard extends React.Component {
         let logOutButton;
         if (this.props.loggedIn) {
             logOutButton = (
-                <button onClick={() => this.logOut()}>Log out</button>
+                <button id="logout" onClick={() => this.logOut()}>Log out</button>
             );
         }
         let stats;
         stats = this.props.scores.map((score, index) => {
             return (<div className="stats" key={index}>
+                <img src={score.startPic} alt={score.start+' poster'}></img>
                 <div className="start-stats">
                     <h3>Start Movie</h3>
                     <h5>{score.start}</h5>
-                    <img src={score.startPic}></img>
                 </div>
+                <img src={score.endPic} alt={score.end+' poster'}></img>
                 <div className="end-stats">
                     <h3>End Movie</h3>
                     <h5>{score.end}</h5>
-                    <img src={score.endPic}></img>
                 </div>
                 <div className="link-stats">
                     <h3>Links</h3>
@@ -65,16 +65,19 @@ export class Dashboard extends React.Component {
         return (
             <div className="dashboard">
                 <div className="dashboard-header">
-                    <div id="logo"></div>
-                    Player Name: {this.props.playername}
+                    <h1 id="logo">The Movie Game</h1>
+                    <div id="player-info">
+                        <h2>Player: {this.props.playername}</h2>
+                        <h3>Games Played: {this.props.scores.length}</h3>
+                    </div>
+                    <div className="landing-page-new-game">
+                        <a className="btn new-game-btn" href="/setup" onClick={e => this.addStats(e)} role="button">New Game</a>
+                    </div>
                     {logOutButton}
                 </div>
                 <div id="top-space-fix"></div>
                 <div id="stats-container">
                     {stats}
-                </div>
-                <div className="landing-page-new-game">
-                    <a className="btn new-game-btn" href="/setup" onClick={e => this.addStats(e)} role="button">New Game</a>
                 </div>
             </div>
         );
