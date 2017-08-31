@@ -14,29 +14,3 @@ div.game-row {
 	align-content: space-around;
 }
 
-div.game-page-btn {
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	display: flex;
-	justify-content: space-around;
-	border-radius: 28px;
-	font-family: Arial;
-	color: #ffffff;
-	font-size: 20px;
-	padding: 10px 20px 10px 20px;
-	text-decoration: none;
-}
-
-div.game-page-btn a {
-	margin: 10px auto;
-   -webkit-box-shadow: 0 10px 6px -6px #444444;
-   -moz-box-shadow: 0 10px 6px -6px #444444;
-        box-shadow: 0 10px 6px -6px #444444;
-}
-
-.btn:hover {
-  background: #ff0000;
-  text-decoration: none;
-}
-

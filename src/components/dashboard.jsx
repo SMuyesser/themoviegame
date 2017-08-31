@@ -3,14 +3,17 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import {fetchProtectedData} from '../actions/protected-data';
-import {setCurrentPlayer, setAuthToken} from '../actions/auth';
-import {setScores} from '../actions/game';
-import {clearAuthToken} from '../local-storage';
+import {setScores, setHeader} from '../actions/game';
 
 import './dashboard.css';
+import Header from './header';
 import {API_BASE_URL} from '../config';
 
 export class Dashboard extends React.Component {
+
+    componentWillMount() {
+        this.props.dispatch(setHeader('dashboard'));
+    }
 
     componentDidMount() {
         if (!this.props.loggedIn) {
@@ -23,12 +26,6 @@ export class Dashboard extends React.Component {
         this.props.dispatch(fetchProtectedData());
     }
 
-    logOut() {
-        this.props.dispatch(setCurrentPlayer(null));
-        this.props.dispatch(setAuthToken(null));
-        clearAuthToken();
-    }
-
     render() {
         // Only visible to logged in users
         if (!this.props.loggedIn) {
@@ -36,21 +33,23 @@ export class Dashboard extends React.Component {
         }
 
         // Only render the log out button if we are logged in
-        let logOutButton;
-        if (this.props.loggedIn) {
-            logOutButton = (
-                <button id="logout" onClick={() => this.logOut()}>Log out</button>
-            );
-        }
         let stats;
         stats = this.props.scores.map((score, index) => {
             return (<div className="stats" key={index}>
-                <img src={score.startPic} alt={score.start+' poster'}></img>
+                <img src={score.startPic} alt={score.start+' poster'} 
+                    style={{
+                    height: '100px',
+                    width: '80px'
+                }}></img>
                 <div className="start-stats">
                     <h3>Start Movie</h3>
                     <h5>{score.start}</h5>
                 </div>
-                <img src={score.endPic} alt={score.end+' poster'}></img>
+                <img src={score.endPic} alt={score.end+' poster'} 
+                    style={{
+                        height: '100px',
+                        width: '80px'
+                }}></img>
                 <div className="end-stats">
                     <h3>End Movie</h3>
                     <h5>{score.end}</h5>
@@ -64,18 +63,7 @@ export class Dashboard extends React.Component {
         })
         return (
             <div className="dashboard">
-                <div className="dashboard-header">
-                    <h1 id="logo">The Movie Game</h1>
-                    <div id="player-info">
-                        <h2>Player: {this.props.playername}</h2>
-                        <h3>Games Played: {this.props.scores.length}</h3>
-                    </div>
-                    <div className="landing-page-new-game">
-                        <a className="btn new-game-btn" href="/setup" onClick={e => this.addStats(e)} role="button">New Game</a>
-                    </div>
-                    {logOutButton}
-                </div>
-                <div id="top-space-fix"></div>
+                <Header />
                 <div id="stats-container">
                     {stats}
                 </div>

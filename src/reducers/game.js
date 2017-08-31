@@ -3,7 +3,8 @@ import {
 		SET_START_FINALIZE,
 		SET_END_FINALIZE,
 		ADD_LINK,
-		SET_SCORES
+		SET_SCORES,
+		SET_HEADER
 } from '../actions/game';
 
 const initialState = {
@@ -16,14 +17,15 @@ const initialState = {
 	currentLinkTitle: '',
 	linkChain: [],
 	feedback: 'Play Again',
-	scores: []
+	scores: [],
+	headerType: 'dashboard'
 }
 
 export default function reducer(state = initialState, action) {
 	if (action.type === NEW_GAME) {
 		return Object.assign({}, initialState);
 	} else if (action.type === SET_START_FINALIZE) {
-		return Object.assign({}, initialState, {
+		return Object.assign({}, state, {
 			startMovie: action.startMovie,
 			finalizeStartButton: action.finalizeStartButton
 		});
@@ -41,6 +43,10 @@ export default function reducer(state = initialState, action) {
 	} else if (action.type === SET_SCORES) {
 		return Object.assign({}, state, {
 			scores: action.scores
+		})
+	} else if (action.type === SET_HEADER) {
+		return Object.assign({}, state, {
+			headerType: action.headerType
 		})
 	}
 	return state;

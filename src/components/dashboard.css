@@ -4,45 +4,17 @@ div.dashboard {
 	color: white;
 	margin-bottom: 100px;
 	width: 100%;
-		text-shadow: 2px 2px 3px black;
-
-}
-
-div.dashboard-header {
-	display: flex;
-	position: fixed;
-	top: 0px;
-	width:100%;
-	height: 75px;
-	border-radius: 0px 0px 10px 10px;
-	background: #f7b733;
-	background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
-    -webkit-box-shadow: 0 10px 6px -6px #444444;
-       -moz-box-shadow: 0 10px 6px -6px #444444;
-            box-shadow: 0 10px 6px -6px #444444;
-}
-
-div#top-space-fix {
-	margin-top: 80px;
-	display: block;
-	width:100%;
-	height: 5px;
+	text-shadow: 2px 2px 3px black;
 }
 
 div.stats {
-	margin-bottom: 5px;
-	width:100%;
+	margin: 0px auto 7.5px auto;
+	width:99%;
+	border: 1.5px solid white;
 	border-radius: 10px;
-	background: #FAC85F;
-	background-image: -webkit-linear-gradient(top, #FAC85F, #F98667);
-	background-image: -moz-linear-gradient(top, #FAC85F, #F98667);
-	background-image: -ms-linear-gradient(top, #FAC85F, #F98667);
-	background-image: -o-linear-gradient(top, #FAC85F, #F98667);
-	background-image: linear-gradient(to bottom, #FAC85F, #F98667);
+	background: #56CCF2;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     -webkit-box-shadow: 0 10px 6px -6px #444444;
        -moz-box-shadow: 0 10px 6px -6px #444444;
             box-shadow: 0 10px 6px -6px #444444;
@@ -57,86 +29,3 @@ div.link-stats {
 	width: 15%;
 }
 
-a.new-game-btn,
-button#logout {
-	background: #FFDF38;
-	background-image: -webkit-linear-gradient(top, #F7D933, #FC6F1A);
-	background-image: -moz-linear-gradient(top, #F7D933, #FC6F1A);
-	background-image: -ms-linear-gradient(top, #F7D933, #FC6F1A);
-	background-image: -o-linear-gradient(top, #F7D933, #FC6F1A);
-	background-image: linear-gradient(to bottom, #F7D933, #FC6F1A);
-	-webkit-border-radius: 28;
-	-moz-border-radius: 28;
-	border-radius: 28px;
-	-webkit-box-shadow: 0 10px 6px -6px #444444;
-	-moz-box-shadow: 0 10px 6px -6px #444444;
-	box-shadow: 0 10px 6px -6px #444444;
-	text-shadow: 1px 1px 3px #000000;
-	font-family: Arial;
-	color: #ffffff;
-	font-size: 20px;
-	padding: 10px 20px 10px 20px;
-	text-decoration: none;
-	font-family: 'Merriweather', serif;
-	position: absolute;
-	margin: 10px;
-	border: none;
-}
-
-a.new-game-btn {
-	max-width: 235px;
-	display: block;
-	position: absolute;
-	right: 150px;
-}
-
-button#logout {
-	right: 0px;
-}
-
-a.new-game-btn:hover,
-button#logout:hover {
-  background: #f7b733;
-  background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
-  background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
-  background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
-  background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
-  background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
-  text-decoration: none;
-}
-
-h1#logo {
-	background: #CD982B;
-	background-image: -webkit-linear-gradient(top, #CD982B, #D03B13);
-	background-image: -moz-linear-gradient(top, #CD982B, #D03B13);
-	background-image: -ms-linear-gradient(top, #CD982B, #D03B13);
-	background-image: -o-linear-gradient(top, #CD982B, #D03B13);
-	background-image: linear-gradient(to bottom, #CD982B, #D03B13);
-    -webkit-box-shadow: 0 10px 6px -6px #444444;
-       -moz-box-shadow: 0 10px 6px -6px #444444;
-            box-shadow: 0 10px 6px -6px #444444;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    padding: 10px;
-    border-right: 1px solid #7D571A;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-div#player-info h2,
-div#player-info h3 {
-	margin: 5px;
-	position: absolute;
-	left: 0px;
-}
-
-div#player-info h3 {
-	margin-top: 45px;
-}
-
-div#player-info h2 {
-	margin-top: 15px
-}

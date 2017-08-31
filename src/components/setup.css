@@ -13,6 +13,7 @@ h2.game-setup-page-title {
 	font-family: 'Monoton', cursive;
 	font-size: 3em;
 	color: #F7D933;
+	margin-top: 0px;
 }
 
 h2.game-setup-page-title2 {
@@ -77,20 +78,37 @@ div.game-setup-page-begin-btn .begin-game-btn {
 	align-content: center;
 	justify-content: center;
 	margin: 20px auto 15px auto;
-    background: #FFDF38;
-    background-image: -webkit-linear-gradient(top, #F7D933, #FC6F1A);
-    background-image: -moz-linear-gradient(top, #F7D933, #FC6F1A);
-    background-image: -ms-linear-gradient(top, #F7D933, #FC6F1A);
-    background-image: -o-linear-gradient(top, #F7D933, #FC6F1A);
-    background-image: linear-gradient(to bottom, #F7D933, #FC6F1A);
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
-    border-radius: 28px;
-    -webkit-box-shadow: 0 10px 6px -6px #444444;
-    -moz-box-shadow: 0 10px 6px -6px #444444;
-        box-shadow: 0 10px 6px -6px #444444;
-    width: 250px;
-    font-family: 'Merriweather', serif;
+	background: #FFDF38;
+	background-image: -webkit-linear-gradient(top, #F7D933, #FC6F1A);
+	background-image: -moz-linear-gradient(top, #F7D933, #FC6F1A);
+	background-image: -ms-linear-gradient(top, #F7D933, #FC6F1A);
+	background-image: -o-linear-gradient(top, #F7D933, #FC6F1A);
+	background-image: linear-gradient(to bottom, #F7D933, #FC6F1A);
+	-webkit-border-radius: 28;
+	-moz-border-radius: 28;
+	border-radius: 28px;
+	-webkit-box-shadow: 0 10px 6px -6px #444444;
+	-moz-box-shadow: 0 10px 6px -6px #444444;
+	box-shadow: 0 10px 6px -6px #444444;
+	text-shadow: 1px 1px 3px #000000;
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 20px;
+	padding: 10px 20px 10px 20px;
+	text-decoration: none;
+	font-family: 'Merriweather', serif;
+	width: 200px;
+	border: 1.5px solid white;
+}
+
+div.game-setup-page-begin-btn .begin-game-btn:hover {
+  background: #f7b733;
+  background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
+  background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
+  background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
+  background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
+  background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
+  text-decoration: none;
 }
 
 ul.movieOption li {
@@ -116,6 +134,7 @@ form#formEnd {
 	align-items: center;
 	height: 50px;
 	width: 450px;
+	border: 1.5px solid white;
 	border-radius: 5px;
 	margin: auto;
 	padding-left: 15px;
@@ -131,7 +150,7 @@ form#formEnd {
 .end-movie-btn {
 	background: none;
 	border: none;
-	border-left: 1px solid #224F5D;
+	border-left: 1.5px solid white;
 	color: white;
 	width: 150px;
 	height: 45px;

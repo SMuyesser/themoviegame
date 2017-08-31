@@ -1,10 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+import {setHeader} from '../actions/game';
 
-import {newGame} from '../actions/game';
-
-import GameInfo from './gameinfo';
+import Header from './header';
 import GuessList from './guesslist';
 import LinkChain from './linkchain';
 
@@ -12,27 +10,23 @@ import './game.css';
 
 export class Game extends React.Component {
     
-    newGame(event) {
-        this.props.dispatch(newGame());
-    };
+    componentDidMount() {
+        this.props.dispatch(setHeader('game'));
+    }
 
     render() {
         return (
             <div className="game">
-            	<GameInfo />
+                <Header />
             	<LinkChain />
                 <GuessList />
-                <div className="game-page-btn">
-                    <Link className="btn btn-danger btn-lg restart-game-btn" to="/setup" 
-                          role="button" onClick={e => this.newGame(e)}>{this.props.feedback}</Link>
-                </div>
     		</div>
         );
     }
 };
 
 const mapStateToProps = ({game}) => ({
-    feedback: game.feedback
+    state: game.state
 });
 
 export default connect(mapStateToProps)(Game);

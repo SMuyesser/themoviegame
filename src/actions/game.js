@@ -29,3 +29,9 @@ export const setScores = (scores) => ({
     type: SET_SCORES,
     scores
 });
+
+export const SET_HEADER = 'SET_HEADER';
+export const setHeader = (headerType) => ({
+    type: SET_HEADER,
+    headerType
+});

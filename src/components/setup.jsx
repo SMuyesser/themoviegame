@@ -3,9 +3,15 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import StartMovie from './startMovie';
 import EndMovie from './endMovie';
+import Header from './header';
+import {setHeader} from '../actions/game';
 import './setup.css';
 
 export class Setup extends React.Component {
+
+	componentDidMount() {
+	    this.props.dispatch(setHeader('setup'))
+	}
 
 	checkGameStart(event) {
 		console.log(this.props.finalizeStartButton);
@@ -25,9 +31,9 @@ export class Setup extends React.Component {
 	}
 
 	render() {
-		console.log(this.props);
 	    return (
 	        <div className="setup">
+	        	<Header />
 				<div className="page-header">
 					<h2 className="game-setup-page-title">How To Play</h2>
 					<p>You must alternate selecting movies and cast members from those movies to connect the starting movie to the ending movie using the least amount of links.</p>  
@@ -56,6 +62,7 @@ const mapStateToProps = ({game}) => ({
 	finalizeEndButton: game.finalizeEndButton,
 	startMovie: game.startMovie,
 	endMovie: game.endMovie,
+	headerType: game.headerType
 });
 
 export default connect(mapStateToProps)(Setup);
