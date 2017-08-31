@@ -26,6 +26,35 @@ label.login-form-label {
 	text-shadow: 2px 2px 3px #000000;
 }
 
+#login-form div.form-input {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	margin: 2px auto 5px auto;
+	width: 100%;
+	flex-direction: column;
+}
+
+#login-form div.form-input input {
+	position: relative;
+	background-color: #F8E164;
+	border-radius: 5px;
+	width: 60%;
+	color: #000E7B;
+	padding: 5px;
+	font-family: 'Merriweather', serif;
+	clear: right;
+	margin-bottom: 2px;
+}
+
+div.form-error,
+div.form-warning {
+	font-family: 'Merriweather', serif;
+	color: #C40000;
+	font-size: .5em;
+}
+
 #login-form-btn {
 	background: #FFDF38;
 	background-image: -webkit-linear-gradient(top, #F7D933, #FC6F1A);
@@ -59,32 +88,4 @@ label.login-form-label {
   text-decoration: none;
 }
 
-#login-form div.form-input {
-	display: flex;
-	justify-content: center;
-	align-content: center;
-	align-items: center;
-	margin: 2px auto 5px auto;
-	width: 100%;
-	flex-direction: column;
-}
-
-#login-form div.form-input input {
-	position: relative;
-	background-color: #F8E164;
-	border-radius: 5px;
-	width: 60%;
-	color: #000E7B;
-	padding: 5px;
-	font-family: 'Merriweather', serif;
-	clear: right;
-	margin-bottom: 2px;
-}
-
-div.form-error,
-div.form-warning {
-	font-family: 'Merriweather', serif;
-	color: #C40000;
-	font-size: .5em;
-}
 

@@ -1,3 +1,7 @@
+/*************************************************************
+	Guesslist main
+*************************************************************/
+
 div.guesslist {
 	width: 96%;
 	display: block;
@@ -8,12 +12,80 @@ div.guesslist {
     font-family: 'Merriweather', serif;
 }
 
+/* header in game */
 .guesslist h1 {
 	font-size: 2em;
 	text-align: center;
 	margin: 5px;
 }
 
+/* background for game chain and guess list */
+div.guess {
+	background: #f7b733;
+	background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
+	background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
+	background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
+	background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
+	background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
+	margin-bottom: 10px;
+    -webkit-box-shadow: 0 10px 6px -6px #444444;
+    -moz-box-shadow: 0 10px 6px -6px #444444;
+    box-shadow: 0 10px 6px -6px #444444;
+}
+
+/* list of actor or movie images */
+ul#castList {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	list-style: none;
+	text-align: center;
+	padding-left: 5px;
+	max-height: 450px;
+	overflow-y: auto;
+}
+
+/* each clickable actor or movie */
+ul#castList li {
+	margin-bottom: 10px;
+	width: 150px;
+	background: #000046;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	color: white;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 2px;
+    -webkit-box-shadow: 0 10px 6px -6px #444444;
+   -moz-box-shadow: 0 10px 6px -6px #444444;
+    box-shadow: 0 10px 6px -6px #444444;
+    display: flex;
+    flex-direction: column-reverse;
+	align-content: flex-end;
+	align-items: space-between;
+}
+
+/* removes button look for eac item */
+ul#castList button {
+	background: none;
+	border: none;
+	color: white;
+}
+
+ul#castList button li img {
+	display: block;
+	margin: 5px auto 2px auto;
+	position: relative;
+	bottom: 0px;
+}
+
+
+
+/*************************************************************
+	Win screen
+*************************************************************/
+
+/* header for win game */
 h1, div#gameWinInfo h2 {
 	color: white;
 	text-shadow: 2px 2px 3px black;
@@ -76,80 +148,11 @@ img#finalMoviePic {
     border-radius: 5%;
 }
 
-div.guess {
-	background: #f7b733;
-	background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
-	margin-bottom: 10px;
-    -webkit-box-shadow: 0 10px 6px -6px #444444;
-    -moz-box-shadow: 0 10px 6px -6px #444444;
-    box-shadow: 0 10px 6px -6px #444444;
-}
 
-div.actor {
-	background-color: #DCDADA;
-	color: #717171;
-}
 
-div.guess div.input-group {
-	display: flex;
-	justify-content: center;
-}
-
-h1#startId {
-	width: 100%;
-	padding-top: 5px;
-	text-align: center;
-	margin-bottom: 0px;
-	color: white;
-	text-shadow: 2px 2px 3px black;
-}
-
-ul#castList {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	list-style: none;
-	text-align: center;
-	padding-left: 5px;
-	max-height: 450px;
-	overflow-y: auto;
-}
-
-ul#castList li {
-	margin-bottom: 10px;
-	width: 150px;
-	background: #000046;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to top, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to top, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	color: white;
-	margin-left: auto;
-	margin-right: auto;
-	padding: 2px;
-    -webkit-box-shadow: 0 10px 6px -6px #444444;
-   -moz-box-shadow: 0 10px 6px -6px #444444;
-    box-shadow: 0 10px 6px -6px #444444;
-    display: flex;
-    flex-direction: column-reverse;
-	align-content: flex-end;
-	align-items: space-between;
-}
-
-ul#castList button li img {
-	display: block;
-	margin: 5px auto 2px auto;
-	position: relative;
-	bottom: 0px;
-}
-
-ul#castList button {
-	background: none;
-	border: none;
-	color: white;
-}
+/*************************************************************
+	Responsive
+*************************************************************/
 
 @media screen and (max-width: 768px) {
 	.guesslist h1 {

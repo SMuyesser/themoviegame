@@ -19,6 +19,7 @@ form.register-form {
     align-items: center;
 }
 
+/* containers for each input and label */
 form.register-form div {
 	display: flex;
 	flex-direction: column;
@@ -52,6 +53,7 @@ form.register-form div input {
 	margin: 2px auto 5px auto;
 }
 
+/* error message span */
 form.register-form span {
 	font-family: 'Merriweather', serif;
 	color: #C40000;

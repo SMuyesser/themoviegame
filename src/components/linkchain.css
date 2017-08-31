@@ -1,32 +1,6 @@
-#startLi,
-.middleLi,
-#endLi {
-	font-weight: bold;
-}
-
-#startLi {
-	color: #158000;
-	margin-right: 5px;
-	text-shadow: 1px 1px 2px white;
-}
-
-#startLi::after {
-	content: '  \279c  ';
-}
-
-.middleLi::after {
-	content: "  🔗  ";
-	color: #158000;
-}
-
-.middleLi {
-	margin-right: 5px;
-}
-
-#endLi {
-	color: #A00000;
-	text-shadow: 1px 1px 2px white;
-}
+/*************************************************************
+	Linkchain main
+*************************************************************/
 
 div.linkChain {
 	width: 96%;
@@ -38,6 +12,49 @@ div.linkChain {
     text-shadow: 1px 1px 2px black;
 }
 
+h1#linkChainHeader {
+	width: 100%;
+	padding-top: 5px;
+	text-align: center;
+	margin-bottom: 0px;
+	color: white;
+	text-shadow: 2px 2px 3px black;
+}
+
+#startLi,
+.middleLi,
+#endLi {
+	font-weight: bold;
+}
+
+/* starting link green with arrow */
+#startLi {
+	color: #158000;
+	margin-right: 5px;
+	text-shadow: 1px 1px 2px white;
+}
+
+#startLi::after {
+	content: '  \279c  ';
+}
+
+/* link chain icon after each link */
+.middleLi::after {
+	content: "  🔗  ";
+	color: #158000;
+}
+
+.middleLi {
+	margin-right: 5px;
+}
+
+/* last link red */
+#endLi {
+	color: #A00000;
+	text-shadow: 1px 1px 2px white;
+}
+
+/* all links in between */
 ul#selectedLinks {
 	margin-left: auto;
 	margin-right: auto;
@@ -54,13 +71,5 @@ ul#selectedLinks {
 	overflow-y: auto;
 }
 
-h1#linkChainHeader {
-	width: 100%;
-	padding-top: 5px;
-	text-align: center;
-	margin-bottom: 0px;
-	color: white;
-	text-shadow: 2px 2px 3px black;
-}
 
 

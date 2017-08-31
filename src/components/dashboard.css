@@ -20,7 +20,7 @@ div.dashboard {
 div#stats-header-fix {
 	width: 100%;
 	position: fixed;
-	top: 76px;
+	top: 74px;
 	display: flex;
 	align-items: center;
 }

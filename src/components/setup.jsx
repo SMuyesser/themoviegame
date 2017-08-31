@@ -14,10 +14,6 @@ export class Setup extends React.Component {
 	}
 
 	checkGameStart(event) {
-		console.log(this.props.finalizeStartButton);
-		console.log(this.props.finalizeEndButton);
-		console.log(this.props.startMovie);
-		console.log(this.props.endMovie);
 		if (this.props.finalizeStartButton !== 'Ready!' && this.props.finalizeEndButton !== 'Ready!') {
 			alert('You must select and ready both start and end movies')
 			event.preventDefault();
