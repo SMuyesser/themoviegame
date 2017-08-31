@@ -1,3 +1,13 @@
+/*************************************************************
+	Home screen layout and top text
+*************************************************************/
+
+div.home {
+	font-family: 'Monoton', cursive;
+	color: #F7D933;
+	font-size: 2em;
+}
+
 div.jumbotron {
 	position: absolute;
 	display: flex;
@@ -23,11 +33,11 @@ div.jumbotron p {
 	color: white;
 }
 
-div.home {
-	font-family: 'Monoton', cursive;
-	color: #F7D933;
-	font-size: 2em;
-}
+
+
+/*************************************************************
+	Container to help center form
+*************************************************************/
 
 div.form-container {
 	width: 100%;
@@ -35,9 +45,9 @@ div.form-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
 }	
 
+#login-link,
 #register-link {
 	-moz-border-radius: 28;
 	border-radius: 28px;
@@ -51,15 +61,15 @@ div.form-container {
 	text-decoration: none;
 	font-family: 'Merriweather', serif;
 	border: 1.5px solid white;
-	margin: auto;
-    background: #f7b733;
-    background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
-    background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
-    background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
-    background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
-    background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
+  	background: #f7b733;
+	background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
+	background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
+	background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
+	background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
+	background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
 }
 
+#login-link:hover,
 #register-link:hover {
 	background: #FFDF38;
 	background-image: -webkit-linear-gradient(top, #F7D933, #FC6F1A);
@@ -69,5 +79,3 @@ div.form-container {
 	background-image: linear-gradient(to bottom, #F7D933, #FC6F1A);
 	-webkit-border-radius: 28;
 }
-
-

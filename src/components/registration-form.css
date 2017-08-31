@@ -1,34 +1,3 @@
-/*************************************************
-	REGISTER
-*************************************************/
-
-div.register-page-main {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	font-family: 'Merriweather', serif;
-	text-shadow: 2px 2px 3px black;
-}
-
-div.register-page-main h1#homeTitle {
-	margin-bottom: 2px;
-  	color: #F7D933;
-  	font-size: 3em;
-  	font-family: 'Monoton', cursive;
-}
-
-div.register-page-main p {
-	font-family: 'Merriweather', serif;
-	font-size: .75em;
-	margin-top: 2px;
-	margin-bottom: 100px;
-	color: #FC6F1A;
-}
-
-div.register-page-main h2 {
-	color: white;
-}
-
 form.register-form {
 	background: #f7b733;
 	background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
@@ -50,13 +19,21 @@ form.register-form {
     align-items: center;
 }
 
+form.register-form div {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 form.register-form label {
 	font-family: 'Merriweather', serif;
 	color: white;
 	text-shadow: 2px 2px 3px #000000;
 }
 
-form.register-form div.form-input {
+form.register-form div input {
 	display: flex;
 	justify-content: center;
 	align-content: center;
@@ -64,62 +41,32 @@ form.register-form div.form-input {
 	margin: 2px auto 5px auto;
 	width: 100%;
 	flex-direction: column;
-}
-
-form.register-form div.form-input input {
 	position: relative;
 	background-color: #F8E164;
 	border-radius: 5px;
-	width: 60%;
+	width: 50%;
 	color: #000E7B;
 	padding: 5px;
 	font-family: 'Merriweather', serif;
 	clear: right;
-	margin: 2px auto;
+	margin: 2px auto 5px auto;
 }
 
-div.form-error,
-div.form-warning {
+form.register-form span {
 	font-family: 'Merriweather', serif;
 	color: #C40000;
 	font-size: .5em;
 	text-shadow: 1px 1px 2px #716F6F;
 }
 
-#login-link {
-	-moz-border-radius: 28;
-	border-radius: 28px;
-	-webkit-box-shadow: 0 10px 6px -6px #444444;
-	-moz-box-shadow: 0 10px 6px -6px #444444;
-	box-shadow: 0 10px 6px -6px #444444;
-	text-shadow: 1px 1px 2px #000000;
-	color: white;
-	font-size: 15px;
-	padding: 10px 20px 10px 20px;
-	text-decoration: none;
-	font-family: 'Merriweather', serif;
-	border: 1.5px solid white;
-  	background: #f7b733;
-	background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
-	display: flex;
-	justify-content: center;
+#register-btn-container {
+	flex-direction: row;
+	align-items: center;
+	width: 50%;
 }
 
-#login-link:hover {
-	background: #FFDF38;
-	background-image: -webkit-linear-gradient(top, #F7D933, #FC6F1A);
-	background-image: -moz-linear-gradient(top, #F7D933, #FC6F1A);
-	background-image: -ms-linear-gradient(top, #F7D933, #FC6F1A);
-	background-image: -o-linear-gradient(top, #F7D933, #FC6F1A);
-	background-image: linear-gradient(to bottom, #F7D933, #FC6F1A);
-	-webkit-border-radius: 28;
-}
-
-#register-form-btn {
+#register-form-submit-btn,
+#register-form-clear-btn {
 	background: #FFDF38;
 	background-image: -webkit-linear-gradient(top, #F7D933, #FC6F1A);
 	background-image: -moz-linear-gradient(top, #F7D933, #FC6F1A);
@@ -142,7 +89,8 @@ div.form-warning {
 	margin: 10px auto;
 }
 
-#register-form-btn:hover {
+#register-form-submit-btn:hover,
+#register-form-clear-btn:hover {
   background: #f7b733;
   background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
   background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
@@ -151,3 +99,4 @@ div.form-warning {
   background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
   text-decoration: none;
 }
+

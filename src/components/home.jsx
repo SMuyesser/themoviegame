@@ -46,7 +46,7 @@ export class Home extends React.Component {
         } else if (this.state.formType === 'register') {
             form = (
                 <div className="form-container">
-                    <RegistrationForm />
+                    <RegistrationForm onSubmit={values => {console.log(values)}} />
                     <Link id="login-link" to="/" onClick={() => this.setFormToLogin()}>Existing Player Login</Link>
                 </div>
             )

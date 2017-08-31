@@ -1,81 +1,64 @@
 import React from 'react';
-import {Field, reduxForm, focus} from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 import {registerPlayer} from '../actions/players';
 import {login} from '../actions/auth';
-import Input from './input';
-import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
-import {Redirect} from 'react-router-dom';
-
 import './registration-form.css';
 
-export class RegistrationForm extends React.Component {
 
-        constructor(props){
-        super(props);
-        this.state = {
-            redirect: false
-        }
-    }
+const validate = values => {
+  const errors = {}
+  if (!values.playername) {
+    errors.playername = 'Required'
+  } 
 
-    onSubmit(values) {
-        const {playername, password, email} = values;
-        const player = {playername, password, email};
-        return this.props
-            .dispatch(registerPlayer(player))
-            .then(() => this.props.dispatch(login(playername, password)))
-            .then(() => this.setState({
-                redirect: true
-            }))
-    }
+  if (values.password !== values.passwordConfirm) {
+    errors.passwordConfirm = 'Passwords do not match'
+  }
 
-    render() {
-        if(this.state.redirect) {
-            return <Redirect to='/dashboard' />;
-        }
+  if (!values.email) {
+    errors.email = 'Required'
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email address'
+  }
+  return errors
+}
 
-        return (
-            <form
-                className="register-form"
-                onSubmit={this.props.handleSubmit(values =>
-                    this.onSubmit(values)
-                )}>
-                <h1 className="form-title">Register</h1>
-                <label htmlFor="playername">Player Name</label>
-                <Field
-                    component={Input}
-                    type="text"
-                    name="playername"
-                    validate={[required, nonEmpty, isTrimmed]}
-                />
-                <label htmlFor="password">Password</label>
-                <Field
-                    component={Input}
-                    type="password"
-                    name="password"
-                    validate={[required, length({min: 10, max: 72}), isTrimmed]}
-                />
-                <label htmlFor="passwordConfirm">Confirm password</label>
-                <Field
-                    component={Input}
-                    type="password"
-                    name="passwordConfirm"
-                    validate={[required, nonEmpty, matches('password')]}
-                />
-                <label htmlFor="email">Email</label>
-                <Field component={Input} type="text" name="email" />
-                <button
-                    id="register-form-btn"
-                    type="submit"
-                    disabled={this.props.pristine || this.props.submitting}>
-                    Register
-                </button>
-            </form>
-        );
-    }
+const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
+  <div>
+    <label>{label}</label>
+    <div>
+      <input {...input} placeholder={label} type={type}/>
+      {touched && (error && <span>{error}</span>)}
+    </div>
+  </div>
+)
+
+const playerRegistrationForm = (props) => {
+
+  const { handleSubmit, pristine, reset, submitting } = props
+  const onSubmit = values => {
+      const {playername, password, email} = values;
+      const player = {playername, password, email};
+      return props
+          .dispatch(registerPlayer(player))
+          .then(() => props.dispatch(login(playername, password)))
+  }
+  return (              
+    <form onSubmit={handleSubmit(values => onSubmit(values))} className="register-form">
+      <h1 className="form-title">Register</h1>
+      <Field name="playername" type="text" component={renderField} label="Player Name"/>
+      <Field name="password" type="password" component={renderField} label="Password"/>
+      <Field name="passwordConfirm" type="password" component={renderField} label="Confirm Password"/>
+      <Field name="email" type="text" component={renderField} label="Email"/>
+      <div id="register-btn-container">
+        <button id="register-form-submit-btn" type="submit" disabled={submitting}>Submit</button>
+        <button id="register-form-clear-btn" type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
+      </div>
+    </form>
+  )
 }
 
 export default reduxForm({
-    form: 'registration',
-    onSubmitFail: (errors, dispatch) =>
-        dispatch(focus('registration', Object.keys(errors)[0]))
-})(RegistrationForm);
+  form: 'playerRegistrationForm', 
+  validate                 
+})(playerRegistrationForm)

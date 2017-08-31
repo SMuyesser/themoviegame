@@ -36,11 +36,11 @@ export class Dashboard extends React.Component {
         let stats;
         let linkList;
         stats = this.props.scores.map((score, index) => {
-            linkList = score.links.map(link => {
-                return<li className="linkList">{link}</li>
+            linkList = score.links.map((link, index) => {
+                return<li className="linkList" key={index}>{link}</li>
             })
             return (<div className="stats" key={index}>
-                <h2 className="game-record-title">Game {index+1}</h2>
+                <h2 className="game-number-stats">Game {index+1}</h2>
                 <div className="link-stats">
                     <h3>Total Links: {score.linkCount}</h3>
                     <ul>{linkList}</ul>
