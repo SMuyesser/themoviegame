@@ -2,25 +2,66 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 
+import RegistrationForm from './registration-form';
 import LoginForm from './login-form';
+
 import './home.css';
 
-export function Home(props) {
-    // If we are logged in redirect straight to the user's dashboard
-    if (props.loggedIn) {
-        return <Redirect to="/dashboard" />;
+export class Home extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            formType: 'login'
+        }
     }
 
-    return (
-        <div className="home">
-				<div className="jumbotron landing-page-title">
-					<h1 id="homeTitle">THE MOVIE GAME</h1>
-					<p>A fun way to test your knowledge of movies and casts.</p>
-		            <LoginForm />
-		            <Link to="/register">Register</Link>
-				</div>
-        </div>
-    );
+    setFormToRegister() {
+        this.setState({
+            formType: 'register'
+        })
+    }
+
+    setFormToLogin() {
+        this.setState({
+            formType: 'login'
+        })
+    }
+
+    render() {
+        // If we are logged in (which happens automatically when registration
+        // If we are logged in redirect straight to the user's dashboard
+        if (this.props.loggedIn) {
+            return <Redirect to="/dashboard" />;
+        }
+        
+        let form;
+        if(this.state.formType === 'login') {
+            form = (
+                <div className="form-container">
+                    <LoginForm />
+                    <Link id="register-link" to="/" onClick={() => this.setFormToRegister()}>Register New Player</Link>
+                </div>
+            )
+        } else if (this.state.formType === 'register') {
+            form = (
+                <div className="form-container">
+                    <RegistrationForm />
+                    <Link id="login-link" to="/" onClick={() => this.setFormToLogin()}>Existing Player Login</Link>
+                </div>
+            )
+        }
+        return (
+
+            <div className="home">
+                    <div className="jumbotron landing-page-title">
+                        <h1 id="homeTitle">THE MOVIE GAME</h1>
+                        <p>A fun way to test your knowledge of movies and casts.</p>
+                        {form}
+                    </div>
+            </div>
+        );
+    }
 };
 
 const mapStateToProps = ({auth}) => ({

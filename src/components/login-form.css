@@ -1,78 +1,32 @@
-div.header {
-	display: flex;
-	position: fixed;
-	top: 0px;
-	width:100%;
-	height: 75px;
-	border-radius: 0px 0px 10px 10px;
+#login-form {
 	background: #f7b733;
 	background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
 	background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
 	background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
 	background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
 	background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
+	margin-bottom: 10px;
     -webkit-box-shadow: 0 10px 6px -6px #444444;
-       -moz-box-shadow: 0 10px 6px -6px #444444;
-            box-shadow: 0 10px 6px -6px #444444;
-    font-family: 'Merriweather', serif;
-}
-
-div#top-space-fix {
-	margin-top: 80px;
-	display: block;
-	width:100%;
-	height: 5px;
-}
-
-h1#logo {
-	font-family: 'Monoton', cursive;
-
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    padding: 10px;
-    margin-left: auto;
+    -moz-box-shadow: 0 10px 6px -6px #444444;
+    box-shadow: 0 10px 6px -6px #444444;
+    width: 50%;
     margin-right: auto;
-    font-size: 4em;
-    font-weight: lighter;
+    margin-left: auto;
+    border-radius: 10px;
+    padding: 10px;
 }
 
-div#player-info {
-	position: absolute;
-	left: 0px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+h1.form-title {
+	font-weight: lighter;
 }
 
-div#player-info h2,
-div#player-info h4 {
-	margin: 5px;
-	text-shadow: 2px 2px 3px black;
-	color: white;
-}
-
-div#player-info h2.setup-header,
-div#player-info h2.dash-header {
-	margin-top: 5px
-}
-
-ul#gameInfoText {
-	text-shadow: 2px 2px 3px black;
-	color: white;
+label.login-form-label {
 	font-family: 'Merriweather', serif;
-	list-style: none;
-	display: flex;
-	margin: 0;
-	padding-left: 0px;
+	color: white;
+	text-shadow: 2px 2px 3px #000000;
 }
 
-#new-game-btn,
-#logout,
-#to-dash-btn,
-div.restart-game-btn-div #restart-game-btn {
+#login-form-btn {
 	background: #FFDF38;
 	background-image: -webkit-linear-gradient(top, #F7D933, #FC6F1A);
 	background-image: -moz-linear-gradient(top, #F7D933, #FC6F1A);
@@ -85,21 +39,17 @@ div.restart-game-btn-div #restart-game-btn {
 	-webkit-box-shadow: 0 10px 6px -6px #444444;
 	-moz-box-shadow: 0 10px 6px -6px #444444;
 	box-shadow: 0 10px 6px -6px #444444;
-	text-shadow: 1px 1px 3px #000000;
+	text-shadow: 1px 1px 2px #000000;
 	color: white;
-	font-size: 15px;
+	font-size: 20px;
 	padding: 10px 20px 10px 20px;
 	text-decoration: none;
 	font-family: 'Merriweather', serif;
 	border: 1.5px solid white;
-	position: absolute;
-	top: 15px;
+	margin: 10px auto;
 }
 
-#new-game-btn:hover,
-#logout:hover,
-#to-dash-btn:hover,
-div.restart-game-btn-div #restart-game-btn:hover {
+#login-form-btn:hover {
   background: #f7b733;
   background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
   background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
@@ -109,19 +59,31 @@ div.restart-game-btn-div #restart-game-btn:hover {
   text-decoration: none;
 }
 
-#new-game-btn {
-	right: 126px;
+#login-form div.form-input {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	margin: 2px auto 5px auto;
+	width: 100%;
+	flex-direction: column;
 }
 
-#logout {
-	right: 10px;
+#login-form div.form-input input {
+	position: relative;
+	background-color: #F8E164;
+	border-radius: 5px;
+	width: 60%;
+	color: #000E7B;
+	padding: 5px;
+	font-family: 'Merriweather', serif;
+	clear: right;
+	margin-bottom: 2px;
 }
 
-#to-dash-btn {
-	z-index: 10;
-	right: 126px;
-}
-
-div.restart-game-btn-div #restart-game-btn {
-	right: 290px;
+div.form-error,
+div.form-warning {
+	font-family: 'Merriweather', serif;
+	color: #C40000;
+	font-size: .5em;
 }

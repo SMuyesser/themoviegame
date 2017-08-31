@@ -2,14 +2,14 @@ div.dashboard {
 	display: flex;
 	flex-direction: column;
 	color: white;
-	margin-bottom: 100px;
+	margin-bottom: 0px;
 	width: 100%;
-	text-shadow: 2px 2px 3px black;
+	text-shadow: 1px 1px 1px black;
 }
 
 div.stats {
 	margin: 0px auto 7.5px auto;
-	width:99%;
+	width:95%;
 	border: 1.5px solid white;
 	border-radius: 10px;
 	background: #56CCF2;  /* fallback for old browsers */

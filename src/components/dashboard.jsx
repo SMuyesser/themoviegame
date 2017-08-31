@@ -36,6 +36,7 @@ export class Dashboard extends React.Component {
         let stats;
         stats = this.props.scores.map((score, index) => {
             return (<div className="stats" key={index}>
+                <h1>Game {index+1}</h1>
                 <img src={score.startPic} alt={score.start+' poster'} 
                     style={{
                     height: '100px',

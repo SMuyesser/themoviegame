@@ -40,7 +40,7 @@ export class Header extends React.Component {
                     <h1 id="logo">The Movie Game</h1>
                     <div id="player-info">
                         <h2 className="dash-header">Player: {this.props.playername}</h2>
-                        <h3 className="dash-header">Games Played: {this.props.scores.length}</h3>
+                        <h4 className="dash-header">Total Games Won: {this.props.scores.length}</h4>
                     </div>
                     <div className="landing-page-new-game">
                         <Link id="new-game-btn" to="/setup">New Game</Link>

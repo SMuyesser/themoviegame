@@ -1,9 +1,9 @@
 div.jumbotron {
 	position: absolute;
-	top: 15%;
 	display: flex;
 	flex-direction: column;
 	width: 100%;
+	align-items: center;
 	align-content: center;
 	justify-content: center;
 	text-align: center;
@@ -11,20 +11,63 @@ div.jumbotron {
 
 div.jumbotron h1#homeTitle {
 	margin-bottom: 2px;
-  color: #F7D933;
+  	color: white;
+  	font-weight: lighter;
 }
 
 div.jumbotron p {
 	font-family: 'Merriweather', serif;
 	font-size: .75em;
 	margin-top: 2px;
-	margin-bottom: 100px;
-	color: FC6F1A;
+	margin-bottom: 30px;
+	color: white;
 }
 
 div.home {
 	font-family: 'Monoton', cursive;
 	color: #F7D933;
 	font-size: 2em;
+}
+
+div.form-container {
+	width: 100%;
+	margin-bottom: 50px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
 }	
+
+#register-link {
+	-moz-border-radius: 28;
+	border-radius: 28px;
+	-webkit-box-shadow: 0 10px 6px -6px #444444;
+	-moz-box-shadow: 0 10px 6px -6px #444444;
+	box-shadow: 0 10px 6px -6px #444444;
+	text-shadow: 1px 1px 2px #000000;
+	color: white;
+	font-size: 15px;
+	padding: 10px 20px 10px 20px;
+	text-decoration: none;
+	font-family: 'Merriweather', serif;
+	border: 1.5px solid white;
+	margin: auto;
+    background: #f7b733;
+    background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
+    background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
+    background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
+    background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
+    background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
+}
+
+#register-link:hover {
+	background: #FFDF38;
+	background-image: -webkit-linear-gradient(top, #F7D933, #FC6F1A);
+	background-image: -moz-linear-gradient(top, #F7D933, #FC6F1A);
+	background-image: -ms-linear-gradient(top, #F7D933, #FC6F1A);
+	background-image: -o-linear-gradient(top, #F7D933, #FC6F1A);
+	background-image: linear-gradient(to bottom, #F7D933, #FC6F1A);
+	-webkit-border-radius: 28;
+}
+
 

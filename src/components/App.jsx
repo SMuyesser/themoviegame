@@ -6,7 +6,6 @@ import Home from './home';
 import Dashboard from './dashboard';
 import Setup from './setup';
 import Game from './game';
-import RegistrationPage from './registration-page';
 import {refreshAuthToken} from '../actions/auth';
 
 export class App extends React.Component {
@@ -52,7 +51,6 @@ export class App extends React.Component {
 	    return (
 	        <div className="App">
 	          	<Route exact path="/" component={Home} />
-                <Route exact path="/register" component={RegistrationPage} />
                 <Route exact path="/dashboard" component={Dashboard} />
 	          	<Route exact path="/setup"  component={Setup} />
 	          	<Route exact path="/game" component={Game} />

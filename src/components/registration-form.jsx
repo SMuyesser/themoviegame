@@ -6,6 +6,7 @@ import Input from './input';
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
 import {Redirect} from 'react-router-dom';
 
+import './registration-form.css';
 
 export class RegistrationForm extends React.Component {
 
@@ -34,10 +35,11 @@ export class RegistrationForm extends React.Component {
 
         return (
             <form
-                className="login-form"
+                className="register-form"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
+                <h1 className="form-title">Register</h1>
                 <label htmlFor="playername">Player Name</label>
                 <Field
                     component={Input}
@@ -62,6 +64,7 @@ export class RegistrationForm extends React.Component {
                 <label htmlFor="email">Email</label>
                 <Field component={Input} type="text" name="email" />
                 <button
+                    id="register-form-btn"
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}>
                     Register
