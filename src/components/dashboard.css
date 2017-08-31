@@ -9,7 +9,7 @@ div.dashboard {
 
 div.stats {
 	margin: 0px auto 7.5px auto;
-	width:95%;
+	width:80%;
 	border: 1.5px solid white;
 	border-radius: 10px;
 	background: #56CCF2;  /* fallback for old browsers */
@@ -18,7 +18,6 @@ div.stats {
     -webkit-box-shadow: 0 10px 6px -6px #444444;
        -moz-box-shadow: 0 10px 6px -6px #444444;
             box-shadow: 0 10px 6px -6px #444444;
-    padding: 5px;
     display: flex;
     justify-content: space-around;
 }
@@ -26,6 +25,88 @@ div.stats {
 div.start-stats,
 div.end-stats,
 div.link-stats {
-	width: 15%;
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-content: center;
+	align-items: flex-start;
+	font-family: 'Merriweather', serif;
+	background: #8BDAF3;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #5697EE, #8BDAF3);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #5697EE, #8BDAF3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	padding-left: 5px;
 }
 
+div.start-stats {
+	background: #56CCF2;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+div.end-stats {
+	border-radius: 0px 10px 10px 0px;
+}
+
+div.link-stats {
+	align-items: flex-start;
+	padding-left: 5px;
+}
+
+div.link-stats ul {
+	list-style: none;
+	padding-left: 0px;
+	max-height: 85px;
+	min-width: 100%;
+	overflow-y: auto;
+}
+
+div.link-stats h3 {
+	margin-bottom: 0px;
+}
+
+h2.game-record-title {
+	font-family: 'Merriweather', serif;
+	width: 9%;
+	margin-left: 1%;
+}
+
+.linkList::before {
+	content: "  🔗  ";
+	color: #158000;
+}
+
+div#stats-header-fix {
+	width: 100%;
+	position: fixed;
+	top: 76px;
+	display: flex;
+	align-items: center;
+}
+
+div#stats-header {
+	position: relative;
+}
+
+#stats-header h2 {
+	width: 30%;
+	margin: 0px;
+	padding-left: 1%;
+}
+
+h2#game-number {
+	width: 10%;
+	padding-left: 1%;
+	border-radius: 10px 0px 0px 10px
+}
+
+img.dash-pic {
+	margin-bottom: 5px;
+}
+
+#game-number,
+#start-header {
+	background: #296376;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to bottom, #1C7FA0, #296376);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to bottom, #1C7FA0, #296376); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

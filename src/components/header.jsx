@@ -33,6 +33,7 @@ export class Header extends React.Component {
             );
         }
         let header;
+        let headerFix;
         //render header for dashboard
         if (this.props.headerType === 'dashboard') {
             header = (
@@ -48,6 +49,7 @@ export class Header extends React.Component {
                     {logOutButton}
                 </div>
             )
+            headerFix = (<div id="dash-header-fix"></div>)
         } 
         //render header for setup
         else if ( this.props.headerType === 'setup') {
@@ -90,6 +92,7 @@ export class Header extends React.Component {
         return (
             <div className="header-container">
                 {header}
+                {headerFix}
                 <div id="top-space-fix"></div>
             </div>
         );
