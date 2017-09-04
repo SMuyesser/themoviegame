@@ -58,10 +58,16 @@ export class EndMovie extends React.Component {
 
 	readyFinalizeEnd(event) {
 		event.preventDefault();
+		const movieTitles = this.state.options.map(movie => {
+			return movie.title.toUpperCase();
+		})
 		const endMovieValue = this.input.state.query.toUpperCase();
 		if(endMovieValue.length < 1) {
 			alert('Movie field is empty')
 			return
+		}
+		else if(movieTitles.indexOf(this.input.state.query.toUpperCase()) === -1) {
+			alert('You must select an end movie option from the dropdown menu');
 		}
 		else {
 			let endButton = document.getElementById('formEnd');
