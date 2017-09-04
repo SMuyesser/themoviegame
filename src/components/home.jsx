@@ -56,8 +56,9 @@ export class Home extends React.Component {
             <div className="home">
                     <div className="jumbotron landing-page-title">
                         <h1 id="homeTitle">THE MOVIE GAME</h1>
-                        <p>A fun way to test your knowledge of movies and casts.</p>
+                        <p>A fun puzzle game to test your knowledge of movies and casts.</p>
                         {form}
+                        <p>Demo Player: DemoPlayer | Password: Demo1234</p>
                     </div>
             </div>
         );
