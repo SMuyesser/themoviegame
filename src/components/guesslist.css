@@ -120,6 +120,7 @@ div#gameWinMovie {
             box-shadow: 0 10px 6px -6px #444444;
     border-radius: 5px;
     padding: 10px;
+    margin-bottom: 10px;
 }
 
 div#gameWinInfo h3 {
@@ -194,8 +195,13 @@ div.restart-game-btn-div #restart-game-btn:hover {
 *************************************************************/
 
 @media screen and (max-width: 768px) {
+
 	.guesslist h1 {
 		font-size: 2em;
+	}
+
+	div#gameHeaders {
+		margin-bottom: 15px;
 	}
 
 	div#gameWinInfo {
