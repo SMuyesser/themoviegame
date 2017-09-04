@@ -79,3 +79,30 @@ div.form-container {
 	background-image: linear-gradient(to bottom, #F7D933, #FC6F1A);
 	-webkit-border-radius: 28;
 }
+
+
+
+/*************************************************************
+	Responsive
+*************************************************************/
+
+@media screen and (max-width: 715px) {
+
+	div.home {
+		font-size: 1.5em;
+	}
+}
+
+@media screen and (max-width: 525px) {
+
+	div.home {
+		font-size: 1em;
+	}
+
+	#login-form div.form-input {
+
+		width: 80%;
+	}
+
+}
+

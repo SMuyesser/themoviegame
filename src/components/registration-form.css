@@ -102,3 +102,28 @@ form.register-form span {
   text-decoration: none;
 }
 
+
+
+/*************************************************************
+	Responsive
+*************************************************************/
+
+@media screen and (max-width: 750px) {
+
+	form.register-form h1.form-title {
+		font-size: 1.8em;
+	}
+
+	#register-btn-container {
+		flex-direction: column;
+	}
+
+	#register-form-submit-btn,
+	#register-form-clear-btn {
+		font-size: 15px;
+		margin: 3px auto;
+		padding: 7px 10px;
+	}
+
+}
+

@@ -266,17 +266,22 @@ ul.dropdown-menu span.year {
 
 @media screen and (max-width: 768px) {
 
-	ul#instructions {
-		text-align: center;
-		padding-left: -30px;
-		color: white;
-		list-style: none;
-		font-size: .75em;
-		line-height: 2em;
-		padding-top: 20px;
-		margin-left: auto;
-		margin-right: auto;
+	h2.game-setup-page-title {
+		font-size: 2em;
 	}
+
+	div.page-header p {
+		font-size: .5em;
+	}
+
+	ul.instructions {
+		padding-top: 5px;
+		font-size: .25em;
+	}
+
+	h2.game-setup-page-title2 {
+		font-size: 1.75em;
+	}	
 
 	form#formStart,
 	form#formEnd {
@@ -307,8 +312,8 @@ ul.dropdown-menu span.year {
 	}
 
 	ul.dropdown-menu {
-		position: absolute;
-		left: 0px;
+		border: 1.5px solid white;
+		top: -316.5px;
 		width: 245px;
 		background-color: #A03434;
 		list-style: none;

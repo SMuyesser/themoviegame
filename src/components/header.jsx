@@ -78,10 +78,6 @@ export class Header extends React.Component {
                             <li><h3 className="gameInfo-text">Links Used: {this.props.linkChain.length}</h3></li>
                         </ul>
                     </div>
-                    <div className="restart-game-btn-div">
-                        <Link id="restart-game-btn" to="/setup" 
-                              role="button" onClick={() => this.newGame()}>{this.props.feedback}</Link>
-                    </div>
                     <div className="to-dash-btn-div">
                         <Link to='/dashboard' id="to-dash-btn" onClick={() => this.newGame()}>To Dashboard</Link>
                     </div>

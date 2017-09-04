@@ -4,7 +4,9 @@
 
 div.guesslist {
 	width: 96%;
-	display: block;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 	margin-left: auto;
 	margin-right: auto;
 	border-radius: 5px;
@@ -17,6 +19,10 @@ div.guesslist {
 	font-size: 2em;
 	text-align: center;
 	margin: 5px;
+}
+
+div#guessTitle {
+	margin-bottom: 15px;
 }
 
 /* background for game chain and guess list */
@@ -62,7 +68,7 @@ ul#castList li {
     display: flex;
     flex-direction: column-reverse;
 	align-content: flex-end;
-	align-items: space-between;
+	align-items: center;
 }
 
 /* removes button look for eac item */
@@ -148,6 +154,39 @@ img#finalMoviePic {
     border-radius: 5%;
 }
 
+div.restart-game-btn-div #restart-game-btn {
+	background: #FFDF38;
+	background-image: -webkit-linear-gradient(top, #F7D933, #FC6F1A);
+	background-image: -moz-linear-gradient(top, #F7D933, #FC6F1A);
+	background-image: -ms-linear-gradient(top, #F7D933, #FC6F1A);
+	background-image: -o-linear-gradient(top, #F7D933, #FC6F1A);
+	background-image: linear-gradient(to bottom, #F7D933, #FC6F1A);
+	-webkit-border-radius: 28;
+	-moz-border-radius: 28;
+	border-radius: 28px;
+	-webkit-box-shadow: 0 10px 6px -6px #444444;
+	-moz-box-shadow: 0 10px 6px -6px #444444;
+	box-shadow: 0 10px 6px -6px #444444;
+	text-shadow: 1px 1px 3px #000000;
+	color: white;
+	font-size: 15px;
+	padding: 10px 7px;
+	text-decoration: none;
+	font-family: 'Merriweather', serif;
+	border: 1.5px solid white;
+	margin-top: 20px;
+}
+
+div.restart-game-btn-div #restart-game-btn:hover {
+  background: #f7b733;
+  background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
+  background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
+  background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
+  background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
+  background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
+  text-decoration: none;
+}
+
 
 
 /*************************************************************
@@ -167,8 +206,24 @@ img#finalMoviePic {
 		
 	div#gameWinCast,
 	div#gameWinMovie {
-		width: 90%;
+		width: 90%;s
 		margin-bottom: 20px;
+		display: block;
 	}
+
+	ul#castList {
+		max-width: 99%;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+	}
+
+	ul#castList li {
+		margin-right: 5px;
+		min-width: 150px;
+		flex-direction: column;
+		max-height: 220px;
+		overflow-y: auto;
+	}
+
 }
 

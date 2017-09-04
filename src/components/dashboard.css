@@ -128,3 +128,31 @@ div.end-stats {
 img.dash-pic {
 	margin-bottom: 5px;
 }
+
+
+
+/*************************************************************
+	Layout for each game record
+*************************************************************/
+
+@media screen and (max-width: 768px) {
+	div#stats-header {
+		padding: 2px;
+		font-size: .5em;
+	}
+
+	div.stats {
+		font-size: .5em;
+		padding: 2px;
+	}
+
+	img.dash-pic {
+		max-width: 98%;
+		align-items: center;
+	}
+
+	div.start-stats,
+	div.end-stats {
+		justify-content: space-between;
+	}
+}

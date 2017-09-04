@@ -73,3 +73,36 @@ ul#selectedLinks {
 
 
 
+/**************************************************
+	RESPONSIVE
+***************************************************/
+
+@media screen and (max-width: 768px) {
+
+	div#linkChain {
+		display: flex;
+	}
+
+	div#guessTitle {
+		margin-bottom: 0px;
+	}
+
+	ul#selectedLinks {
+		display: inline-block;
+		max-width: 99%;
+		overflow-y: auto;
+	}
+
+	#startLi,
+	.middleLi,
+	#endLi {
+		display: block;
+	}
+
+	ul#selectedLinks li {
+		display: inline;
+	}
+
+}
+
+

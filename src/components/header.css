@@ -7,6 +7,7 @@ div.header {
 	position: fixed;
 	top: 0px;
 	width:100%;
+	min-width: 310px;
 	height: 75px;
 	border-radius: 0px 0px 10px 10px;
 	border-bottom: 1.5px solid white;
@@ -101,8 +102,7 @@ h3.gameInfo-text {
 
 #new-game-btn,
 #logout,
-#to-dash-btn,
-div.restart-game-btn-div #restart-game-btn {
+#to-dash-btn {
 	background: #FFDF38;
 	background-image: -webkit-linear-gradient(top, #F7D933, #FC6F1A);
 	background-image: -moz-linear-gradient(top, #F7D933, #FC6F1A);
@@ -118,7 +118,7 @@ div.restart-game-btn-div #restart-game-btn {
 	text-shadow: 1px 1px 3px #000000;
 	color: white;
 	font-size: 15px;
-	padding: 10px 20px 10px 20px;
+	padding: 10px 7px;
 	text-decoration: none;
 	font-family: 'Merriweather', serif;
 	border: 1.5px solid white;
@@ -128,8 +128,7 @@ div.restart-game-btn-div #restart-game-btn {
 
 #new-game-btn:hover,
 #logout:hover,
-#to-dash-btn:hover,
-div.restart-game-btn-div #restart-game-btn:hover {
+#to-dash-btn:hover {
   background: #f7b733;
   background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
   background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
@@ -140,18 +139,139 @@ div.restart-game-btn-div #restart-game-btn:hover {
 }
 
 #new-game-btn {
-	right: 126px;
+	right: 100px;
 }
 
 #logout {
-	right: 10px;
+	right: 5px;
 }
 
 #to-dash-btn {
 	z-index: 10;
-	right: 126px;
+	right: 100px;
 }
 
-div.restart-game-btn-div #restart-game-btn {
-	right: 290px;
+
+/*************************************************************
+	Responsive
+*************************************************************/
+
+@media screen and (max-width: 1180px) {
+	#to-dash-btn {
+		right: 90px;
+		padding-right: 7px;
+		padding-left: 7px;	
+	}
+}
+
+@media screen and (max-width: 1120px) {
+
+	h1#logo {
+		font-size: 3.5em;
+	}
+}
+
+@media screen and (max-width: 1060px) {
+	
+	h1#logo {
+		font-size: 3em;
+	}
+
+	div#player-info {
+		font-size: .8em;
+	}
+
+	#new-game-btn,
+	#logout,
+	#to-dash-btn {
+		font-size: 12px;
+		padding: 5px 10px;
+		margin-top: 7.5px;
+
+	}
+
+	#new-game-btn,
+	#to-dash-btn {
+		right: 90px;
+	}
+}
+
+
+@media screen and (max-width: 875px) {
+	h1#logo {
+		font-size: 2.5em;
+	}
+
+	#new-game-btn {
+		right: 85px;
+	}
+
+	#to-dash-btn {
+		right: 80px;
+	}
+}
+
+@media screen and (max-width: 770px) {
+	#to-dash-btn {
+		font-size: 10px;
+	}
+}
+
+@media screen and (max-width: 750px) {
+
+	h1#logo {
+		margin-bottom: 0px;
+		padding: 0px .5px 0px .5px;
+		align-items: flex-start;
+	}
+
+	div.header {
+		flex-direction: column;
+
+	}
+
+	div#player-info {
+		align-self: flex-start;
+		font-size: .7em;
+		margin-top: 25px;
+		margin-left: 5px;
+	}
+
+	div#player-info h2,
+	div#player-info h4 {
+		margin: 0px;
+	}
+
+	div#player-info h2.setup-header,
+	div#player-info h2.dash-header {
+		margin-top: 5px
+	}
+	
+	#new-game-btn,
+	#to-dash-btn {
+		right: 60px;
+	}	
+
+	#new-game-btn,
+	#logout,
+	#to-dash-btn {
+		margin-top: 32px;
+		font-size: 10px;
+		padding: 2.5px 5px;
+		-webkit-box-shadow: 0 5px 3px -3px #444444;
+		-moz-box-shadow: 0 5px 3px -3px #444444;
+		box-shadow: 0 5px 3px -3px #444444;
+	}
+}
+
+@media screen and (max-width: 700px) {
+
+	h1#logo {
+		font-size: 2em;
+	}
+
+	div#player-info {
+		font-size: .55em;
+		margin-top: 40px;
+	}
 }

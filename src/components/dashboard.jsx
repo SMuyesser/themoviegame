@@ -40,7 +40,7 @@ export class Dashboard extends React.Component {
                 return<li className="linkList" key={index}>{link}</li>
             })
             return (<div className="stats" key={index}>
-                <h2 className="game-number-stats">Game {index+1}</h2>
+                <h2 className="game-number-stats">{index+1}</h2>
                 <div className="link-stats">
                     <h3>Total Links: {score.linkCount}</h3>
                     <ul>{linkList}</ul>
@@ -68,7 +68,7 @@ export class Dashboard extends React.Component {
                 <Header />
                 <div id="stats-header-fix">
                     <div id="stats-header" className="stats">
-                        <h2 className="game-record-title" id="game-number">Game #</h2>
+                        <h2 className="game-record-title" id="game-number">#</h2>
                         <h2 className="game-record-title" id="link-header">Links</h2>
                         <h2 className="game-record-title" id="start-header">Start Movie</h2>
                         <h2 className="game-record-title" id="end-header">End Movie</h2>

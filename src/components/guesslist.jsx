@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import {addLink} from '../actions/game';
+import {addLink, newGame} from '../actions/game';
 import {API_BASE_URL} from '../config';
 
 import './guesslist.css';
@@ -48,6 +49,10 @@ export class GuessList extends React.Component {
 			    console.log(error);
 			});
 	}
+
+	newGame() {
+        this.props.dispatch(newGame());
+    };
 
 	//check status of score update
 	checkStatus(response) {
@@ -145,6 +150,7 @@ export class GuessList extends React.Component {
 	render () {
 		console.log(this.props);
 		let moviesOrCast = null;
+		let replayButton = null;
 		let guessTitle = <h1>{this.props.startMovie}</h1>;
 		if(this.props.linkChain.length > 0) {
 			guessTitle = <h1>{this.props.currentLinkTitle}</h1>;
@@ -170,6 +176,10 @@ export class GuessList extends React.Component {
 									</div>
 								</div>
 						    </div>
+			replayButton =  <div className="restart-game-btn-div">
+		                        <Link id="restart-game-btn" to="/setup" 
+		                              role="button" onClick={() => this.newGame()}>{this.props.feedback}</Link>
+		                    </div>
 		}
 		//if current link type = actors, display cast list
 		else if(this.state.currentLinkType === 'actors') {
@@ -198,6 +208,7 @@ export class GuessList extends React.Component {
 			<div className="game-row" id="linkNav">
 				<div className="col-lg-6 guess movie guesslist">
 					<div id="guessTitle" className="game-text">{guessTitle}</div>
+					{replayButton}
 					<ul id="castList">
 						{moviesOrCast}
 					</ul>
@@ -217,7 +228,8 @@ const mapStateToProps = state => {
 		linkChain: state.game.linkChain,
 		currentLinkTitle: state.game.currentLinkTitle,
 		endMovieId: state.game.endMovieId,
-		endMovie: state.game.endMovie
+		endMovie: state.game.endMovie,
+		feedback: state.game.feedback
     };
 };
 

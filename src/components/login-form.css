@@ -9,7 +9,7 @@
     -webkit-box-shadow: 0 10px 6px -6px #444444;
     -moz-box-shadow: 0 10px 6px -6px #444444;
     box-shadow: 0 10px 6px -6px #444444;
-    width: 50%;
+    width: 60%;
     margin-right: auto;
     margin-left: auto;
     border-radius: 10px;
@@ -86,6 +86,19 @@ div.form-warning {
   background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
   background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
   text-decoration: none;
+}
+
+/*************************************************************
+	Responsive
+*************************************************************/
+
+@media screen and (max-width: 525px) {
+
+	#login-form div.form-input input {
+
+		width: 80%;
+	}
+
 }
 
 
