@@ -211,10 +211,15 @@ h3.gameInfo-text {
 	}
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 768px) {
 	#to-dash-btn {
 		font-size: 10px;
 	}
+
+	div#top-space-fix {
+		margin: 36px;
+	}
+
 }
 
 @media screen and (max-width: 750px) {

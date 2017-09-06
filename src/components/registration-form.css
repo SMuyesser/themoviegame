@@ -10,6 +10,7 @@ form.register-form {
     -moz-box-shadow: 0 10px 6px -6px #444444;
     box-shadow: 0 10px 6px -6px #444444;
     width: 50%;
+    min-width: 125px;
     margin-right: auto;
     margin-left: auto;
     border-radius: 10px;
@@ -123,6 +124,10 @@ form.register-form span {
 		font-size: 1.8em;
 	}
 
+	form.register-form div div input {
+		width: 80%;
+	}
+
 	#register-btn-container {
 		flex-direction: column;
 	}
@@ -132,6 +137,34 @@ form.register-form span {
 		font-size: 15px;
 		margin: 3px auto;
 		padding: 7px;
+	}
+
+}
+
+@media screen and (max-width: 320px) {
+
+	form.register-form {
+		min-width: 125px;
+	}
+
+	form.register-form h1.form-title {
+		font-size: 1.5em;
+	}
+
+	form.register-form div div input {
+		width: 90%;
+	}	
+
+	#register-form-submit-btn,
+	#register-form-clear-btn {
+		font-size: 12px;
+		margin: 3px auto;
+		padding: 7px;
+	}
+
+	#register-form-clear-btn {
+		font-size: 9px;
+		padding: 5px;
 	}
 
 }

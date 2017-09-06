@@ -12,7 +12,7 @@ export class Home extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            formType: 'login'
+            formType: 'start'
         }
     }
 
@@ -36,7 +36,13 @@ export class Home extends React.Component {
         }
         
         let form;
-        if(this.state.formType === 'login') {
+        if(this.state.formType === 'start') {
+            form = (
+                <div className="welcome">
+                    <Link id="welcome-login-link" to="/" onClick={() => this.setFormToLogin()}>Begin</Link>
+                </div>
+            )
+        } else if(this.state.formType === 'login') {
             form = (
                 <div className="form-container">
                     <LoginForm />

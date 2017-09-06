@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {GuessList} from './guesslist';
+import {GuessList} from '../components/guesslist';
 
 it('renders without crashing', () => {
 	shallow(<GuessList startMovie={'movie'} endMovie={'movie2'} endMovieId={1} 

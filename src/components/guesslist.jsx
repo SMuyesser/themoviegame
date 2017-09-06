@@ -148,7 +148,6 @@ export class GuessList extends React.Component {
 	}
 
 	render () {
-		console.log(this.props);
 		let moviesOrCast = null;
 		let replayButton = null;
 		let guessTitle = <h1>{this.props.startMovie}</h1>;

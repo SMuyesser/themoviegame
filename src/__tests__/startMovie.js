@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {EndMovie} from './endMovie';
+import {StartMovie} from '../components/startMovie';
 
 it('renders without crashing', () => {
-	shallow(<EndMovie />);
+	shallow(<StartMovie />);
 });

@@ -1,9 +1,7 @@
 import React from 'react';
-import axios from 'axios';
 import {shallow} from 'enzyme';
-import {Setup} from './setup';
+import {Header} from '../components/header';
 
 it('renders without crashing', () => {
-	shallow(<Setup />);
+	shallow(<Header />);
 });
-

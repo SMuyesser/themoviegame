@@ -1,7 +1,9 @@
 import React from 'react';
+import axios from 'axios';
 import {shallow} from 'enzyme';
-import {StartMovie} from './startMovie';
+import {Setup} from '../components/setup';
 
 it('renders without crashing', () => {
-	shallow(<StartMovie />);
+	shallow(<Setup />);
 });
+
