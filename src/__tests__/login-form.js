@@ -6,5 +6,5 @@ import {LoginForm} from '../components/login-form';
 it('should render without crashing', () => {
 	const handleSubmit = jest.fn();
 	const wrapper = shallow(<LoginForm handleSubmit={handleSubmit} />);
-
 });
+
