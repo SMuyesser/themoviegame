@@ -11,6 +11,7 @@ import './guesslist.css';
 
 export class GuessList extends React.Component {
 
+	//local state to be used mainly for displaying data when the game is won
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -50,6 +51,7 @@ export class GuessList extends React.Component {
 			});
 	}
 
+	//restores state to initial state if a new game is started
 	newGame() {
         this.props.dispatch(newGame());
     };

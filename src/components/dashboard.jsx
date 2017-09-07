@@ -10,11 +10,12 @@ import Header from './header';
 import {API_BASE_URL} from '../config';
 
 export class Dashboard extends React.Component {
-
+    //sets header for dashboard
     componentWillMount() {
         this.props.dispatch(setHeader('dashboard'));
     }
 
+    //if logged in, get that players scors to be displayed in the dashboard
     componentDidMount() {
         if (!this.props.loggedIn) {
             return;
@@ -32,7 +33,7 @@ export class Dashboard extends React.Component {
             return <Redirect to="/" />;
         }
 
-        // Only render the log out button if we are logged in
+        // for every set of scores, create a stats div displaying it
         let stats;
         let linkList;
         stats = this.props.scores.map((score, index) => {

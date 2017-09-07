@@ -119,6 +119,7 @@ div#gameWinMovie {
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
+    height: auto;
 }
 
 div#gameWinInfo h3 {

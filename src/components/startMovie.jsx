@@ -7,6 +7,7 @@ import {API_BASE_URL} from '../config';
 
 export class StartMovie extends React.Component {
 
+	//options will hold possible movie options matching search entry
 	constructor(props){
 		super(props);
 		this.state = {
@@ -14,6 +15,7 @@ export class StartMovie extends React.Component {
 		}
 	}
 
+	//search form using react-boostrap-typeahead
 	render() {
 	    return (
 			<div className="row">
@@ -36,6 +38,7 @@ export class StartMovie extends React.Component {
 	    );
 	}
 
+	//renders dropdown menu with all movie options matching the typeahead
 	renderMenuItemChildren(option, props, index) {
 	    return (
 	      <div className='options' key={option.id}>
@@ -56,6 +59,7 @@ export class StartMovie extends React.Component {
 	    );
 	}
 
+	//function called when finalize start is clicked
 	readyFinalizeStart(event) {
 		event.preventDefault();
 		const movieTitles = this.state.options.map(movie => {
@@ -66,6 +70,7 @@ export class StartMovie extends React.Component {
 			alert('Movie field is empty')
 			return
 		}
+		//ensures choice is selected from dropdown 
 		else if(movieTitles.indexOf(this.input.state.query.toUpperCase()) === -1) {
 			alert('You must select a start movie option from the dropdown menu');
 		}
@@ -77,6 +82,7 @@ export class StartMovie extends React.Component {
 		}
 	}
 
+	//function to undo finalize status
 	unreadyFinalizeStartButton(event) {
 		let startButton = document.getElementById('formStart');
 		startButton.className = 'input-group';
@@ -85,6 +91,7 @@ export class StartMovie extends React.Component {
 		this.props.dispatch(setStartFinalize(finalizeStatus, startMovieValue));
 	}
 
+	//sets options with movies matching the search
 	handleSearch = (query, event) => {
 		this.unreadyFinalizeStartButton(event);
 	  	query.toString();

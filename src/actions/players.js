@@ -3,6 +3,7 @@ import {SubmissionError} from 'redux-form';
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
 
+//function to register player or reject with error message
 export const registerPlayer = player => dispatch => {
     return fetch(`${API_BASE_URL}/players`, {
         method: 'POST',

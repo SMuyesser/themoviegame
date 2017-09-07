@@ -73,6 +73,14 @@ div#player-info h4 {
 	color: white;
 }
 
+div#player-info h2.dash-header,
+div#player-info h4.dash-header {
+	margin: 0px;
+	margin-left: 5px;
+	text-shadow: 2px 2px 3px black;
+	color: white;
+}
+
 div#player-info h2.setup-header,
 div#player-info h2.dash-header {
 	margin-top: 5px
@@ -236,9 +244,12 @@ h3.gameInfo-text {
 		margin: 0px;
 	}
 
-	div#player-info h2.setup-header,
-	div#player-info h2.dash-header {
+	div#player-info h2.setup-header{
 		margin-top: 5px
+	}
+
+	div#player-info h2.dash-header {
+		margin-top: 0px;
 	}
 	
 	#new-game-btn,

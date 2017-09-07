@@ -20,6 +20,7 @@ export default class Input extends React.Component {
             );
         }
 
+        //used to render for login form
         return (
             <div className="form-input">
                 <label htmlFor={this.props.input.name}>

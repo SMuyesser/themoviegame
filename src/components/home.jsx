@@ -36,6 +36,7 @@ export class Home extends React.Component {
         }
         
         let form;
+        //display welcome screen on initial render
         if(this.state.formType === 'start') {
             form = (
                 <div className="opacity">
@@ -44,6 +45,7 @@ export class Home extends React.Component {
                     </div>
                 </div>
             )
+        //show login form 
         } else if(this.state.formType === 'login') {
             form = (
                 <div className="form-container">
@@ -52,6 +54,7 @@ export class Home extends React.Component {
                     <p id="demo-info">Demo Player: DemoPlayer | Password: Demo1234</p>
                 </div>
             )
+        //show register form
         } else if (this.state.formType === 'register') {
             form = (
                 <div className="form-container">
@@ -61,15 +64,14 @@ export class Home extends React.Component {
             )
         }
         return (
-
             <div className="home">
-                    <div className="jumbotron landing-page-title">
-                        <div className="home-titles">
-                            <h1 id="homeTitle">THE MOVIE GAME</h1>
-                            <p>A fun puzzle game to test your knowledge of movies and casts.</p>
-                        </div>
-                        {form}
+                <div className="jumbotron landing-page-title">
+                    <div className="home-titles">
+                        <h1 id="homeTitle">THE MOVIE GAME</h1>
+                        <p>A fun puzzle game to test your knowledge of movies and casts.</p>
                     </div>
+                    {form}
+                </div>
             </div>
         );
     }

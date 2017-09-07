@@ -231,6 +231,7 @@ ul.dropdown-menu {
 	padding-left: 10px;
 	padding-right: 10px;
 	border: 1px white solid;
+	height: 150px;
 }
 
 ul.movieOption li {
@@ -283,6 +284,11 @@ ul.dropdown-menu span.year {
 		font-size: 2em;
 	}
 
+	div.page-header {
+		margin-top: 60px;
+		width: 80%;
+	}
+
 	div.page-header p {
 		font-size: .5em;
 	}
@@ -290,6 +296,10 @@ ul.dropdown-menu span.year {
 	ul.instructions {
 		padding-top: 5px;
 		font-size: .25em;
+	}
+
+	div.game-setup-page {
+		width: 80%;
 	}
 
 	h2.game-setup-page-title2 {

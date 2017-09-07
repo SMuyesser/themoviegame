@@ -13,6 +13,7 @@ export class Setup extends React.Component {
 	    this.props.dispatch(setHeader('setup'))
 	}
 
+	//ensure both a starting and ending movie are selected before beginning game
 	checkGameStart(event) {
 		if (this.props.finalizeStartButton !== 'Ready!' && this.props.finalizeEndButton !== 'Ready!') {
 			alert('You must select and ready both start and end movies')

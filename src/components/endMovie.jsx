@@ -7,6 +7,7 @@ import {API_BASE_URL} from '../config';
 
 export class EndMovie extends React.Component {
 
+	//options will hold possible movie options when searching for end movies
 	constructor(props){
 		super(props);
 		this.state = {
@@ -14,6 +15,7 @@ export class EndMovie extends React.Component {
 		}
 	}
 
+	//async typeahead using react-bootstrap-typeahead to ensure selected movie is the correct one
 	render() {
 	    return (
 			<div className="row">
@@ -36,6 +38,7 @@ export class EndMovie extends React.Component {
 	    );
 	}
 
+	//renders dropdown menu with all movie options matching the typeahead
 	renderMenuItemChildren(option, props, index) {
 	    return (
 	      <div className='options' key={option.id}>
@@ -56,6 +59,7 @@ export class EndMovie extends React.Component {
 	    );
 	}
 
+	//function to finalize end movie selection with validation
 	readyFinalizeEnd(event) {
 		event.preventDefault();
 		const movieTitles = this.state.options.map(movie => {
@@ -66,6 +70,7 @@ export class EndMovie extends React.Component {
 			alert('Movie field is empty')
 			return
 		}
+		//ensures user has to select from dropdown rather than typing anything
 		else if(movieTitles.indexOf(this.input.state.query.toUpperCase()) === -1) {
 			alert('You must select an end movie option from the dropdown menu');
 		}
@@ -84,6 +89,7 @@ export class EndMovie extends React.Component {
 		}
 	}
 
+	//if the entry is changed unreadies
 	unreadyFinalizeEndButton(event) {
 		let startButton = document.getElementById('formEnd');
 		startButton.className = 'input-group';
@@ -93,6 +99,7 @@ export class EndMovie extends React.Component {
 		this.props.dispatch(setEndFinalize(finalizeStatus, endMovieId, endMovieValue));
 	}
 
+	//gets possible options depending on what is typed in form
 	handleSearch = (query, event) => {
 		this.unreadyFinalizeEndButton(event);
 	  	query.toString();
