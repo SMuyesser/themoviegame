@@ -6,10 +6,16 @@ div.linkChain {
 	width: 96%;
 	display: block;
 	height: auto;
+	margin-top: 80px;
 	margin-bottom: 10px;
-	border-radius: 5px;
+	border-radius: 10px;
     font-family: 'Merriweather', serif;
     text-shadow: 1px 1px 2px black;
+    background-color:rgba(0, 0, 0, 0.75);
+    border: 1.5px solid white;
+    -webkit-box-shadow: 0 10px 6px -6px #444444;
+       -moz-box-shadow: 0 10px 6px -6px #444444;
+            box-shadow: 0 10px 6px -6px #444444;
 }
 
 h1#linkChainHeader {
@@ -29,9 +35,8 @@ h1#linkChainHeader {
 
 /* starting link green with arrow */
 #startLi {
-	color: #158000;
+	color: #27E302;
 	margin-right: 5px;
-	text-shadow: 1px 1px 2px white;
 }
 
 #startLi::after {
@@ -41,7 +46,7 @@ h1#linkChainHeader {
 /* link chain icon after each link */
 .middleLi::after {
 	content: "  🔗  ";
-	color: #158000;
+	color: #FFFFFF;
 }
 
 .middleLi {
@@ -50,8 +55,7 @@ h1#linkChainHeader {
 
 /* last link red */
 #endLi {
-	color: #A00000;
-	text-shadow: 1px 1px 2px white;
+	color: #F00000;
 }
 
 /* all links in between */

@@ -12,6 +12,11 @@ div.guesslist {
 	border-radius: 5px;
 	padding: 5px;
     font-family: 'Merriweather', serif;
+    -webkit-box-shadow: 0 10px 6px -6px #444444;
+       -moz-box-shadow: 0 10px 6px -6px #444444;
+            box-shadow: 0 10px 6px -6px #444444;
+	background-color:rgba(0, 0, 0, 0.75);
+    border: 1.5px solid white;
 }
 
 /* header in game */
@@ -19,24 +24,6 @@ div.guesslist {
 	font-size: 2em;
 	text-align: center;
 	margin: 5px;
-}
-
-div#guessTitle {
-	margin-bottom: 15px;
-}
-
-/* background for game chain and guess list */
-div.guess {
-	background: #f7b733;
-	background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
-	margin-bottom: 10px;
-    -webkit-box-shadow: 0 10px 6px -6px #444444;
-    -moz-box-shadow: 0 10px 6px -6px #444444;
-    box-shadow: 0 10px 6px -6px #444444;
 }
 
 /* list of actor or movie images */
@@ -49,15 +36,15 @@ ul#castList {
 	padding-left: 5px;
 	max-height: 450px;
 	overflow-y: auto;
+	margin-top: 0px;
 }
 
 /* each clickable actor or movie */
 ul#castList li {
 	margin-bottom: 10px;
 	width: 150px;
-	background: #000046;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to top, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to top, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background-color:rgba(0, 0, 0, 0.75);
+    border: 1.5px solid white;
 	color: white;
 	margin-left: auto;
 	margin-right: auto;
@@ -69,6 +56,15 @@ ul#castList li {
     flex-direction: column-reverse;
 	align-content: flex-end;
 	align-items: center;
+	-moz-transition: all .4s;
+    -o-transition: all .4s;
+    -webkit-transition: all .4s;
+    transition: all .4s;
+}
+
+ul#castList li:hover {
+	border-radius: 10px;
+	border-color: #27E302;
 }
 
 /* removes button look for eac item */
@@ -112,9 +108,11 @@ div#gameWinMovie {
 	align-items: center;
 	height: 485px;
 	width: 45%;
-	background: #56CCF2;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to bottom, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to bottom, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	-webkit-box-shadow: 0 10px 6px -6px #444444;
+	-moz-box-shadow: 0 10px 6px -6px #444444;
+	box-shadow: 0 10px 6px -6px #444444;
+	background-color:rgba(0, 0, 0, 0.75);
+    border: 1.5px solid white;
     -webkit-box-shadow: 0 10px 6px -6px #444444;
        -moz-box-shadow: 0 10px 6px -6px #444444;
             box-shadow: 0 10px 6px -6px #444444;
@@ -130,7 +128,8 @@ div#gameWinInfo h3 {
 div#gameWinCast p,
 div#description {
 	color: white;
-	background-color: #006CA4;
+	background-color:rgba(0, 0, 0, 0.75);
+    border: 1.5px solid white;
 	-webkit-box-shadow: 0 10px 6px -6px #444444;
        -moz-box-shadow: 0 10px 6px -6px #444444;
             box-shadow: 0 10px 6px -6px #444444;
@@ -156,36 +155,29 @@ img#finalMoviePic {
 }
 
 div.restart-game-btn-div #restart-game-btn {
-	background: #FFDF38;
-	background-image: -webkit-linear-gradient(top, #F7D933, #FC6F1A);
-	background-image: -moz-linear-gradient(top, #F7D933, #FC6F1A);
-	background-image: -ms-linear-gradient(top, #F7D933, #FC6F1A);
-	background-image: -o-linear-gradient(top, #F7D933, #FC6F1A);
-	background-image: linear-gradient(to bottom, #F7D933, #FC6F1A);
-	-webkit-border-radius: 28;
-	-moz-border-radius: 28;
-	border-radius: 28px;
-	-webkit-box-shadow: 0 10px 6px -6px #444444;
-	-moz-box-shadow: 0 10px 6px -6px #444444;
-	box-shadow: 0 10px 6px -6px #444444;
-	text-shadow: 1px 1px 3px #000000;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	background-color:rgba(0, 0, 0, 0.6);
 	color: white;
-	font-size: 15px;
-	padding: 10px 7px;
+	font-size: 20px;
+	padding: 10px 20px 10px 20px;
 	text-decoration: none;
 	font-family: 'Merriweather', serif;
 	border: 1.5px solid white;
-	margin-top: 20px;
+	-moz-transition: all .4s;
+    -o-transition: all .4s;
+    -webkit-transition: all .4s;
+    transition: all .4s;
+	border-radius: 10px;
+	width: 170px;
+	margin-top: 0px;
 }
 
 div.restart-game-btn-div #restart-game-btn:hover {
-  background: #f7b733;
-  background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
-  background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
-  background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
-  background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
-  background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
-  text-decoration: none;
+	-webkit-border-radius: 28;
+	-moz-border-radius: 28;
+	border-radius: 28px;
 }
 
 
@@ -219,8 +211,6 @@ div.restart-game-btn-div #restart-game-btn:hover {
 
 	ul#castList {
 		max-width: 99%;
-		flex-wrap: nowrap;
-		overflow-x: auto;
 	}
 
 	ul#castList li {
@@ -228,7 +218,6 @@ div.restart-game-btn-div #restart-game-btn:hover {
 		min-width: 150px;
 		flex-direction: column;
 		max-height: 220px;
-		overflow-y: auto;
 	}
 
 }

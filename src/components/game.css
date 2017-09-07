@@ -5,6 +5,10 @@
 div.game {
 	display: flex;
 	flex-direction: column;
+	background-image: url('../images/Red-Carpet-Wallpaper-12.jpg');
+	background-size: cover;
+	background-position: center, center;
+	padding-bottom: 15px;
 }
 
 div.game-row {

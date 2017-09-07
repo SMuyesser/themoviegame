@@ -8,7 +8,7 @@ export class LinkChain extends React.Component {
 	render () {
 		return (
 			<div className="game-row" id="linkChain">
-				<div className="col-lg-6 guess movie linkChain">
+				<div className="linkChain">
 						<h1 className="game-text" id="linkChainHeader">Game Chain</h1>
 						<ul id="selectedLinks">
 							<li id="startLi">{this.props.startMovie}</li>

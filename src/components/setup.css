@@ -4,19 +4,46 @@
 
 div.setup {
 	font-family: 'Merriweather', serif;
+	background-image: url('../images/Red-Carpet-Wallpaper-12.jpg');
+	background-size: cover;
+	background-position: center, center;
+	padding-bottom: 65px;
+	min-width: 350px;
+
+}
+
+div.header-container {
+	height: 10px;
 }
 
 div.page-header {
 	text-align: center;
 	padding: 1.5%;
 	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	width:60%;
+	padding: 1%;
+	padding-bottom: 2%;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 10px;
+    -webkit-box-shadow: 0 10px 6px -6px #444444;
+       -moz-box-shadow: 0 10px 6px -6px #444444;
+            box-shadow: 0 10px 6px -6px #444444;
+	background-color:rgba(0, 0, 0, 0.75);
+    border: 1.5px solid white;
+    margin-bottom: 10px;
 }
 
 h2.game-setup-page-title {
 	text-align: center;
 	font-family: 'Monoton', cursive;
 	font-size: 3em;
-	color: #F7D933;
+	color: white;
+	font-weight: lighter;
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
@@ -28,7 +55,6 @@ ul.instructions {
 	list-style: none;
 	font-size: .75em;
 	line-height: 2em;
-	padding-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -45,20 +71,16 @@ div.game-setup-page {
 	justify-content: center;
 	align-content: center;
 	width:60%;
-	min-width: 335px;
 	padding: 1%;
+	padding-bottom: 2%;
 	margin-left: auto;
 	margin-right: auto;
 	border-radius: 10px;
-	background: #f7b733;
-	background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
     -webkit-box-shadow: 0 10px 6px -6px #444444;
        -moz-box-shadow: 0 10px 6px -6px #444444;
             box-shadow: 0 10px 6px -6px #444444;
+	background-color:rgba(0, 0, 0, 0.75);
+    border: 1.5px solid white;
 }
 
 h2.game-setup-page-title2 {
@@ -96,6 +118,7 @@ div.col-lg-6 {
 form#formStart,
 form#formEnd {
 	display: flex;
+	align-self: center;
 	justify-content: space-between;
 	align-items: center;
 	height: 50px;
@@ -104,9 +127,7 @@ form#formEnd {
 	border-radius: 5px;
 	margin: auto;
 	padding-left: 15px;
-	background: #56CCF2;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to left, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to left, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background-color:rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 0 10px 6px -6px #444444;
        -moz-box-shadow: 0 10px 6px -6px #444444;
             box-shadow: 0 10px 6px -6px #444444;
@@ -121,6 +142,7 @@ input.rbt-input-main {
 	max-width: 280px;
 	font-family: 'Merriweather', serif;
 	overflow: hidden;
+	text-shadow: 1px 1px 2px #000000;
 }
 
 /* hide suggested word hint */
@@ -130,16 +152,16 @@ input.rbt-input-hint {
 
 /* change placeholder color */
 input.rbt-input-main::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-	color: #224F5D;
+	color: #D5D8D9;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-	color: #224F5D;
+	color: #D5D8D9;
 }
 :-ms-input-placeholder { /* IE 10+ */
-	color: #224F5D;
+	color: #D5D8D9;
 }
 :-moz-placeholder { /* Firefox 18- */
-	color: #224F5D;
+	color: #D5D8D9;
 }
 
 .start-movie-btn,
@@ -151,13 +173,19 @@ input.rbt-input-main::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 	width: 150px;
 	height: 45px;
 	font-family: 'Merriweather', serif;
-	overflow-wrap: shrink
+	overflow-wrap: shrink;
+	text-shadow: 1px 1px 2px #000000;
 }
 
 /* change form color when ready */
 form#formStart.ready,
 form#formEnd.ready {
-	background: #006CA4;
+	background: #EA5419;
+	background-image: -webkit-linear-gradient(top, #F79E2B, #EA5419);
+	background-image: -moz-linear-gradient(top, #F79E2B, #EA5419);
+	background-image: -ms-linear-gradient(top, #F79E2B, #EA5419);
+	background-image: -o-linear-gradient(top, #F79E2B, #EA5419);
+	background-image: linear-gradient(to bottom, #F79E2B, #EA5419);
 }
 
 /* begin game button */
@@ -165,39 +193,27 @@ div.game-setup-page-begin-btn .begin-game-btn {
 	display: flex;
 	align-content: center;
 	justify-content: center;
-	margin: 20px auto 0px auto;
-	background: #FFDF38;
-	background-image: -webkit-linear-gradient(top, #F7D933, #FC6F1A);
-	background-image: -moz-linear-gradient(top, #F7D933, #FC6F1A);
-	background-image: -ms-linear-gradient(top, #F7D933, #FC6F1A);
-	background-image: -o-linear-gradient(top, #F7D933, #FC6F1A);
-	background-image: linear-gradient(to bottom, #F7D933, #FC6F1A);
-	-webkit-border-radius: 28;
-	-moz-border-radius: 28;
-	border-radius: 28px;
-	-webkit-box-shadow: 0 10px 6px -6px #444444;
-	-moz-box-shadow: 0 10px 6px -6px #444444;
-	box-shadow: 0 10px 6px -6px #444444;
-	text-shadow: 1px 1px 3px #000000;
-	font-family: Arial;
-	color: #ffffff;
+	background-color:rgba(0, 0, 0, 0.6);
+	color: white;
 	font-size: 20px;
 	padding: 10px 20px 10px 20px;
 	text-decoration: none;
 	font-family: 'Merriweather', serif;
-	width: 200px;
 	border: 1.5px solid white;
+	margin: 10px auto;
+	-moz-transition: all .4s;
+    -o-transition: all .4s;
+    -webkit-transition: all .4s;
+    transition: all .4s;
+	border-radius: 10px;
+	width: 170px;
 }
 
 /* begin game button */
 div.game-setup-page-begin-btn .begin-game-btn:hover {
-  background: #f7b733;
-  background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
-  background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
-  background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
-  background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
-  background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
-  text-decoration: none;
+	-webkit-border-radius: 28;
+	-moz-border-radius: 28;
+	border-radius: 28px;
 }
 
 
@@ -208,16 +224,13 @@ div.game-setup-page-begin-btn .begin-game-btn:hover {
 
 ul.dropdown-menu {
 	position: absolute;
-	left: 0px;
+	left: -10px;
 	width: 372px;
-	background: #4CB0D0;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to left, #276CC9, #4CB0D0);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to left, #276CC9, #4CB0D0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */	list-style: none;
-	z-index: 10;
+	background-color:rgba(0, 0, 0, 0.9);
+	z-index: 100;
 	padding-left: 10px;
 	padding-right: 10px;
 	border: 1px white solid;
-	border-top: none;
 }
 
 ul.movieOption li {
@@ -264,7 +277,7 @@ ul.dropdown-menu span.year {
 	Responsive
 *************************************************************/
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 850px) {
 
 	h2.game-setup-page-title {
 		font-size: 2em;
@@ -287,20 +300,32 @@ ul.dropdown-menu span.year {
 	form#formEnd {
 		display: flex;
 		flex-direction: column;
-		background-color: #A30000;
 		height: 75px;
-		width: 275px;
+		width: 99%;
 		border-radius: 5px;
 		margin: auto;
 		padding-left: 10px;
 		padding-left: 0px;
+		background-color:rgba(0, 0, 0, 0.75);
+	}
+
+	div.rbt {
+		width: 99%;
+		padding-left: 2%;
+	}
+
+	div.rbt-input div {
+		width: 99%;
+	}
+
+	div.rbt-input div input {
+		width: 99%;
 	}
 
 	input.rbt-input-main {
 		color: white;
 		background-color: white;
-		min-width: 250px;
-		max-width: 250px;
+		width: 99%;
 		padding-left: 10px;
 		text-align: left;
 		display: block;
@@ -313,9 +338,8 @@ ul.dropdown-menu span.year {
 
 	ul.dropdown-menu {
 		border: 1.5px solid white;
-		top: -316.5px;
+		left: 1px;
 		width: 245px;
-		background-color: #A03434;
 		list-style: none;
 		z-index: 10;
 		padding-left: 10px;
@@ -324,12 +348,32 @@ ul.dropdown-menu span.year {
 	.start-movie-btn,
 	.end-movie-btn {
 		display: block;
-		width: 240px;
 		font-family: 'Merriweather', serif;
 		justify-content: center;
-		border-left: none;
-		border-top: 1px solid #224F5D;
+		border: 1.5px solid white;
+		border-bottom: none;
 		height: 35px;
+		-moz-transition: all .4s;
+	    -o-transition: all .4s;
+	    -webkit-transition: all .4s;
+	    transition: all .4s;
+	}
+
+	.start-movie-btn:hover,
+	.end-movie-btn:hover {
+		-webkit-border-radius: 28;
+		-moz-border-radius: 28;
+		border-radius: 28px;
 	}
 }
+
+@media screen and (max-width: 450px) {
+	div.rbt-input div input {
+		font-size: .6em;
+	}
+}
+
+
+
+
 

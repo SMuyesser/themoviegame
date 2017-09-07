@@ -11,46 +11,7 @@ div.dashboard {
 	text-shadow: 1px 1px 1px black;
 	background-image: url('../images/Red-Carpet-Wallpaper-12.jpg');
 	background-position: center center;
-}
-
-
-
-/*************************************************************
-	Layout for dashboard columns header
-*************************************************************/
-
-div#stats-header-fix {
-	width: 100%;
-	position: fixed;
-	top: 74px;
-	display: flex;
-	align-items: center;
-}
-
-div#stats-header {
-	position: relative;
-	border-radius: 0px 0px 10px 10px;
-}
-
-#stats-header h2 {
-	font-family: 'Merriweather', serif;
-	width: 30%;
-	margin: 0px;
-	padding-left: 1%;
-}
-
-h2#game-number {
-	width: 10%;
-	padding-left: 1%;
-	border-radius: 0px 0px 0px 10px
-}
-
-
-#game-number,
-#start-header {
-	background: #296376;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to bottom, #1C7FA0, #296376);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to bottom, #1C7FA0, #296376); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background-size: cover;
 }
 
 
@@ -59,25 +20,39 @@ h2#game-number {
 	Layout for each game record
 *************************************************************/
 
+div#stats-container {
+	max-height: 100vh;
+	overflow-y: scroll;
+}
+
 div.stats {
 	margin: 0px auto 7.5px auto;
-	width:80%;
+	width:81%;
 	border: 1.5px solid white;
 	border-radius: 10px;
-	background: #56CCF2;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to top, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to top, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background-color:rgba(0, 0, 0, 0.9);
     -webkit-box-shadow: 0 10px 6px -6px #444444;
        -moz-box-shadow: 0 10px 6px -6px #444444;
             box-shadow: 0 10px 6px -6px #444444;
     display: flex;
     justify-content: space-around;
+    left:6.5px;
+    color: #C1BFBF;
+}
+
+h2#game-number {
+	margin-left: 1%;
 }
 
 h2.game-number-stats {
 	font-family: 'Merriweather', serif;
-	width: 9%;
+	width: 5%;
 	margin-left: 1%;
+}
+
+h2.game-record-title {
+	margin-bottom: 0px;
+	color: white;
 }
 
 div.link-stats,
@@ -90,9 +65,6 @@ div.end-stats {
 	align-content: center;
 	align-items: flex-start;
 	font-family: 'Merriweather', serif;
-	background: #8BDAF3;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to top, #5697EE, #8BDAF3);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to top, #5697EE, #8BDAF3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	padding-left: 5px;
 }
 
@@ -116,12 +88,6 @@ div.link-stats ul {
 
 div.link-stats h3 {
 	margin-bottom: 0px;
-}
-
-div.start-stats {
-	background: #56CCF2;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to top, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to top, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 div.end-stats {

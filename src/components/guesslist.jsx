@@ -205,7 +205,7 @@ export class GuessList extends React.Component {
 
 		return (
 			<div className="game-row" id="linkNav">
-				<div className="col-lg-6 guess movie guesslist">
+				<div className="guesslist">
 					<div id="guessTitle" className="game-text">{guessTitle}</div>
 					{replayButton}
 					<ul id="castList">

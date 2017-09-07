@@ -41,12 +41,15 @@ export class Dashboard extends React.Component {
             })
             return (
                 <div className="stats" key={index}>
+                    <h2 className="game-record-title" id="game-number">#</h2>
                     <h2 className="game-number-stats">{index+1}</h2>
                     <div className="link-stats">
+                        <h2 className="game-record-title" id="link-header">Links</h2>
                         <h3>Total Links: {score.linkCount}</h3>
                         <ul>{linkList}</ul>
                     </div>
                     <div className="start-stats">
+                        <h2 className="game-record-title" id="start-header">Start Movie</h2>
                         <h3>{score.start}</h3>
                         <img className="dash-pic" src={score.startPic} alt={score.start+' poster'} 
                             style={{
@@ -55,6 +58,7 @@ export class Dashboard extends React.Component {
                         }}></img>
                     </div>
                     <div className="end-stats">
+                        <h2 className="game-record-title" id="end-header">End Movie</h2>
                         <h3>{score.end}</h3>
                         <img className="dash-pic" src={score.endPic} alt={score.end+' poster'} 
                             style={{
@@ -67,14 +71,6 @@ export class Dashboard extends React.Component {
         return (
             <div className="dashboard">
                 <Header />
-                <div id="stats-header-fix">
-                    <div id="stats-header" className="stats">
-                        <h2 className="game-record-title" id="game-number">#</h2>
-                        <h2 className="game-record-title" id="link-header">Links</h2>
-                        <h2 className="game-record-title" id="start-header">Start Movie</h2>
-                        <h2 className="game-record-title" id="end-header">End Movie</h2>
-                    </div>
-                </div>
                 <div id="stats-container">
                     {stats}
                 </div>

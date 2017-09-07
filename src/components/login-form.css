@@ -81,6 +81,7 @@ div.form-warning {
     -o-transition: all .4s;
     -webkit-transition: all .4s;
     transition: all .4s;
+	border-radius: 10px;
 }
 
 #login-form-btn:hover {
