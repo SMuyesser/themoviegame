@@ -13,9 +13,9 @@
 <p>The proxy server can be found<a href="https://github.com/SMuyesser/themoviegame-api"> here</a>.</p>
 
 <h2>Images</h2>
-<img src="./src/images/welcome.png">
-<img src="./src/images/dash.png">
-<img src="./src/images/game.png">
+<img src="./src/images/welcome.png" style="display: inline-block; margin-right: 5px;">
+<img src="./src/images/dash.png" style="display: inline-block; margin-right: 5px;">
+<img src="./src/images/game.png" style="display: inline-block; margin-right: 5px;">
 
 <h2>Technology</h2>
 <h3>Front End</h3>
