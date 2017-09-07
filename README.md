@@ -13,9 +13,9 @@
 
 <h2>Images</h2>
 <p float="left">
-  <img src="./src/images/welcome.png">
-  <img src="./src/images/dash.png">
-  <img src="./src/images/game.png">
+  <img src="./src/images/welcome.png" height="295">
+  <img src="./src/images/dash.png" height="295">
+  <img src="./src/images/game.png" height="295">
 </p>
 
 <h2>Technology</h2>
