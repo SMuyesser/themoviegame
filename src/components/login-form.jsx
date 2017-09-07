@@ -28,18 +28,18 @@ export class LoginForm extends React.Component {
                 )}>
                 <h1 className="form-title">Login</h1>
                 {error}
-                <label className="login-form-label" htmlFor="playername">Player Name</label>
                 <Field
                     component={Input}
                     type="text"
+                    placeholder="Enter player name"
                     name="playername"
                     id="playername"
                     validate={[required, nonEmpty]}
                 />
-                <label className="login-form-label" htmlFor="password">Password</label>
                 <Field
                     component={Input}
                     type="password"
+                    placeholder="Enter password"
                     name="password"
                     id="password"
                     validate={[required, nonEmpty]}

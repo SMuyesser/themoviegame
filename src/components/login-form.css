@@ -1,10 +1,5 @@
 #login-form {
-	background: #f7b733;
-	background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
-	background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
+	background-color:rgba(0, 0, 0, 0.75);
 	margin-bottom: 10px;
     -webkit-box-shadow: 0 10px 6px -6px #444444;
     -moz-box-shadow: 0 10px 6px -6px #444444;
@@ -14,6 +9,7 @@
     margin-left: auto;
     border-radius: 10px;
     padding: 10px;
+    border: 1.5px solid white;
 }
 
 h1.form-title {
@@ -34,41 +30,46 @@ label.login-form-label {
 	margin: 2px auto 5px auto;
 	width: 100%;
 	flex-direction: column;
+	padding: 0 10px;
 }
 
 #login-form div.form-input input {
 	position: relative;
-	background-color: #F8E164;
-	border-radius: 5px;
-	width: 60%;
-	color: #000E7B;
+	background-color:rgba(0, 0, 0, 0.0);
+	border: none;
+	border-bottom: 1.5px solid white;
+	width: 100%;
 	padding: 5px;
 	font-family: 'Merriweather', serif;
+	font-size: 1.15em;
 	clear: right;
-	margin-bottom: 2px;
+	margin-bottom: 10px;
+	color: white;
+}
+
+/* change placeholder color */
+#login-form div.form-input input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	color: #D5D8D9;
+}
+::-moz-placeholder { /* Firefox 19+ */
+	color: #D5D8D9;
+}
+:-ms-input-placeholder { /* IE 10+ */
+	color: #D5D8D9;
+}
+:-moz-placeholder { /* Firefox 18- */
+	color: #D5D8D9;
 }
 
 div.form-error,
 div.form-warning {
 	font-family: 'Merriweather', serif;
-	color: #C40000;
-	font-size: .5em;
+	color: white;
+	font-size: .75em;
 }
 
 #login-form-btn {
-	background: #FFDF38;
-	background-image: -webkit-linear-gradient(top, #F7D933, #FC6F1A);
-	background-image: -moz-linear-gradient(top, #F7D933, #FC6F1A);
-	background-image: -ms-linear-gradient(top, #F7D933, #FC6F1A);
-	background-image: -o-linear-gradient(top, #F7D933, #FC6F1A);
-	background-image: linear-gradient(to bottom, #F7D933, #FC6F1A);
-	-webkit-border-radius: 28;
-	-moz-border-radius: 28;
-	border-radius: 28px;
-	-webkit-box-shadow: 0 10px 6px -6px #444444;
-	-moz-box-shadow: 0 10px 6px -6px #444444;
-	box-shadow: 0 10px 6px -6px #444444;
-	text-shadow: 1px 1px 2px #000000;
+	background-color:rgba(0, 0, 0, 0.6);
 	color: white;
 	font-size: 20px;
 	padding: 10px 20px 10px 20px;
@@ -76,29 +77,17 @@ div.form-warning {
 	font-family: 'Merriweather', serif;
 	border: 1.5px solid white;
 	margin: 10px auto;
+	-moz-transition: all .4s;
+    -o-transition: all .4s;
+    -webkit-transition: all .4s;
+    transition: all .4s;
 }
 
 #login-form-btn:hover {
-  background: #f7b733;
-  background-image: -webkit-linear-gradient(top, #f7b733, #fc4a1a);
-  background-image: -moz-linear-gradient(top, #f7b733, #fc4a1a);
-  background-image: -ms-linear-gradient(top, #f7b733, #fc4a1a);
-  background-image: -o-linear-gradient(top, #f7b733, #fc4a1a);
-  background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
-  text-decoration: none;
+	-webkit-border-radius: 28;
+	-moz-border-radius: 28;
+	border-radius: 28px;
 }
 
-/*************************************************************
-	Responsive
-*************************************************************/
-
-@media screen and (max-width: 525px) {
-
-	#login-form div.form-input input {
-
-		width: 80%;
-	}
-
-}
 
 

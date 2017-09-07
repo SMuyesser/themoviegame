@@ -23,11 +23,10 @@ const validate = values => {
   return errors
 }
 
-const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
+const renderField = ({ input, id, type, meta: { touched, error, warning } }) => (
   <div>
-    <label>{label}</label>
     <div>
-      <input {...input} placeholder={label} type={type}/>
+      <input {...input} placeholder={id} type={type}/>
       {touched && (error && <span>{error}</span>)}
     </div>
   </div>
@@ -46,10 +45,10 @@ const playerRegistrationForm = (props) => {
   return (              
     <form onSubmit={handleSubmit(values => onSubmit(values))} className="register-form">
       <h1 className="form-title">Register</h1>
-      <Field name="playername" type="text" component={renderField} label="Player Name"/>
-      <Field name="password" type="password" component={renderField} label="Password"/>
-      <Field name="passwordConfirm" type="password" component={renderField} label="Confirm Password"/>
-      <Field name="email" type="text" component={renderField} label="Email"/>
+      <Field name="playername" type="text" component={renderField} id="Enter Player Name" />
+      <Field name="password" type="password" component={renderField} id="Enter Password" />
+      <Field name="passwordConfirm" type="password" component={renderField} id="Confirm Password" />
+      <Field name="email" type="text" component={renderField} id="Enter Email" />
       <div id="register-btn-container">
         <button id="register-form-submit-btn" type="submit" disabled={submitting}>Submit</button>
         <button id="register-form-clear-btn" type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>

@@ -38,8 +38,10 @@ export class Home extends React.Component {
         let form;
         if(this.state.formType === 'start') {
             form = (
-                <div className="welcome">
-                    <Link id="welcome-login-link" to="/" onClick={() => this.setFormToLogin()}>Begin</Link>
+                <div className="opacity">
+                    <div className="welcome">
+                        <Link id="welcome-login-link" to="/" onClick={() => this.setFormToLogin()}>Begin</Link>
+                    </div>
                 </div>
             )
         } else if(this.state.formType === 'login') {
@@ -47,6 +49,7 @@ export class Home extends React.Component {
                 <div className="form-container">
                     <LoginForm />
                     <Link id="register-link" to="/" onClick={() => this.setFormToRegister()}>Register New Player</Link>
+                    <p id="demo-info">Demo Player: DemoPlayer | Password: Demo1234</p>
                 </div>
             )
         } else if (this.state.formType === 'register') {
@@ -61,10 +64,11 @@ export class Home extends React.Component {
 
             <div className="home">
                     <div className="jumbotron landing-page-title">
-                        <h1 id="homeTitle">THE MOVIE GAME</h1>
-                        <p>A fun puzzle game to test your knowledge of movies and casts.</p>
+                        <div className="home-titles">
+                            <h1 id="homeTitle">THE MOVIE GAME</h1>
+                            <p>A fun puzzle game to test your knowledge of movies and casts.</p>
+                        </div>
                         {form}
-                        <p>Demo Player: DemoPlayer | Password: Demo1234</p>
                     </div>
             </div>
         );

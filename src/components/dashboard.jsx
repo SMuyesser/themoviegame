@@ -39,29 +39,30 @@ export class Dashboard extends React.Component {
             linkList = score.links.map((link, index) => {
                 return<li className="linkList" key={index}>{link}</li>
             })
-            return (<div className="stats" key={index}>
-                <h2 className="game-number-stats">{index+1}</h2>
-                <div className="link-stats">
-                    <h3>Total Links: {score.linkCount}</h3>
-                    <ul>{linkList}</ul>
-                </div>
-                <div className="start-stats">
-                    <h3>{score.start}</h3>
-                    <img className="dash-pic" src={score.startPic} alt={score.start+' poster'} 
-                        style={{
-                        height: '100px',
-                        width: '80px'
-                    }}></img>
-                </div>
-                <div className="end-stats">
-                    <h3>{score.end}</h3>
-                    <img className="dash-pic" src={score.endPic} alt={score.end+' poster'} 
-                        style={{
+            return (
+                <div className="stats" key={index}>
+                    <h2 className="game-number-stats">{index+1}</h2>
+                    <div className="link-stats">
+                        <h3>Total Links: {score.linkCount}</h3>
+                        <ul>{linkList}</ul>
+                    </div>
+                    <div className="start-stats">
+                        <h3>{score.start}</h3>
+                        <img className="dash-pic" src={score.startPic} alt={score.start+' poster'} 
+                            style={{
                             height: '100px',
                             width: '80px'
-                    }}></img>
-                </div>
-            </div>)
+                        }}></img>
+                    </div>
+                    <div className="end-stats">
+                        <h3>{score.end}</h3>
+                        <img className="dash-pic" src={score.endPic} alt={score.end+' poster'} 
+                            style={{
+                                height: '100px',
+                                width: '80px'
+                        }}></img>
+                    </div>
+                </div>)
         })
         return (
             <div className="dashboard">
