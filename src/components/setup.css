@@ -355,8 +355,9 @@ ul.dropdown-menu span.year {
 		padding-left: 10px;
 	}
 
-	.start-movie-btn,
-	.end-movie-btn {
+
+	input.start-movie-btn,
+	input.end-movie-btn {
 		display: block;
 		font-family: 'Merriweather', serif;
 		justify-content: center;

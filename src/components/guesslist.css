@@ -36,6 +36,8 @@ ul#castList {
 	max-height: 450px;
 	overflow-y: auto;
 	margin-top: 0px;
+	padding: 0px;
+	justify-content: center;
 }
 
 /* each clickable actor or movie */
@@ -45,8 +47,6 @@ ul#castList li {
 	background-color:rgba(0, 0, 0, 0.75);
     border: 1.5px solid white;
 	color: white;
-	margin-left: auto;
-	margin-right: auto;
 	padding: 2px;
     -webkit-box-shadow: 0 10px 6px -6px #444444;
    -moz-box-shadow: 0 10px 6px -6px #444444;
@@ -150,7 +150,7 @@ img#finalMoviePic {
     -webkit-box-shadow: 0 10px 6px -6px #444444;
     -moz-box-shadow: 0 10px 6px -6px #444444;
     box-shadow: 0 10px 6px -6px #444444;
-    border: 5px solid #FC9A1A;
+    border: 5px solid #FFFFFF;
     border-radius: 5%;
 }
 
@@ -194,25 +194,37 @@ div.restart-game-btn-div #restart-game-btn:hover {
 
 	div#gameHeaders {
 		margin-bottom: 15px;
+		font-size: .5em;
 	}
 
 	div#gameWinInfo {
-		flex-direction: column;
+		flex-direction: row;
 		align-items: center;
 		align-content: space-between;
 	}
-		
+	
+	div#gameWinCast {
+		margin-right: 5px;
+	}
+
 	div#gameWinCast,
 	div#gameWinMovie {
 		width: 90%;s
 		margin-bottom: 20px;
-		display: block;
+		display: flex;
+		height: 300px;
+		justify-content: space-between;
+	}
+
+	div#gameWinCast h2,
+	div#gameWinMovie h2 {
+		font-size: .8em;
 	}
 
 	img#finalCastPic,
 	img#finalMoviePic {
-		width: 80px;
-		height: 100px;
+		width: 100px;
+		height: 120px;
 	}
 
 	ul#castList {
@@ -221,19 +233,35 @@ div.restart-game-btn-div #restart-game-btn:hover {
 
 	ul#castList li {
 		margin-right: 5px;
-		min-width: 150px;
 		flex-direction: column;
 		max-height: 220px;
+		width: 90px;
 	}
 
-	ul#castList button li img {
+	ul#castList li button img {
 		width: 80px;
 		height: 100px;
 	}
 
+	ul#castList li button {
+		display: flex;
+		flex-direction: column;
+		width: 80px;
+		align-items: center;
+	}
+
 	div#gameWinCast p,
 	div#description {
-		font-size: .8em;
+		font-size: .5em;
+		max-height: 100px;
+		margin-bottom: 2px;
 	}
+
+	div.restart-game-btn-div #restart-game-btn {
+		font-size: .8em;
+		width: 120px;
+		margin-bottom: 5px;
+	}
+
 }
 

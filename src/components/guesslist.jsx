@@ -186,7 +186,7 @@ export class GuessList extends React.Component {
 		else if(this.state.currentLinkType === 'actors') {
 			moviesOrCast = this.state.movieOrCastList.map((actor) => (
 				<li key={actor.id}>
-					<button onClick={() => { this.getMoviesFromActor(actor) }}>
+					<button href="#" onClick={() => { this.getMoviesFromActor(actor) }}>
 						{actor.name}
 						<img src={'https://image.tmdb.org/t/p/w138_and_h175_bestv2'+actor.profile_path} alt={actor.name+" image"}/>
 					</button>
@@ -197,7 +197,7 @@ export class GuessList extends React.Component {
 		else if(this.state.currentLinkType === 'movies') {
 			moviesOrCast = this.state.movieOrCastList.map((movie) => (
 				<li key={movie.id}>
-					<button onClick={() => { this.getActorsFromMovie(movie) }}>
+					<button href="#" onClick={() => { this.getActorsFromMovie(movie) }}>
 						{movie.title}
 						<img src={'https://image.tmdb.org/t/p/w138_and_h175_bestv2'+movie.poster} alt={movie.title+" image"}/>
 					</button>
